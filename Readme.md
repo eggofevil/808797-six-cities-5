@@ -1,7 +1,7 @@
 # Личный проект «Шесть городов» [![Build status][travis-image]][travis-url]
 
 * Студент: [Алексей Гурин](https://up.htmlacademy.ru/react/5/user/808797).
-* Наставник: `Неизвестно`.
+* Наставник: [Марк Коваленко](https://htmlacademy.ru/profile/id1434381).
 
 ---
 
