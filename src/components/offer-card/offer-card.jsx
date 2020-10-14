@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const OfferCard = () => (
+const OfferCard = ({offer}) => (
   <article className="cities__place-card place-card">
     <div className="place-card__mark">
       <span>Premium</span>
@@ -39,6 +39,26 @@ const OfferCard = () => (
 );
 
 OfferCard.propTypes = {
+  offer: PropTypes.shape({
+    property: PropTypes.string.isRequired,
+    host: PropTypes.string.isRequired,
+    description: PropTypes.string.isRequired,
+    main: PropTypes.shape({
+      address: PropTypes.string.isRequired,
+      coords: PropTypes.array.isRequired,
+      type: PropTypes.string.isRequired,
+      price: PropTypes.number.isRequired
+    }).isRequired,
+    facilities: PropTypes.shape({
+      amentities: PropTypes.array.isRequired,
+      bedrooms: PropTypes.number.isRequired,
+      capacity: PropTypes.shape({
+        adults: PropTypes.number.isRequired,
+        children: PropTypes.number.isRequired
+      }).isRequired,
+      premium: PropTypes.bool.isRequired
+    }).isRequired,
+  }).isRequired
 };
 
 export default OfferCard;

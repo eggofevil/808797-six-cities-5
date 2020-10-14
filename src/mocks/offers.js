@@ -1,8 +1,9 @@
 export default [
   {
     property: `Teremok`,
+    host: `Fly`,
+    description: `Nice apartment among friendly various neighbors!`,
     main: {
-      host: `Fly`,
       address: `some meadow in the forest`,
       coords: [0, 0],
       price: 100,
@@ -18,15 +19,13 @@ export default [
       amentities: [
         `WiFi`, `Heating`, `kitchen`, `fridge`, `washing machine`, `towels`, `TV`
       ]
-    },
-    info: {
-      description: `Nice apartment among friendly various neighbors!`
     }
   },
   {
     property: `Cell in Darkest Dungeon`,
+    host: `Some evil force`,
+    description: `You will be provided with frequent very interesting visiters!`,
     main: {
-      host: `Some evil force`,
       address: `castle in some forgotten land`,
       coords: [30, 30],
       price: 50,
@@ -42,15 +41,13 @@ export default [
       amentities: [
         `WiFi`, `TV`, `big club`
       ]
-    },
-    info: {
-      description: `You will be provided with frequent very interesting visiters!`
     }
   },
   {
     property: `Hut on chicken legs`,
+    host: `Bаba Yaga`,
+    description: `Many interesting sights in stone's throw, you don't need to rent a car`,
     main: {
-      host: `Bаba Yaga`,
       address: `Who knows were is it in this moment?`,
       coords: [50, 50],
       price: 200,
@@ -66,15 +63,13 @@ export default [
       amentities: [
         `WiFi`, `stove`, `kitchen`, `fridge`, `washing machine`, `towels`, `TV`, `navigation system`, `private flyibg transport`
       ]
-    },
-    info: {
-      description: `Many interesting sights in stone's throw, you don't need to rent a car`
     }
   },
   {
     property: `Gingerbread house`,
+    host: `Evil Witch`,
+    description: `Many sweets for nice children! Only for children`,
     main: {
-      host: `Evil Witch`,
       address: `Dark thicket deep in forest`,
       coords: [70, 70],
       price: 150,
@@ -90,9 +85,6 @@ export default [
       amentities: [
         `WiFi`, `stove`, `kitchen`, `fridge`, `washing machine`, `towels`, `TV`
       ]
-    },
-    info: {
-      description: `Many sweets for nice children! Only for children`
     }
   }
 ];

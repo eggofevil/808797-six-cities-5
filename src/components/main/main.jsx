@@ -4,7 +4,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import OffersList from '../offers-list/offers-list';
 
-const Main = ({offers}, {reviews}) => {
+const Main = ({offers, reviews}) => {
   return (
     <div className="page page--gray page--main">
       <header className="header">

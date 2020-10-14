@@ -10,13 +10,16 @@ class OffersList extends React.Component {
   render() {
     return (
       <div className="cities__places-list places__list tabs__content">
-        <OfferCard />
+        {this.props.offers.map((offer, i) => (
+          <OfferCard key={`offer-${i}`} offer={offer} />
+        ))}
       </div>
     );
   }
 }
 
 OffersList.propTypes = {
+  offers: PropTypes.array.isRequired
 };
 
 export default OffersList;

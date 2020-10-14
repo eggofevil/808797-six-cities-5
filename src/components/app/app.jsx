@@ -9,12 +9,12 @@ import FavoritesEmpty from '../favorites-empty/favorites-empty';
 import Room from '../room/room';
 import RoomNotLogged from '../room-not-logged/room-not-logged';
 
-const App = ({offers}, {reviews}) => {
+const App = ({offers, reviews}) => {
   return (
     <BrowserRouter>
       <Switch>
         <Route exact path="/">
-          <Main />
+          <Main offers={offers} reviews={reviews} />
         </Route>
         <Route exact path="/main-empty">
           <MainEmpty />
