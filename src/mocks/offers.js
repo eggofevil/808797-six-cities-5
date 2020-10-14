@@ -2,7 +2,7 @@ export default [
   {
     property: `Teremok`,
     host: `Fly`,
-    description: `Nice apartment among friendly various neighbors!`,
+    description: `Nice apartment among various friendly neighbors!`,
     photo: [`https://via.placeholder.com/260x200`],
     main: {
       address: `some meadow in the forest`,
@@ -25,7 +25,7 @@ export default [
   {
     property: `Cell in Darkest Dungeon`,
     host: `Some evil force`,
-    description: `You will be provided with frequent very interesting visiters!`,
+    description: `You will be frequently provided with very interesting visiters!`,
     photo: [`https://via.placeholder.com/260x200`],
     main: {
       address: `castle in some forgotten land`,

@@ -16,7 +16,7 @@ const OfferCard = ({offer}) => (
     <div className="place-card__info">
       <div className="place-card__price-wrapper">
         <div className="place-card__price">
-          <b className="place-card__price-value">€120</b>
+          <b className="place-card__price-value">{offer.main.price}</b>
           <span className="place-card__price-text">/&nbsp;night</span>
         </div>
         <button className="place-card__bookmark-button button" type="button">
@@ -33,9 +33,9 @@ const OfferCard = ({offer}) => (
         </div>
       </div>
       <h2 className="place-card__name">
-        <a href="#">Beautiful &amp; luxurious apartment at great location</a>
+        <a href="#">{offer.description}</a>
       </h2>
-      <p className="place-card__type">Apartment</p>
+      <p className="place-card__type">{offer.main.type}</p>
     </div>
   </article>
 );
