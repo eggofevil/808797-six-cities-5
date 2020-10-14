@@ -3,12 +3,14 @@ import PropTypes from 'prop-types';
 
 const OfferCard = ({offer}) => (
   <article className="cities__place-card place-card">
-    <div className="place-card__mark">
-      <span>Premium</span>
-    </div>
+    {offer.facilities.premium ? (
+      <div className="place-card__mark">
+        <span>Premium</span>
+      </div>
+    ) : null}
     <div className="cities__image-wrapper place-card__image-wrapper">
       <a href="#">
-        <img className="place-card__image" src="img/apartment-01.jpg" width={260} height={200} alt="Place image" />
+        <img className="place-card__image" src={offer.photo[0]} width={260} height={200} alt="Place image" />
       </a>
     </div>
     <div className="place-card__info">
@@ -43,6 +45,7 @@ OfferCard.propTypes = {
     property: PropTypes.string.isRequired,
     host: PropTypes.string.isRequired,
     description: PropTypes.string.isRequired,
+    photo: PropTypes.array.isRequired,
     main: PropTypes.shape({
       address: PropTypes.string.isRequired,
       coords: PropTypes.array.isRequired,

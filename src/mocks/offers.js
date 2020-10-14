@@ -3,6 +3,7 @@ export default [
     property: `Teremok`,
     host: `Fly`,
     description: `Nice apartment among friendly various neighbors!`,
+    photo: [`https://via.placeholder.com/260x200`],
     main: {
       address: `some meadow in the forest`,
       coords: [0, 0],
@@ -25,6 +26,7 @@ export default [
     property: `Cell in Darkest Dungeon`,
     host: `Some evil force`,
     description: `You will be provided with frequent very interesting visiters!`,
+    photo: [`https://via.placeholder.com/260x200`],
     main: {
       address: `castle in some forgotten land`,
       coords: [30, 30],
@@ -47,6 +49,7 @@ export default [
     property: `Hut on chicken legs`,
     host: `Bаba Yaga`,
     description: `Many interesting sights in stone's throw, you don't need to rent a car`,
+    photo: [`https://via.placeholder.com/260x200`],
     main: {
       address: `Who knows were is it in this moment?`,
       coords: [50, 50],
@@ -69,6 +72,7 @@ export default [
     property: `Gingerbread house`,
     host: `Evil Witch`,
     description: `Many sweets for nice children! Only for children`,
+    photo: [`https://via.placeholder.com/260x200`],
     main: {
       address: `Dark thicket deep in forest`,
       coords: [70, 70],
