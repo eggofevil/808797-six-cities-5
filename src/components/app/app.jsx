@@ -9,12 +9,12 @@ import FavoritesEmpty from '../favorites-empty/favorites-empty';
 import Room from '../room/room';
 import RoomNotLogged from '../room-not-logged/room-not-logged';
 
-const App = ({offersCount}) => {
+const App = ({offers}, {reviews}) => {
   return (
     <BrowserRouter>
       <Switch>
         <Route exact path="/">
-          <Main offersCount={offersCount} />
+          <Main />
         </Route>
         <Route exact path="/main-empty">
           <MainEmpty />
@@ -40,6 +40,7 @@ const App = ({offersCount}) => {
 };
 
 App.propTypes = {
-  offersCount: PropTypes.number.isRequired
+  offers: PropTypes.array.isRequired,
+  reviews: PropTypes.array.isRequired
 };
 export default App;
