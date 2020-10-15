@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import {BrowserRouter, Switch, Route} from 'react-router-dom';
 import Main from '../main/main';
-import MainEmpty from '../main-empty/main-empty';
 import SignIn from '../sign-in/sign-in';
 import Favorites from '../favorites/favorites';
 import FavoritesEmpty from '../favorites-empty/favorites-empty';
@@ -15,9 +14,6 @@ const App = ({offers, reviews}) => {
       <Switch>
         <Route exact path="/">
           <Main offers={offers} reviews={reviews} />
-        </Route>
-        <Route exact path="/main-empty">
-          <MainEmpty />
         </Route>
         <Route exact path="/login">
           <SignIn />
