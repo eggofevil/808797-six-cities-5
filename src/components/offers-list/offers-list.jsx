@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import OfferCard from '../offer-card/offer-card';
+import offerPropTypes from '../../mocks/offer-prop-types';
 
 class OffersList extends React.Component {
   constructor(props) {
@@ -20,7 +21,7 @@ class OffersList extends React.Component {
   }
 
   render() {
-    if (this.props.offers > 0) {
+    if (this.props.offers.length > 0) {
       return (
         <div className="cities__places-container container">
           <section className="cities__places places">
@@ -76,7 +77,7 @@ class OffersList extends React.Component {
 }
 
 OffersList.propTypes = {
-  offers: PropTypes.array.isRequired
+  offers: PropTypes.arrayOf(offerPropTypes).isRequired
 };
 
 export default OffersList;
