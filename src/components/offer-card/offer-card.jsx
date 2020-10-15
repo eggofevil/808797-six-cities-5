@@ -1,8 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+// TODO: Возможно следует изменить структуру моковых данных так чтобы в общем списке данных выделялся список данных для карточки предложения.
 
-const OfferCard = ({offer}) => (
-  <article className="cities__place-card place-card">
+const OfferCard = ({offer, onMouseEnter, onMouseLeave}) => (
+  <article className="cities__place-card place-card" onMouseEnter={() => (onMouseEnter(offer.property))} onMouseLeave={onMouseLeave}>
     {offer.facilities.premium ? (
       <div className="place-card__mark">
         <span>Premium</span>
@@ -61,7 +62,9 @@ OfferCard.propTypes = {
       }).isRequired,
       premium: PropTypes.bool.isRequired
     }).isRequired,
-  }).isRequired
+  }).isRequired,
+  onMouseEnter: PropTypes.func.isRequired,
+  onMouseLeave: PropTypes.funs.isRequired
 };
 
 export default OfferCard;
