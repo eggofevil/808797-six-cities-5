@@ -4,6 +4,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import OffersList from '../offers-list/offers-list';
 
+import offerPropTypes from '../../mocks/offer-prop-types';
+
 const Main = ({offers, reviews}) => {
   return (
     <div className="page page--gray page--main">
@@ -76,7 +78,7 @@ const Main = ({offers, reviews}) => {
 };
 
 Main.propTypes = {
-  offers: PropTypes.array.isRequired,
+  offers: PropTypes.arrayOf(offerPropTypes).isRequired,
   reviews: PropTypes.array.isRequired
 };
 export default Main;

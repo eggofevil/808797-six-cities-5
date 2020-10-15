@@ -8,6 +8,8 @@ import FavoritesEmpty from '../favorites-empty/favorites-empty';
 import Room from '../room/room';
 import RoomNotLogged from '../room-not-logged/room-not-logged';
 
+import offerPropTypes from '../../mocks/offer-prop-types';
+
 const App = ({offers, reviews}) => {
   return (
     <BrowserRouter>
@@ -36,7 +38,7 @@ const App = ({offers, reviews}) => {
 };
 
 App.propTypes = {
-  offers: PropTypes.array.isRequired,
+  offers: PropTypes.arrayOf(offerPropTypes).isRequired,
   reviews: PropTypes.array.isRequired
 };
 export default App;

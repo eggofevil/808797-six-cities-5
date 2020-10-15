@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import OfferCard from '../offer-card/offer-card';
+
 import offerPropTypes from '../../mocks/offer-prop-types';
 
 class OffersList extends React.Component {
