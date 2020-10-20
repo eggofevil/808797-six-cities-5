@@ -2,9 +2,13 @@
 
 export default [
   {
+    id: 1,
+    city: `Amsterdam`,
     property: `Teremok`,
     host: `Fly`,
-    description: `Nice apartment among various friendly neighbors!`,
+    hostAvatar: `https://via.placeholder.com/74x74`,
+    slogan: `Nice apartment among various friendly neighbors!`,
+    description: [`Comfortable and modern multi-apartment house, situated in nice natural area.`, `Good transport acceciblity, many places to spend a time: tennis court, workout grounds, etc`],
     photo: [`https://via.placeholder.com/260x200`],
     main: {
       address: `some meadow in the forest`,
@@ -25,9 +29,13 @@ export default [
     }
   },
   {
+    id: 2,
+    city: `Amsterdam`,
     property: `Cell in Darkest Dungeon`,
     host: `Some evil force`,
-    description: `You will be frequently provided with very interesting visiters!`,
+    hostAvatar: `https://via.placeholder.com/74x74`,
+    slogan: `You will be frequently provided with very interesting visiters!`,
+    description: [`Historical underground bulding, was founded in dark ages and has a dark story.`, `Many unusual entertainments for the most demanding taste.`],
     photo: [`https://via.placeholder.com/260x200`],
     main: {
       address: `castle in some forgotten land`,
@@ -48,15 +56,19 @@ export default [
     }
   },
   {
+    id: 3,
+    city: `Amsterdam`,
     property: `Hut on chicken legs`,
     host: `Bаba Yaga`,
-    description: `Many interesting sights in stone's throw, you don't need to rent a car`,
+    hostAvatar: `https://via.placeholder.com/74x74`,
+    slogan: `Many interesting sights in stone's throw, you don't need to rent a car`,
+    description: [`Nice and fast wooden building without a fixed abode.`, `It was built in ancient times and still preserves historical shape.`],
     photo: [`https://via.placeholder.com/260x200`],
     main: {
       address: `Who knows were is it in this moment?`,
       coords: [50, 50],
-      price: 200,
-      type: `Entire house`
+      type: `Entire house`,
+      price: 200
     },
     facilities: {
       premium: true,
@@ -71,9 +83,13 @@ export default [
     }
   },
   {
+    id: 4,
+    city: `Amsterdam`,
     property: `Gingerbread house`,
     host: `Evil Witch`,
-    description: `Many sweets for nice children! Only for children`,
+    hostAvatar: `https://via.placeholder.com/74x74`,
+    slogan: `Many sweets for nice children! Only for children`,
+    description: [`Old historical building with unusual architecture.`, `It's situated in wonderful natural area.`, `Very nice children's restoraunt inside.`],
     photo: [`https://via.placeholder.com/260x200`],
     main: {
       address: `Dark thicket deep in forest`,

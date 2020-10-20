@@ -6,7 +6,7 @@ import OffersList from '../offers-list/offers-list';
 
 import offerPropTypes from '../../mocks/offer-prop-types';
 
-const Main = ({offers, reviews}) => {
+const Main = ({offers, reviews, history}) => {
   return (
     <div className="page page--gray page--main">
       <header className="header">
@@ -70,7 +70,7 @@ const Main = ({offers, reviews}) => {
           </section>
         </div>
         <div className="cities">
-          <OffersList offers={offers} reviews={reviews} />
+          <OffersList offers={offers} reviews={reviews} history={history}/>
         </div>
       </main>
     </div>
@@ -78,6 +78,7 @@ const Main = ({offers, reviews}) => {
 };
 
 Main.propTypes = {
+  history: PropTypes.object.isRequired,
   offers: PropTypes.arrayOf(offerPropTypes).isRequired,
   reviews: PropTypes.array.isRequired
 };

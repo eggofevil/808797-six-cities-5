@@ -14,8 +14,9 @@ const App = ({offers, reviews}) => {
   return (
     <BrowserRouter>
       <Switch>
-        <Route exact path="/">
-          <Main offers={offers} reviews={reviews} />
+        <Route exact path="/" render={(serviceProps) => (
+          <Main history={serviceProps.history} offers={offers} reviews={reviews} />
+        )}>
         </Route>
         <Route exact path="/login">
           <SignIn />
@@ -27,7 +28,7 @@ const App = ({offers, reviews}) => {
           <FavoritesEmpty />
         </Route>
         <Route exact path="/offer">
-          <Room />
+          <Room offer={offers[3]} reviews={reviews} />
         </Route>
         <Route exact path="/offer-not-logged">
           <RoomNotLogged />

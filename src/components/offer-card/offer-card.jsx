@@ -5,8 +5,8 @@ import offerPropTypes from '../../mocks/offer-prop-types';
 
 // TODO: Возможно следует изменить структуру моковых данных так чтобы в общем списке данных выделялся список данных для карточки предложения.
 
-const OfferCard = ({offer, onMouseEnter, onMouseLeave}) => (
-  <article className="cities__place-card place-card" onMouseEnter={() => (onMouseEnter(offer.property))} onMouseLeave={onMouseLeave}>
+const OfferCard = ({offer, onMouseEnter, onMouseLeave, onClick}) => (
+  <article className="cities__place-card place-card" onMouseEnter={() => (onMouseEnter(offer.property))} onMouseLeave={onMouseLeave} onClick={onClick}>
     {offer.facilities.premium ? (
       <div className="place-card__mark">
         <span>Premium</span>
@@ -37,7 +37,7 @@ const OfferCard = ({offer, onMouseEnter, onMouseLeave}) => (
         </div>
       </div>
       <h2 className="place-card__name">
-        <a href="#">{offer.description}</a>
+        <a href="#">{offer.slogan}</a>
       </h2>
       <p className="place-card__type">{offer.main.type}</p>
     </div>
