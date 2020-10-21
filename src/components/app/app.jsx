@@ -15,7 +15,7 @@ const App = ({offers, reviews}) => {
     <BrowserRouter>
       <Switch>
         <Route exact path="/" render={(serviceProps) => (
-          <Main history={serviceProps.history} offers={offers} reviews={reviews} />
+          <Main serviceProps={serviceProps} history={serviceProps.history} offers={offers} reviews={reviews} />
         )}>
         </Route>
         <Route exact path="/login">
@@ -27,8 +27,9 @@ const App = ({offers, reviews}) => {
         <Route exact path="/favorites-empty">
           <FavoritesEmpty />
         </Route>
-        <Route exact path="/offer">
-          <Room offer={offers[3]} reviews={reviews} />
+        <Route exact path="/offer" render={(props) => (
+          <Room props={props} />
+        )}>
         </Route>
         <Route exact path="/offer-not-logged">
           <RoomNotLogged />

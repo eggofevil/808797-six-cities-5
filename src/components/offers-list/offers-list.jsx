@@ -12,7 +12,7 @@ class OffersList extends React.Component {
     };
     this._handleMouseEnter = this._handleMouseEnter.bind(this);
     this._handleMouseLeave = this._handleMouseLeave.bind(this);
-    this._handleClick = this._handleClick.bind(this);
+    // this._handleClick = this._handleClick.bind(this);
   }
 
   _handleMouseEnter(offerProperty) {
@@ -21,9 +21,11 @@ class OffersList extends React.Component {
   _handleMouseLeave() {
     this.setState({activeCard: null});
   }
-  _handleClick() {
-    this.props.history.push(`/offer`);
+  /*
+  _handleClick(id) {
+    this.props.history.push(`/offer:${id}`, ...this.props.offers[id]);
   }
+  */
   render() {
     if (this.props.offers.length > 0) {
       return (
@@ -56,7 +58,7 @@ class OffersList extends React.Component {
             </form>
             <div className="cities__places-list places__list tabs__content">
               {this.props.offers.map((offer, i) => (
-                <OfferCard key={`offer-${i}`} offer={offer} onMouseEnter={this._handleMouseEnter} onMouseLeave={this._handleMouseLeave} onClick={this._handleClick} />
+                <OfferCard key={`offer-${i}`} offer={offer} onMouseEnter={this._handleMouseEnter} onMouseLeave={this._handleMouseLeave} history={this.props.history} />
               ))}
             </div>
           </section>
