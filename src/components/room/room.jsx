@@ -6,9 +6,9 @@ import {RATING_BAR_DIVISION} from '../../const';
 import offerPropTypes from '../../mocks/offer-prop-types';
 import reviewPropTypes from '../../mocks/review-prop-types';
 
-/* Test Component
-const Room = ({props: {location: {state: {offer, offerRating, offerReviews}}}}) => {
-  console.log(state);
+/* Test component
+const Room = ({location: {state: {offer, offerRating, offerReviews}}}) => {
+  console.log(offer);
   return (
     <div className="page">
       Hello world!!!
@@ -17,7 +17,7 @@ const Room = ({props: {location: {state: {offer, offerRating, offerReviews}}}}) 
 };
 */
 
-const Room = ({props: {location: {state: {offer, offerRating, offerReviews}}}}) => {
+const Room = ({location: {state: {offer, offerRating, offerReviews}}}) => {
   return (
     <div className="page">
       <header className="header">
@@ -283,13 +283,11 @@ const Room = ({props: {location: {state: {offer, offerRating, offerReviews}}}}) 
 };
 
 Room.propTypes = {
-  props: PropTypes.shape({
-    location: PropTypes.shape({
-      state: PropTypes.shape({
-        offer: offerPropTypes,
-        offerRating: PropTypes.string.isRequired,
-        offerReviews: PropTypes.arrayOf(reviewPropTypes).isRequired
-      }).isRequired
+  location: PropTypes.shape({
+    state: PropTypes.shape({
+      offer: offerPropTypes,
+      offerRating: PropTypes.string.isRequired,
+      offerReviews: PropTypes.arrayOf(reviewPropTypes).isRequired
     }).isRequired
   }).isRequired
 };

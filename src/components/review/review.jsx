@@ -1,5 +1,5 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+import {RATING_BAR_DIVISION} from '../../const';
 import reviewPropTypes from '../../mocks/review-prop-types';
 
 const Review = ({review}) => {
@@ -23,7 +23,7 @@ const Review = ({review}) => {
       <div className="reviews__info">
         <div className="reviews__rating rating">
           <div className="reviews__stars rating__stars">
-            <span style={{width: `${20 * review.value}%`}} />
+            <span style={{width: `${review.value * RATING_BAR_DIVISION}%`}} />
             <span className="visually-hidden">Rating</span>
           </div>
         </div>
