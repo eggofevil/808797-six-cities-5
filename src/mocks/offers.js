@@ -2,7 +2,7 @@
 
 export default [
   {
-    id: 1,
+    propertyId: 1,
     city: `Amsterdam`,
     property: `Teremok`,
     host: `Fly`,
@@ -29,7 +29,7 @@ export default [
     }
   },
   {
-    id: 2,
+    propertyId: 2,
     city: `Amsterdam`,
     property: `Cell in Darkest Dungeon`,
     host: `Some evil force`,
@@ -56,7 +56,7 @@ export default [
     }
   },
   {
-    id: 3,
+    propertyId: 3,
     city: `Amsterdam`,
     property: `Hut on chicken legs`,
     host: `Bаba Yaga`,
@@ -83,7 +83,7 @@ export default [
     }
   },
   {
-    id: 4,
+    propertyId: 4,
     city: `Amsterdam`,
     property: `Gingerbread house`,
     host: `Evil Witch`,

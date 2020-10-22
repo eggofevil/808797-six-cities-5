@@ -57,7 +57,7 @@ class OffersList extends React.Component {
             </form>
             <div className="cities__places-list places__list tabs__content">
               {this.props.offers.map((offer, i) => (
-                <OfferCard key={`offer-${i}`} offer={offer} onMouseEnter={this._handleMouseEnter} onMouseLeave={this._handleMouseLeave} offerReviews={this._getOfferReviews(offer.id)}/>
+                <OfferCard key={`offer-${i}`} offer={offer} onMouseEnter={this._handleMouseEnter} onMouseLeave={this._handleMouseLeave} offerReviews={this._getOfferReviews(offer.propertyId)}/>
               ))}
             </div>
           </section>
