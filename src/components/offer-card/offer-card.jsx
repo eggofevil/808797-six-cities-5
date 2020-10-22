@@ -1,30 +1,32 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {useHistory} from 'react-router-dom';
-import offerPropTypes from '../../mocks/offer-prop-types';
+import {Link} from 'react-router-dom';
+import {RATING_BAR_DIVISION} from '../../const';
 
-const OfferCard = ({offer, onMouseEnter, onMouseLeave}) => {
-  let history = useHistory();
-  const handleClick = () => {
-    // history.push(`/offer${offer.id}`);
-    history.push(`/offer`);
+import offerPropTypes from '../../mocks/offer-prop-types';
+import reviewPropTypes from '../../mocks/review-prop-types';
+
+const OfferCard = ({offer, onMouseEnter, onMouseLeave, offerReviews}) => {
+  let offerRating = (offerReviews.reduce((acc, review) => acc + review.value, 0) / offerReviews.length).toFixed(1);
+  let offerLinkProps = {
+    pathname: `/offer:${offer.id}`,
+    state: {
+      offer,
+      offerRating,
+      offerReviews
+    }
   };
-  /*
-  const handleClick = () => {
-    history.push(`/offer:${offer.id}`);
-  };
-  */
   return (
-    <article className="cities__place-card place-card" onMouseEnter={() => (onMouseEnter(offer.property))} onMouseLeave={onMouseLeave} onClick={handleClick}>
+    <article className="cities__place-card place-card" onMouseEnter={() => (onMouseEnter(offer.property))} onMouseLeave={onMouseLeave}>
       {offer.facilities.premium ? (
         <div className="place-card__mark">
           <span>Premium</span>
         </div>
       ) : null}
       <div className="cities__image-wrapper place-card__image-wrapper">
-        <a href="#">
+        <Link to={offerLinkProps}>
           <img className="place-card__image" src={offer.photo[0]} width={260} height={200} alt="Place image" />
-        </a>
+        </Link>
       </div>
       <div className="place-card__info">
         <div className="place-card__price-wrapper">
@@ -41,12 +43,12 @@ const OfferCard = ({offer, onMouseEnter, onMouseLeave}) => {
         </div>
         <div className="place-card__rating rating">
           <div className="place-card__stars rating__stars">
-            <span style={{width: `80%`}} />
+            <span style={{width: `${offerRating * RATING_BAR_DIVISION}%`}} />
             <span className="visually-hidden">Rating</span>
           </div>
         </div>
         <h2 className="place-card__name">
-          <a href="#">{offer.slogan}</a>
+          <Link to={offerLinkProps}>{offer.slogan}</Link>
         </h2>
         <p className="place-card__type">{offer.main.type}</p>
       </div>
@@ -55,8 +57,8 @@ const OfferCard = ({offer, onMouseEnter, onMouseLeave}) => {
 };
 
 OfferCard.propTypes = {
-  history: PropTypes.object.isRequired,
   offer: offerPropTypes,
+  offerReviews: PropTypes.arrayOf(reviewPropTypes).isRequired,
   onMouseEnter: PropTypes.func.isRequired,
   onMouseLeave: PropTypes.func.isRequired,
 };

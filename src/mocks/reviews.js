@@ -1,6 +1,14 @@
+/* Property ID
+Teremok: 1,
+Cell in darkest Dungeon: 2,
+Hut on chicken legs: 3,
+Gingerbread house: 4
+
+*/
+
 export default [
   {
-    property: `Teremok`,
+    propertyId: 1,
     author: {
       name: `Vosh popolsuha`,
       avatar: `https://via.placeholder.com/54x54`
@@ -10,7 +18,7 @@ export default [
     date: `2019-04-24`
   },
   {
-    property: `Cell in Darkest Dungeon`,
+    propertyId: 2,
     author: {
       name: `Brave Knight`,
       avatar: `https://via.placeholder.com/54x54`
@@ -20,7 +28,7 @@ export default [
     date: `2017-05-14`
   },
   {
-    property: `Cell in Darkest Dungeon`,
+    propertyId: 2,
     author: {
       name: `Old Sceleton`,
       avatar: `https://via.placeholder.com/54x54`
@@ -30,7 +38,7 @@ export default [
     date: `2020-01-01`
   },
   {
-    property: `Hut on chicken legs`,
+    propertyId: 3,
     author: {
       name: `Brave Knight`,
       avatar: `https://via.placeholder.com/54x54`
@@ -40,7 +48,7 @@ export default [
     date: `1654-06-21`
   },
   {
-    property: `Hut on chicken legs`,
+    propertyId: 3,
     author: {
       name: `Koschei the Immortal`,
       avatar: `https://via.placeholder.com/54x54`
@@ -50,7 +58,7 @@ export default [
     date: `2001-08-11`
   },
   {
-    property: `Gingerbread house`,
+    propertyId: 4,
     author: {
       name: `Hansel`,
       avatar: `https://via.placeholder.com/54x54`
@@ -60,7 +68,7 @@ export default [
     date: `1768-12-12`
   },
   {
-    property: `Gingerbread house`,
+    propertyId: 4,
     author: {
       name: `Gretel`,
       avatar: `https://via.placeholder.com/54x54`

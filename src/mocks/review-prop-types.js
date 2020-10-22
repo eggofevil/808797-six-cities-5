@@ -1,8 +1,7 @@
 import PropTypes from 'prop-types';
 
-export default
-PropTypes.shape({
-  property: PropTypes.string.isRequired,
+export default PropTypes.shape({
+  propertyId: PropTypes.number.isRequired,
   author: PropTypes.shape({
     name: PropTypes.string.isRequired,
     avatar: PropTypes.string.isRequired
