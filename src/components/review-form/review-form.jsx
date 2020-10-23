@@ -17,6 +17,7 @@ class ReviewForm extends React.PureComponent {
 
   _handleSubmit(evt) {
     evt.preventDefault();
+    alert(`Form submit!`);
   }
   _handleFieldChange(evt) {
     this.setState({[evt.target.name]: evt.target.value});
