@@ -2,7 +2,9 @@
 
 import React from 'react';
 import PropTypes from 'prop-types';
+
 import OffersList from '../offers-list/offers-list';
+import UserInfo from '../user-info/user-info';
 
 import offerPropTypes from '../../mocks/offer-prop-types';
 import reviewPropTypes from '../../mocks/review-prop-types';
@@ -21,11 +23,7 @@ const Main = ({offers, reviews}) => {
             <nav className="header__nav">
               <ul className="header__nav-list">
                 <li className="header__nav-item user">
-                  <a className="header__nav-link header__nav-link--profile" href="#">
-                    <div className="header__avatar-wrapper user__avatar-wrapper">
-                    </div>
-                    <span className="header__user-name user__name">Oliver.conner@gmail.com</span>
-                  </a>
+                  <UserInfo />
                 </li>
               </ul>
             </nav>
