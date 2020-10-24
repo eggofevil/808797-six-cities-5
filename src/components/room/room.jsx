@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 import Review from '../review/review';
 import ReviewForm from '../review-form/review-form';
-import NearOffersList from '../near-offers-list/near-offers-list';
+import OffersList from '../offers-list/offers-list';
 import UserInfo from '../user-info/user-info';
 import MainPageLink from '../main-page-link/main-page-link';
 import {RATING_BAR_DIVISION} from '../../const';
@@ -138,7 +138,19 @@ const Room = ({offers, reviews, state: {offer, offerRating, offerReviews}}) => {
           </div>
           <section className="property__map map" />
         </section>
-        <NearOffersList offers={offers} reviews={reviews} city={offer.city}/>
+        <div className="container">
+          <section className="near-places places">
+            <h2 className="near-places__title">Other places in the neighbourhood</h2>
+            <div className="near-places__list places__list">
+              <OffersList
+                offers={offers}
+                reviews={reviews}
+                location="room"
+                thisOfferId={offer.propertyId}
+              />
+            </div>
+          </section>
+        </div>
       </main>
     </div>
   );

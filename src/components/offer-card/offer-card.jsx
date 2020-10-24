@@ -6,7 +6,7 @@ import {RATING_BAR_DIVISION} from '../../const';
 import offerPropTypes from '../../mocks/offer-prop-types';
 import reviewPropTypes from '../../mocks/review-prop-types';
 
-const OfferCard = ({offer, onMouseEnter, onMouseLeave, offerReviews}) => {
+const OfferCard = ({offer, onMouseEnter, onMouseLeave, offerReviews, location}) => {
   let offerRating = (offerReviews.reduce((acc, review) => acc + review.value, 0) / offerReviews.length).toFixed(1);
   let offerLinkProps = {
     pathname: `/offer:${offer.propertyId}`,
@@ -16,14 +16,16 @@ const OfferCard = ({offer, onMouseEnter, onMouseLeave, offerReviews}) => {
       offerReviews
     }
   };
+  let offerCardArticleClassName = location === `main` ? `cities__place-card place-card` : `near-places__card place-card`;
+  let offerCardDivClassName = location === `main` ? `cities__image-wrapper place-card__image-wrapper` : `near-places__image-wrapper place-card__image-wrapper`;
   return (
-    <article className="cities__place-card place-card" onMouseEnter={() => (onMouseEnter(offer.property))} onMouseLeave={onMouseLeave}>
+    <article className={offerCardArticleClassName} onMouseEnter={() => (onMouseEnter(offer.property))} onMouseLeave={onMouseLeave}>
       {offer.facilities.premium ? (
         <div className="place-card__mark">
           <span>Premium</span>
         </div>
       ) : null}
-      <div className="cities__image-wrapper place-card__image-wrapper">
+      <div className={offerCardDivClassName}>
         <Link to={offerLinkProps}>
           <img className="place-card__image" src={offer.photo[0]} width={260} height={200} alt="Place image" />
         </Link>
@@ -58,6 +60,7 @@ const OfferCard = ({offer, onMouseEnter, onMouseLeave, offerReviews}) => {
 
 OfferCard.propTypes = {
   offer: offerPropTypes,
+  location: PropTypes.string.isRequired,
   offerReviews: PropTypes.arrayOf(reviewPropTypes).isRequired,
   onMouseEnter: PropTypes.func.isRequired,
   onMouseLeave: PropTypes.func.isRequired,
