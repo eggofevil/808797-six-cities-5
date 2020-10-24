@@ -13,7 +13,6 @@ class SignInForm extends React.PureComponent {
 
   _handleSubmit(evt) {
     evt.preventDefault();
-    alert(`Form submit!`);
   }
 
   _handleChange(evt) {
