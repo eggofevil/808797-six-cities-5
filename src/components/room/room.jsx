@@ -11,6 +11,8 @@ import {RATING_BAR_DIVISION} from '../../const';
 import offerPropTypes from '../../mocks/offer-prop-types';
 import reviewPropTypes from '../../mocks/review-prop-types';
 
+// TODO: При переходе по карточке предложения положение страницы не изменяется, нужно попровить так что бы был возврат к началу
+
 // Test component
 /*
 const Room = ({offers, state: {offer, offerRating, offerReviews}}) => {

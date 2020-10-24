@@ -64,7 +64,7 @@ class OffersList extends React.Component {
 }
 
 OffersList.propTypes = {
-  thisOfferId: PropTypes.string,
+  thisOfferId: PropTypes.number,
   location: PropTypes.string.isRequired,
   reviews: PropTypes.arrayOf(reviewPropTypes).isRequired,
   offers: PropTypes.arrayOf(offerPropTypes).isRequired
