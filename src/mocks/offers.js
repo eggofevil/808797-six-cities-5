@@ -12,7 +12,7 @@ export default [
     photo: [`https://via.placeholder.com/260x200`],
     main: {
       address: `some meadow in the forest`,
-      coords: [0, 0],
+      coords: [52.3909553943508, 4.85309666406198],
       price: 100,
       type: `apartment`
     },
@@ -39,7 +39,7 @@ export default [
     photo: [`https://via.placeholder.com/260x200`],
     main: {
       address: `castle in some forgotten land`,
-      coords: [30, 30],
+      coords: [52.369553943508, 4.85309666406198],
       price: 50,
       type: `room`
     },
@@ -66,7 +66,7 @@ export default [
     photo: [`https://via.placeholder.com/260x200`],
     main: {
       address: `Who knows were is it in this moment?`,
-      coords: [50, 50],
+      coords: [52.3909553943508, 4.929309666406198],
       type: `Entire house`,
       price: 200
     },
@@ -93,7 +93,7 @@ export default [
     photo: [`https://via.placeholder.com/260x200`],
     main: {
       address: `Dark thicket deep in forest`,
-      coords: [70, 70],
+      coords: [52.3809553943508, 4.939309666406198],
       price: 150,
       type: `Entire house`
     },
