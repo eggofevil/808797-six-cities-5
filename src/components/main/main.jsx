@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 
 import OffersList from '../offers-list/offers-list';
 import UserInfo from '../user-info/user-info';
+import Map from '../map/map';
 
 import offerPropTypes from '../../mocks/offer-prop-types';
 import reviewPropTypes from '../../mocks/review-prop-types';
@@ -104,7 +105,7 @@ const Main = ({offers, reviews}) => {
                 </div>
               </section>
               <div className="cities__right-section">
-                <section className="cities__map map" />
+                <Map location="cities" />
               </div>
             </div>
             :

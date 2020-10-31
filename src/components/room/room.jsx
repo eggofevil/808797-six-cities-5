@@ -6,6 +6,7 @@ import ReviewForm from '../review-form/review-form';
 import OffersList from '../offers-list/offers-list';
 import UserInfo from '../user-info/user-info';
 import MainPageLink from '../main-page-link/main-page-link';
+import Map from '../map/map';
 import {RATING_BAR_DIVISION} from '../../const';
 
 import offerPropTypes from '../../mocks/offer-prop-types';
@@ -138,7 +139,7 @@ const Room = ({offers, reviews, state: {offer, offerRating, offerReviews}}) => {
               </section>
             </div>
           </div>
-          <section className="property__map map" />
+          <Map location="property" />
         </section>
         <div className="container">
           <section className="near-places places">
