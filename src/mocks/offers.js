@@ -108,5 +108,59 @@ export default [
         `WiFi`, `stove`, `kitchen`, `fridge`, `washing machine`, `towels`, `TV`
       ]
     }
+  },
+  {
+    propertyId: 5,
+    city: `Brussels`,
+    property: `Teremok`,
+    host: `Fly`,
+    hostAvatar: `https://via.placeholder.com/74x74`,
+    slogan: `Nice apartment among various friendly neighbors!`,
+    description: [`Comfortable and modern multi-apartment house, situated in nice natural area.`, `Good transport acceciblity, many places to spend a time: tennis court, workout grounds, etc`],
+    photo: [`https://via.placeholder.com/260x200`],
+    main: {
+      address: `some meadow in the forest`,
+      coords: [52.3909553943508, 4.85309666406198],
+      price: 100,
+      type: `apartment`
+    },
+    facilities: {
+      premium: false,
+      bedrooms: 1,
+      capacity: {
+        adults: 2,
+        children: 2
+      },
+      amentities: [
+        `WiFi`, `Heating`, `kitchen`, `fridge`, `washing machine`, `towels`, `TV`
+      ]
+    }
+  },
+  {
+    propertyId: 6,
+    city: `Brussels`,
+    property: `Cell in Darkest Dungeon`,
+    host: `Some evil force`,
+    hostAvatar: `https://via.placeholder.com/74x74`,
+    slogan: `You will be frequently provided with very interesting visiters!`,
+    description: [`Historical underground bulding, was founded in dark ages and has a dark story.`, `Many unusual entertainments for the most demanding taste.`],
+    photo: [`https://via.placeholder.com/260x200`],
+    main: {
+      address: `castle in some forgotten land`,
+      coords: [52.369553943508, 4.85309666406198],
+      price: 50,
+      type: `room`
+    },
+    facilities: {
+      premium: false,
+      bedrooms: 1,
+      capacity: {
+        adults: 1,
+        children: 0
+      },
+      amentities: [
+        `WiFi`, `TV`, `big club`
+      ]
+    }
   }
 ];
