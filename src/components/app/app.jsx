@@ -9,12 +9,12 @@ import Room from '../room/room';
 import offerPropTypes from '../../mocks/offer-prop-types';
 import reviewPropTypes from '../../mocks/review-prop-types';
 
-const App = ({offers, reviews}) => {
+const App = ({cities, offers, reviews}) => {
   return (
     <BrowserRouter>
       <Switch>
         <Route exact path="/">
-          <Main reviews={reviews} />
+          <Main reviews={reviews} cities={cities} />
         </Route>
         <Route exact path="/login">
           <SignIn />
@@ -29,6 +29,7 @@ const App = ({offers, reviews}) => {
 };
 
 App.propTypes = {
+  cities: PropTypes.arrayOf(PropTypes.string).isRequired,
   offers: PropTypes.arrayOf(offerPropTypes).isRequired,
   reviews: PropTypes.arrayOf(reviewPropTypes).isRequired
 };

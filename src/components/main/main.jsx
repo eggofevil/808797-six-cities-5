@@ -12,7 +12,7 @@ import reviewPropTypes from '../../mocks/review-prop-types';
 
 const mapStateToProps = (state) => ({city: state.city, offers: state.offers});
 
-const Main = ({city, offers, reviews}) => {
+const Main = ({city, cities, offers, reviews}) => {
   return (
     <div className="page page--gray page--main">
       <header className="header">
@@ -35,7 +35,7 @@ const Main = ({city, offers, reviews}) => {
       </header>
       <main className={offers.length > 0 ? `page__main page__main--index` : `page__main page__main--index page__main--index-empty`}>
         <h1 className="visually-hidden">Cities</h1>
-        <CitiesList />
+        <CitiesList cities={cities} currentCity={city} />
         <div className="cities">
           {offers.length >= 0 ?
             <div className="cities__places-container container">
@@ -96,6 +96,7 @@ const Main = ({city, offers, reviews}) => {
 
 Main.propTypes = {
   city: PropTypes.string.isRequired,
+  cities: PropTypes.arrayOf(PropTypes.string).isRequired,
   offers: PropTypes.arrayOf(offerPropTypes).isRequired,
   reviews: PropTypes.arrayOf(reviewPropTypes).isRequired
 };
