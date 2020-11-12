@@ -3,13 +3,15 @@ import PropTypes from 'prop-types';
 import '../../../node_modules/leaflet/dist/leaflet.css';
 import leaflet from 'leaflet';
 
+import {AMSTERDAM_INITIAL_COORDS} from '../../const';
+
 class Map extends React.PureComponent {
   constructor(props) {
     super(props);
   }
 
   componentDidMount() {
-    const city = [52.38333, 4.9];
+    const city = AMSTERDAM_INITIAL_COORDS;
     const icon = leaflet.icon({
       iconUrl: `img/pin.svg`,
       iconSize: [30, 30]
