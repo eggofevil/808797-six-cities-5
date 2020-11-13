@@ -1,12 +1,6 @@
-import {extend} from '../utils';
 import offers from '../mocks/offers';
 
 /*
-const changeCity = {
-  type: `CHANGE_CITY`,
-  act: (state, cityName) => extend(state, {city: cityName})
-};
-*/
 const changeCity = (cityName) => {
   return {
     type: `CHANGE_CITY`,
@@ -14,12 +8,23 @@ const changeCity = (cityName) => {
   };
 };
 
-const getOffers = {
-  type: `GET_OFFERS`,
-  act: (state, city) => extend(state, {offers: offers.filter((offer) => offer.city === city)})
+const getOffers = (cityName) => {
+  return {
+    type: `GET_OFFERS`,
+    act: {offers: offers.filter((offer) => offer.city === cityName)}
+  };
+};
+*/
+
+const changeCity = (cityName) => {
+  return {
+    type: `CHANGE_CITY`,
+    changeCity: cityName,
+    getOffers: offers.filter((offer) => offer.city === cityName)
+  };
 };
 
 export {
-  changeCity,
-  getOffers
+  changeCity
+  // getOffers
 };
