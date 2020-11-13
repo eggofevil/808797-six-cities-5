@@ -20,6 +20,8 @@ const mapDispatchToProps = (dispatch) => ({
 });
 
 const Main = ({city, cities, offers, reviews, handleChange}) => {
+  let cityCoords = cities.filter((obj) => Object.keys(obj)[0] === city)[0][city];
+  console.log(cityCoords);
   return (
     <div className="page page--gray page--main">
       <header className="header">
@@ -44,7 +46,7 @@ const Main = ({city, cities, offers, reviews, handleChange}) => {
         <h1 className="visually-hidden">Cities</h1>
         <CitiesList cities={cities} currentCity={city} handleChange={handleChange}/>
         <div className="cities">
-          {offers.length >= 0 ?
+          {offers.length > 0 ?
             <div className="cities__places-container container">
               <section className="cities__places places">
                 <h2 className="visually-hidden">Places</h2>
@@ -81,7 +83,7 @@ const Main = ({city, cities, offers, reviews, handleChange}) => {
                 </div>
               </section>
               <div className="cities__right-section">
-                <CityMap location="cities" offers={offers} />
+                <CityMap location="cities" offers={offers} cityCoords={cityCoords} />
               </div>
             </div>
             :
@@ -103,7 +105,7 @@ const Main = ({city, cities, offers, reviews, handleChange}) => {
 
 Main.propTypes = {
   city: PropTypes.string.isRequired,
-  cities: PropTypes.arrayOf(PropTypes.string).isRequired,
+  cities: PropTypes.arrayOf(PropTypes.object).isRequired,
   offers: PropTypes.arrayOf(offerPropTypes).isRequired,
   handleChange: PropTypes.func.isRequired,
   reviews: PropTypes.arrayOf(reviewPropTypes).isRequired

@@ -120,7 +120,7 @@ export default [
     photo: [`https://via.placeholder.com/260x200`],
     main: {
       address: `some meadow in the forest`,
-      coords: [52.3909553943508, 4.85309666406198],
+      coords: [50.850122, 4.342151],
       price: 100,
       type: `apartment`
     },
@@ -147,7 +147,7 @@ export default [
     photo: [`https://via.placeholder.com/260x200`],
     main: {
       address: `castle in some forgotten land`,
-      coords: [52.369553943508, 4.85309666406198],
+      coords: [50.848833, 4.351776],
       price: 50,
       type: `room`
     },

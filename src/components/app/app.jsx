@@ -29,7 +29,7 @@ const App = ({cities, offers, reviews}) => {
 };
 
 App.propTypes = {
-  cities: PropTypes.arrayOf(PropTypes.string).isRequired,
+  cities: PropTypes.arrayOf(PropTypes.object).isRequired,
   offers: PropTypes.arrayOf(offerPropTypes).isRequired,
   reviews: PropTypes.arrayOf(reviewPropTypes).isRequired
 };

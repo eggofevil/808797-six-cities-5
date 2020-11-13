@@ -8,6 +8,7 @@ const CitiesList = ({cities, currentCity, handleChange}) => {
       <section className="locations container">
         <ul className="locations__list tabs__list">
           {cities.map((city, id) => {
+            city = Object.keys(city)[0];
             return (
               <li key={`city-${id}`} className="locations__item">
                 <a className={city === currentCity ? elementClassName + ` tabs__item--active` : elementClassName} onClick={() => handleChange(city)}>
@@ -23,7 +24,7 @@ const CitiesList = ({cities, currentCity, handleChange}) => {
 };
 
 CitiesList.propTypes = {
-  cities: PropTypes.arrayOf(PropTypes.string).isRequired,
+  cities: PropTypes.arrayOf(PropTypes.object).isRequired,
   currentCity: PropTypes.string.isRequired,
   handleChange: PropTypes.func.isRequired
 };
