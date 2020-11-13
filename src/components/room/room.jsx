@@ -139,7 +139,7 @@ const Room = ({offers, reviews, state: {offer, offerRating, offerReviews}}) => {
               </section>
             </div>
           </div>
-          <CityMap location="property" offers={offers} />
+          <CityMap parent="property" offers={offers} />
         </section>
         <div className="container">
           <section className="near-places places">

@@ -9,8 +9,15 @@ class CityMap extends React.PureComponent {
     this.zoom = 12;
   }
 
-  componentDidMount() {
+  _changeMapView() {
     const {offers, cityCoords} = this.props;
+    this.map.setView(cityCoords, this.zoom);
+    offers.map((offer) => {
+      leaflet.marker(offer.main.coords, {icon: this.icon}).addTo(this.map);
+    });
+  }
+
+  componentDidMount() {
     this.icon = leaflet.icon({
       iconUrl: `img/pin.svg`,
       iconSize: [30, 30]
@@ -24,23 +31,16 @@ class CityMap extends React.PureComponent {
         attribution: `&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>`
       })
       .addTo(this.map);
-    this.map.setView(cityCoords, 12);
-    offers.map((offer) => {
-      leaflet.marker(offer.main.coords, {icon: this.icon}).addTo(this.map);
-    });
+    this._changeMapView();
   }
 
   componentDidUpdate() {
-    const {offers, cityCoords} = this.props;
-    this.map.setView(cityCoords, 12);
-    offers.map((offer) => {
-      leaflet.marker(offer.main.coords, {icon: this.icon}).addTo(this.map);
-    });
+    this._changeMapView();
   }
 
   render() {
     return (
-      <section id="map" className={`${this.props.location}__map map`} />
+      <section id="map" className={`${this.props.parent}__map map`} />
     );
   }
 }
@@ -48,7 +48,7 @@ class CityMap extends React.PureComponent {
 CityMap.propTypes = {
   cityCoords: PropTypes.arrayOf(PropTypes.number).isRequired,
   offers: PropTypes.array.isRequired,
-  location: PropTypes.string.isRequired
+  parent: PropTypes.string.isRequired
 };
 
 export default CityMap;

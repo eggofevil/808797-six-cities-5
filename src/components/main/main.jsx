@@ -21,7 +21,6 @@ const mapDispatchToProps = (dispatch) => ({
 
 const Main = ({city, cities, offers, reviews, handleChange}) => {
   let cityCoords = cities.filter((obj) => Object.keys(obj)[0] === city)[0][city];
-  console.log(cityCoords);
   return (
     <div className="page page--gray page--main">
       <header className="header">
@@ -83,7 +82,7 @@ const Main = ({city, cities, offers, reviews, handleChange}) => {
                 </div>
               </section>
               <div className="cities__right-section">
-                <CityMap location="cities" offers={offers} cityCoords={cityCoords} />
+                <CityMap parent="cities" offers={offers} cityCoords={cityCoords} />
               </div>
             </div>
             :
