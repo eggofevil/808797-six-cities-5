@@ -5,7 +5,7 @@ import leaflet from 'leaflet';
 
 import {AMSTERDAM_INITIAL_COORDS} from '../../const';
 
-class Map extends React.PureComponent {
+class CityMap extends React.PureComponent {
   constructor(props) {
     super(props);
   }
@@ -41,9 +41,9 @@ class Map extends React.PureComponent {
   }
 }
 
-Map.propTypes = {
+CityMap.propTypes = {
   offers: PropTypes.array.isRequired,
   location: PropTypes.string.isRequired
 };
 
-export default Map;
+export default CityMap;

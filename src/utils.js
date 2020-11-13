@@ -1,1 +1,1 @@
-export const extand = (oldState, newState) => Object.assign({}, oldState, newState);
+export const extend = (a, b) => Object.assign({}, a, b);

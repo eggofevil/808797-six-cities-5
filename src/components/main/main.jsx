@@ -5,14 +5,21 @@ import {connect} from 'react-redux';
 import CitiesList from '../cities-list/cities-list';
 import OffersList from '../offers-list/offers-list';
 import UserInfo from '../user-info/user-info';
-import Map from '../map/map';
+import CityMap from '../city-map/city-map';
+
+import * as actions from '../../store/actions';
 
 import offerPropTypes from '../../mocks/offer-prop-types';
 import reviewPropTypes from '../../mocks/review-prop-types';
 
 const mapStateToProps = (state) => ({city: state.city, offers: state.offers});
+const mapDispatchToProps = (dispatch) => ({
+  handleChange(city) {
+    dispatch(actions.changeCity(city));
+  }
+});
 
-const Main = ({city, cities, offers, reviews}) => {
+const Main = ({city, cities, offers, reviews, handleChange}) => {
   return (
     <div className="page page--gray page--main">
       <header className="header">
@@ -35,7 +42,7 @@ const Main = ({city, cities, offers, reviews}) => {
       </header>
       <main className={offers.length > 0 ? `page__main page__main--index` : `page__main page__main--index page__main--index-empty`}>
         <h1 className="visually-hidden">Cities</h1>
-        <CitiesList cities={cities} currentCity={city} />
+        <CitiesList cities={cities} currentCity={city} handleChange={handleChange}/>
         <div className="cities">
           {offers.length >= 0 ?
             <div className="cities__places-container container">
@@ -74,7 +81,7 @@ const Main = ({city, cities, offers, reviews}) => {
                 </div>
               </section>
               <div className="cities__right-section">
-                <Map location="cities" offers={offers} />
+                <CityMap location="cities" offers={offers} />
               </div>
             </div>
             :
@@ -98,7 +105,9 @@ Main.propTypes = {
   city: PropTypes.string.isRequired,
   cities: PropTypes.arrayOf(PropTypes.string).isRequired,
   offers: PropTypes.arrayOf(offerPropTypes).isRequired,
+  handleChange: PropTypes.func.isRequired,
   reviews: PropTypes.arrayOf(reviewPropTypes).isRequired
 };
+
 export {Main};
-export default connect(mapStateToProps)(Main);
+export default connect(mapStateToProps, mapDispatchToProps)(Main);

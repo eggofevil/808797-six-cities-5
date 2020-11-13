@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const CitiesList = ({cities, currentCity}) => {
+const CitiesList = ({cities, currentCity, handleChange}) => {
   const elementClassName = `locations__item-link tabs__item`;
   return (
     <div className="tabs">
@@ -10,7 +10,7 @@ const CitiesList = ({cities, currentCity}) => {
           {cities.map((city, id) => {
             return (
               <li key={`city-${id}`} className="locations__item">
-                <a className={city === currentCity ? elementClassName + ` tabs__item--active` : elementClassName}>
+                <a className={city === currentCity ? elementClassName + ` tabs__item--active` : elementClassName} onClick={() => handleChange(city)}>
                   <span>{city}</span>
                 </a>
               </li>
@@ -24,7 +24,8 @@ const CitiesList = ({cities, currentCity}) => {
 
 CitiesList.propTypes = {
   cities: PropTypes.arrayOf(PropTypes.string).isRequired,
-  currentCity: PropTypes.string.isRequired
+  currentCity: PropTypes.string.isRequired,
+  handleChange: PropTypes.func.isRequired
 };
 
 export default CitiesList;
