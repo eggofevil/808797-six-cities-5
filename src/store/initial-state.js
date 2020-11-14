@@ -1,8 +1,14 @@
 import offers from '../mocks/offers';
+import cities from '../mocks/cities';
+
+let city = offers[0].city;
+let cityCoords = cities.filter((entry) => entry[city])[0][city];
+let cityOffers = offers.filter((offer) => (offer.city === offers[0].city));
 
 const initialState = {
-  city: offers[0].city,
-  offers: offers.filter((offer) => (offer.city === offers[0].city))
+  city,
+  cityCoords,
+  cityOffers
 };
 
 export default initialState;

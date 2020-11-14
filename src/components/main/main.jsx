@@ -12,15 +12,14 @@ import * as actions from '../../store/actions';
 import offerPropTypes from '../../mocks/offer-prop-types';
 import reviewPropTypes from '../../mocks/review-prop-types';
 
-const mapStateToProps = (state) => ({city: state.city, offers: state.offers});
+const mapStateToProps = (state) => ({city: state.city, offers: state.cityOffers, cityCoords: state.cityCoords});
 const mapDispatchToProps = (dispatch) => ({
   handleChange(city) {
     dispatch(actions.changeCity(city));
   }
 });
 
-const Main = ({city, cities, offers, reviews, handleChange}) => {
-  let cityCoords = cities.filter((obj) => Object.keys(obj)[0] === city)[0][city];
+const Main = ({city, cityCoords, offers, cities, reviews, handleChange}) => {
   return (
     <div className="page page--gray page--main">
       <header className="header">
@@ -104,6 +103,7 @@ const Main = ({city, cities, offers, reviews, handleChange}) => {
 
 Main.propTypes = {
   city: PropTypes.string.isRequired,
+  cityCoords: PropTypes.arrayOf(PropTypes.number).isRequired,
   cities: PropTypes.arrayOf(PropTypes.object).isRequired,
   offers: PropTypes.arrayOf(offerPropTypes).isRequired,
   handleChange: PropTypes.func.isRequired,

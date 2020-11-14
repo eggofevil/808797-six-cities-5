@@ -7,7 +7,8 @@ const reducer = (state = initialState, action) => {
     // return extend(state, {city: action.act});
     return extend(state, {
       city: action.changeCity,
-      offers: action.getOffers
+      cityCoords: action.getCityCoords,
+      cityOffers: action.getCityOffers
     });
   default:
     return state;

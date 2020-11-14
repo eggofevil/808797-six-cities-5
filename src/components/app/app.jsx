@@ -6,6 +6,8 @@ import SignIn from '../sign-in/sign-in';
 import Favorites from '../favorites/favorites';
 import Room from '../room/room';
 
+import TestComponent from '../test-component/test-component';
+
 import offerPropTypes from '../../mocks/offer-prop-types';
 import reviewPropTypes from '../../mocks/review-prop-types';
 
@@ -23,6 +25,7 @@ const App = ({cities, offers, reviews}) => {
           <Favorites />
         </Route>
         <Route exact path="/offer:id" render={(serviceProps) => (<Room offers={offers} reviews={reviews} state={serviceProps.location.state} />)} />
+        <Route exact path="/test" component={TestComponent} />
       </Switch>
     </BrowserRouter>
   );
