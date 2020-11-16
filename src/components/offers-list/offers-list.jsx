@@ -32,7 +32,7 @@ class OffersList extends React.Component {
         {offers.map((offer, i) => (
           <OfferCard
             key={`offer-${i}`}
-            location={this.props.location}
+            parent={this.props.parent}
             offer={offer}
             cityCoords={this.props.cityCoords}
             onMouseEnter={this._handleMouseEnter}
@@ -47,7 +47,7 @@ class OffersList extends React.Component {
 
 OffersList.propTypes = {
   thisOfferId: PropTypes.number,
-  location: PropTypes.string.isRequired,
+  parent: PropTypes.string.isRequired,
   reviews: PropTypes.arrayOf(reviewPropTypes).isRequired,
   offers: PropTypes.arrayOf(offerPropTypes).isRequired,
   cityCoords: PropTypes.arrayOf(PropTypes.number).isRequired

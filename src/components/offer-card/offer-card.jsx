@@ -6,7 +6,7 @@ import {RATING_BAR_DIVISION} from '../../const';
 import offerPropTypes from '../../mocks/offer-prop-types';
 import reviewPropTypes from '../../mocks/review-prop-types';
 
-const OfferCard = ({offer, onMouseEnter, onMouseLeave, offerReviews, cityCoords, location}) => {
+const OfferCard = ({offer, onMouseEnter, onMouseLeave, offerReviews, cityCoords, parent}) => {
   let offerRating = (offerReviews.reduce((acc, review) => acc + review.value, 0) / offerReviews.length).toFixed(1);
   let offerLinkProps = {
     pathname: `/offer${offer.propertyId}`,
@@ -17,8 +17,8 @@ const OfferCard = ({offer, onMouseEnter, onMouseLeave, offerReviews, cityCoords,
       cityCoords
     }
   };
-  let offerCardArticleClassName = location === `main` ? `cities__place-card place-card` : `near-places__card place-card`;
-  let offerCardDivClassName = location === `main` ? `cities__image-wrapper place-card__image-wrapper` : `near-places__image-wrapper place-card__image-wrapper`;
+  let offerCardArticleClassName = parent === `main` ? `cities__place-card place-card` : `near-places__card place-card`;
+  let offerCardDivClassName = parent === `main` ? `cities__image-wrapper place-card__image-wrapper` : `near-places__image-wrapper place-card__image-wrapper`;
   return (
     <article className={offerCardArticleClassName} onMouseEnter={() => (onMouseEnter(offer.property))} onMouseLeave={onMouseLeave}>
       {offer.facilities.premium ? (
@@ -61,7 +61,7 @@ const OfferCard = ({offer, onMouseEnter, onMouseLeave, offerReviews, cityCoords,
 
 OfferCard.propTypes = {
   offer: offerPropTypes,
-  location: PropTypes.string.isRequired,
+  parent: PropTypes.string.isRequired,
   offerReviews: PropTypes.arrayOf(reviewPropTypes).isRequired,
   cityCoords: PropTypes.arrayOf(PropTypes.number).isRequired,
   onMouseEnter: PropTypes.func.isRequired,

@@ -77,7 +77,7 @@ const Main = ({city, cityCoords, offers, cities, reviews, handleChange}) => {
                     offers={offers}
                     cityCoords={cityCoords}
                     reviews={reviews}
-                    location="main"
+                    parent="main"
                   />
                 </div>
               </section>

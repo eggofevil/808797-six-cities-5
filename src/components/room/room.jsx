@@ -149,7 +149,7 @@ const Room = ({offers, reviews, state: {offer, offerRating, offerReviews, cityCo
                 offers={offers}
                 reviews={reviews}
                 cityCoords={cityCoords}
-                location="room"
+                parent="room"
                 thisOfferId={offer.propertyId}
               />
             </div>
