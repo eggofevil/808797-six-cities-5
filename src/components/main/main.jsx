@@ -12,7 +12,7 @@ import {changeCity} from '../../store/actions';
 import offerPropTypes from '../../mocks/offer-prop-types';
 import reviewPropTypes from '../../mocks/review-prop-types';
 
-const mapStateToProps = (state) => ({city: state.city, offers: state.cityOffers, cityCoords: state.cityCoords});
+const mapStateToProps = (state) => ({cities: state.cities, city: state.city, offers: state.cityOffers, cityCoords: state.cityCoords, reviews: state.reviews});
 const mapDispatchToProps = (dispatch) => ({
   handleChange(city) {
     dispatch(changeCity(city));

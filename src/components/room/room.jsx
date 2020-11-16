@@ -29,7 +29,7 @@ const Room = ({offers, state: {offer, offerRating, offerReviews}}) => {
 };
 */
 
-const mapStateToProps = (state) => ({offers: state.cityOffers});
+const mapStateToProps = (state) => ({offers: state.cityOffers, reviews: state.reviews});
 
 const Room = ({offers, reviews, state: {offer, offerRating, offerReviews, cityCoords}}) => {
   return (
