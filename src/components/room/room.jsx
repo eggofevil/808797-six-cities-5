@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import {connect} from 'react-redux';
 
 import Review from '../review/review';
 import ReviewForm from '../review-form/review-form';
@@ -27,6 +28,8 @@ const Room = ({offers, state: {offer, offerRating, offerReviews}}) => {
   );
 };
 */
+
+const mapStateToProps = (state) => ({offers: state.cityOffers});
 
 const Room = ({offers, reviews, state: {offer, offerRating, offerReviews, cityCoords}}) => {
   return (
@@ -171,4 +174,5 @@ Room.propTypes = {
   }).isRequired
 };
 
-export default Room;
+export {Room};
+export default connect(mapStateToProps)(Room);
