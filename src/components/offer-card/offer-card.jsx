@@ -1,32 +1,35 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import {Link} from 'react-router-dom';
+import {connect} from 'react-redux';
+import {setOffer} from '../../store/actions';
 import {RATING_BAR_DIVISION} from '../../const';
 
 import offerPropTypes from '../../mocks/offer-prop-types';
 import reviewPropTypes from '../../mocks/review-prop-types';
 
-const OfferCard = ({offer, onMouseEnter, onMouseLeave, offerReviews, location}) => {
+const mapDispatchToProps = (dispatch) => ({
+  handleClick(offer, offerRating, offerReviews) {
+    dispatch(setOffer(offer, offerRating, offerReviews));
+  }
+});
+
+const OfferCard = ({offer, offerReviews, parent, handleClick}) => {
   let offerRating = (offerReviews.reduce((acc, review) => acc + review.value, 0) / offerReviews.length).toFixed(1);
   let offerLinkProps = {
-    pathname: `/offer${offer.propertyId}`,
-    state: {
-      offer,
-      offerRating,
-      offerReviews
-    }
+    pathname: `/offer${offer.id}`,
   };
-  let offerCardArticleClassName = location === `main` ? `cities__place-card place-card` : `near-places__card place-card`;
-  let offerCardDivClassName = location === `main` ? `cities__image-wrapper place-card__image-wrapper` : `near-places__image-wrapper place-card__image-wrapper`;
+  let offerCardArticleClassName = parent === `main` ? `cities__place-card place-card` : `near-places__card place-card`;
+  let offerCardDivClassName = parent === `main` ? `cities__image-wrapper place-card__image-wrapper` : `near-places__image-wrapper place-card__image-wrapper`;
   return (
-    <article className={offerCardArticleClassName} onMouseEnter={() => (onMouseEnter(offer.property))} onMouseLeave={onMouseLeave}>
+    <article className={offerCardArticleClassName}>
       {offer.facilities.premium ? (
         <div className="place-card__mark">
           <span>Premium</span>
         </div>
       ) : null}
       <div className={offerCardDivClassName}>
-        <Link to={offerLinkProps}>
+        <Link to={offerLinkProps} onClick={() => handleClick(offer, offerRating, offerReviews)}>
           <img className="place-card__image" src={offer.photo[0]} width={260} height={200} alt="Place image" />
         </Link>
       </div>
@@ -50,7 +53,7 @@ const OfferCard = ({offer, onMouseEnter, onMouseLeave, offerReviews, location}) 
           </div>
         </div>
         <h2 className="place-card__name">
-          <Link to={offerLinkProps}>{offer.slogan}</Link>
+          <Link to={offerLinkProps} onClick={() => handleClick(offer, offerRating, offerReviews)}>{offer.slogan}</Link>
         </h2>
         <p className="place-card__type">{offer.main.type}</p>
       </div>
@@ -60,10 +63,9 @@ const OfferCard = ({offer, onMouseEnter, onMouseLeave, offerReviews, location}) 
 
 OfferCard.propTypes = {
   offer: offerPropTypes,
-  location: PropTypes.string.isRequired,
+  parent: PropTypes.string.isRequired,
   offerReviews: PropTypes.arrayOf(reviewPropTypes).isRequired,
-  onMouseEnter: PropTypes.func.isRequired,
-  onMouseLeave: PropTypes.func.isRequired,
 };
 
-export default OfferCard;
+export {OfferCard};
+export default connect(null, mapDispatchToProps)(OfferCard);

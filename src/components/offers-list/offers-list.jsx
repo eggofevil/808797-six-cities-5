@@ -1,73 +1,39 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import {connect} from 'react-redux';
 import OfferCard from '../offer-card/offer-card';
 
 import offerPropTypes from '../../mocks/offer-prop-types';
 import reviewPropTypes from '../../mocks/review-prop-types';
 
-class OffersList extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      activeCard: null
-    };
-    this._handleMouseEnter = this._handleMouseEnter.bind(this);
-    this._handleMouseLeave = this._handleMouseLeave.bind(this);
-  }
+const mapStateToProps = (state) => ({offer: state.offer, cityOffers: state.cityOffers, reviews: state.reviews});
 
-  _handleMouseEnter(offerProperty) {
-    this.setState({activeCard: offerProperty});
-  }
-  _handleMouseLeave() {
-    this.setState({activeCard: null});
-  }
-  _getOfferReviews(offerId) {
-    return (this.props.reviews.filter((review) => review.propertyId === offerId));
-  }
+const OffersList = ({offer, cityOffers, parent, reviews}) => {
+  const getOfferReviews = (offerId) => {
+    return (reviews.filter((review) => review.propertyId === offerId));
+  };
+  cityOffers = offer ? cityOffers.filter((entry) => (entry !== offer)) : cityOffers;
 
-  render() {
-    let offers = this.props.thisOfferId ? this.props.offers.filter((offer) => (offer.propertyId !== this.props.thisOfferId)) : this.props.offers;
-    return (
-      <React.Fragment>
-        {offers.map((offer, i) => (
-          <OfferCard
-            key={`offer-${i}`}
-            location={this.props.location}
-            offer={offer}
-            onMouseEnter={this._handleMouseEnter}
-            onMouseLeave={this._handleMouseLeave}
-            offerReviews={this._getOfferReviews(offer.propertyId)}
-          />
-        ))}
-      </React.Fragment>
-    );
-  }
-
-  /*
-  render() {
-    return (
-      <React.Fragment>
-        {this.props.offers.map((offer, i) => (
-          <OfferCard
-            key={`offer-${i}`}
-            location={this.props.location}
-            offer={offer}
-            onMouseEnter={this._handleMouseEnter}
-            onMouseLeave={this._handleMouseLeave}
-            offerReviews={this._getOfferReviews(offer.propertyId)}
-          />
-        ))}
-      </React.Fragment>
-    );
-  }
-  */
-}
+  return (
+    <React.Fragment>
+      {cityOffers.map((entry, i) => (
+        <OfferCard
+          key={`offer-${i}`}
+          parent={parent}
+          offer={entry}
+          offerReviews={getOfferReviews(entry.id)}
+        />
+      ))}
+    </React.Fragment>
+  );
+};
 
 OffersList.propTypes = {
   thisOfferId: PropTypes.number,
-  location: PropTypes.string.isRequired,
+  parent: PropTypes.string.isRequired,
   reviews: PropTypes.arrayOf(reviewPropTypes).isRequired,
-  offers: PropTypes.arrayOf(offerPropTypes).isRequired
+  cityOffers: PropTypes.arrayOf(offerPropTypes).isRequired
 };
 
-export default OffersList;
+export {OffersList};
+export default connect(mapStateToProps)(OffersList);

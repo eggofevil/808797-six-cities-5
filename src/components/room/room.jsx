@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import {connect} from 'react-redux';
 
 import Review from '../review/review';
 import ReviewForm from '../review-form/review-form';
@@ -27,8 +28,17 @@ const Room = ({offers, state: {offer, offerRating, offerReviews}}) => {
   );
 };
 */
+const mapStateToProps = (state) => ({
+  cityOffers: state.cityOffers,
+  cityCoords: state.cityCoords,
+  offer: state.offer,
+  offerRating: state.offerRating,
+  offerReviews: state.offerReviews,
+  reviews: state.reviews
+});
 
-const Room = ({offers, reviews, state: {offer, offerRating, offerReviews}}) => {
+const Room = ({cityOffers, reviews, cityCoords, offer, offerRating, offerReviews}) => {
+  console.log(offer);
   return (
     <div className="page">
       <header className="header">
@@ -139,16 +149,16 @@ const Room = ({offers, reviews, state: {offer, offerRating, offerReviews}}) => {
               </section>
             </div>
           </div>
-          <CityMap parent="property" offers={offers} />
+          <CityMap parent="property" cityOffers={cityOffers} cityCoords={cityCoords} />
         </section>
         <div className="container">
           <section className="near-places places">
             <h2 className="near-places__title">Other places in the neighbourhood</h2>
             <div className="near-places__list places__list">
               <OffersList
-                offers={offers}
+                offers={cityOffers}
                 reviews={reviews}
-                location="room"
+                parent="room"
                 thisOfferId={offer.propertyId}
               />
             </div>
@@ -160,13 +170,13 @@ const Room = ({offers, reviews, state: {offer, offerRating, offerReviews}}) => {
 };
 
 Room.propTypes = {
+  cityCoords: PropTypes.arrayOf(PropTypes.number).isRequired,
   offers: PropTypes.arrayOf(offerPropTypes).isRequired,
   reviews: PropTypes.arrayOf(reviewPropTypes).isRequired,
-  state: PropTypes.shape({
-    offer: offerPropTypes,
-    offerRating: PropTypes.string.isRequired,
-    offerReviews: PropTypes.arrayOf(reviewPropTypes).isRequired
-  }).isRequired
+  offer: offerPropTypes,
+  offerRating: PropTypes.string.isRequired,
+  offerReviews: PropTypes.arrayOf(reviewPropTypes).isRequired
 };
 
-export default Room;
+export {Room};
+export default connect(mapStateToProps)(Room);

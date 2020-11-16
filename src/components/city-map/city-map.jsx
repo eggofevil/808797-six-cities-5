@@ -10,9 +10,9 @@ class CityMap extends React.PureComponent {
   }
 
   _changeMapView() {
-    const {offers, cityCoords} = this.props;
+    const {cityOffers, cityCoords} = this.props;
     this.map.setView(cityCoords, this.zoom);
-    offers.map((offer) => {
+    cityOffers.map((offer) => {
       leaflet.marker(offer.main.coords, {icon: this.icon}).addTo(this.map);
     });
   }
@@ -39,6 +39,7 @@ class CityMap extends React.PureComponent {
   }
 
   render() {
+    console.log(this.props);
     return (
       <section id="map" className={`${this.props.parent}__map map`} />
     );
@@ -47,7 +48,6 @@ class CityMap extends React.PureComponent {
 
 CityMap.propTypes = {
   cityCoords: PropTypes.arrayOf(PropTypes.number).isRequired,
-  offers: PropTypes.array.isRequired,
   parent: PropTypes.string.isRequired
 };
 

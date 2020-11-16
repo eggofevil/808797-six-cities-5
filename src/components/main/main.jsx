@@ -7,19 +7,18 @@ import OffersList from '../offers-list/offers-list';
 import UserInfo from '../user-info/user-info';
 import CityMap from '../city-map/city-map';
 
-import * as actions from '../../store/actions';
+import {changeCity} from '../../store/actions';
 
 import offerPropTypes from '../../mocks/offer-prop-types';
-import reviewPropTypes from '../../mocks/review-prop-types';
 
-const mapStateToProps = (state) => ({city: state.city, offers: state.cityOffers, cityCoords: state.cityCoords});
+const mapStateToProps = (state) => ({city: state.city, cityOffers: state.cityOffers, cityCoords: state.cityCoords});
 const mapDispatchToProps = (dispatch) => ({
   handleChange(city) {
-    dispatch(actions.changeCity(city));
+    dispatch(changeCity(city));
   }
 });
 
-const Main = ({city, cityCoords, offers, cities, reviews, handleChange}) => {
+const Main = ({city, cityCoords, cityOffers, cities, handleChange}) => {
   return (
     <div className="page page--gray page--main">
       <header className="header">
@@ -40,15 +39,15 @@ const Main = ({city, cityCoords, offers, cities, reviews, handleChange}) => {
           </div>
         </div>
       </header>
-      <main className={offers.length > 0 ? `page__main page__main--index` : `page__main page__main--index page__main--index-empty`}>
+      <main className={cityOffers.length > 0 ? `page__main page__main--index` : `page__main page__main--index page__main--index-empty`}>
         <h1 className="visually-hidden">Cities</h1>
         <CitiesList cities={cities} currentCity={city} handleChange={handleChange}/>
         <div className="cities">
-          {offers.length > 0 ?
+          {cityOffers.length > 0 ?
             <div className="cities__places-container container">
               <section className="cities__places places">
                 <h2 className="visually-hidden">Places</h2>
-                <b className="places__found">{offers.length} places to stay in {city}</b>
+                <b className="places__found">{cityOffers.length} places to stay in {city}</b>
                 <form className="places__sorting" action="#" method="get">
                   <span className="places__sorting-caption">Sort by</span>
                   <span className="places__sorting-type" tabIndex={0}>
@@ -74,14 +73,13 @@ const Main = ({city, cityCoords, offers, cities, reviews, handleChange}) => {
                 </form>
                 <div className="cities__places-list places__list tabs__content">
                   <OffersList
-                    offers={offers}
-                    reviews={reviews}
-                    location="main"
+                    cityOffers={cityOffers}
+                    parent="main"
                   />
                 </div>
               </section>
               <div className="cities__right-section">
-                <CityMap parent="cities" offers={offers} cityCoords={cityCoords} />
+                <CityMap parent="cities" cityOffers={cityOffers} cityCoords={cityCoords} />
               </div>
             </div>
             :
@@ -105,9 +103,8 @@ Main.propTypes = {
   city: PropTypes.string.isRequired,
   cityCoords: PropTypes.arrayOf(PropTypes.number).isRequired,
   cities: PropTypes.arrayOf(PropTypes.object).isRequired,
-  offers: PropTypes.arrayOf(offerPropTypes).isRequired,
+  cityOffers: PropTypes.arrayOf(offerPropTypes).isRequired,
   handleChange: PropTypes.func.isRequired,
-  reviews: PropTypes.arrayOf(reviewPropTypes).isRequired
 };
 
 export {Main};

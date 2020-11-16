@@ -9,7 +9,23 @@ const changeCity = (city) => {
     getCityOffers: offers.filter((offer) => offer.city === city)
   };
 };
+const setOffer = (offer, offerRating, offerReviews) => {
+  return {
+    type: `SET_OFFER`,
+    setOffer: offer,
+    setOfferRating: offerRating,
+    setOfferReviews: offerReviews
+  };
+};
+
+const resetOffer = () => {
+  return {
+    type: `RESET_OFFER`,
+  };
+};
 
 export {
-  changeCity
+  changeCity,
+  setOffer,
+  resetOffer
 };
