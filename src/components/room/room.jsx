@@ -28,7 +28,7 @@ const Room = ({offers, state: {offer, offerRating, offerReviews}}) => {
 };
 */
 
-const Room = ({offers, reviews, state: {offer, offerRating, offerReviews}}) => {
+const Room = ({offers, reviews, state: {offer, offerRating, offerReviews, cityCoords}}) => {
   return (
     <div className="page">
       <header className="header">
@@ -139,7 +139,7 @@ const Room = ({offers, reviews, state: {offer, offerRating, offerReviews}}) => {
               </section>
             </div>
           </div>
-          <CityMap parent="property" offers={offers} />
+          <CityMap parent="property" offers={offers} cityCoords={cityCoords} />
         </section>
         <div className="container">
           <section className="near-places places">
@@ -148,6 +148,7 @@ const Room = ({offers, reviews, state: {offer, offerRating, offerReviews}}) => {
               <OffersList
                 offers={offers}
                 reviews={reviews}
+                cityCoords={cityCoords}
                 location="room"
                 thisOfferId={offer.propertyId}
               />
@@ -165,7 +166,8 @@ Room.propTypes = {
   state: PropTypes.shape({
     offer: offerPropTypes,
     offerRating: PropTypes.string.isRequired,
-    offerReviews: PropTypes.arrayOf(reviewPropTypes).isRequired
+    offerReviews: PropTypes.arrayOf(reviewPropTypes).isRequired,
+    cityCoords: PropTypes.arrayOf(PropTypes.number).isRequired
   }).isRequired
 };
 

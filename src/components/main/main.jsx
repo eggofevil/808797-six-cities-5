@@ -75,6 +75,7 @@ const Main = ({city, cityCoords, offers, cities, reviews, handleChange}) => {
                 <div className="cities__places-list places__list tabs__content">
                   <OffersList
                     offers={offers}
+                    cityCoords={cityCoords}
                     reviews={reviews}
                     location="main"
                   />

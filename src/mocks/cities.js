@@ -1,14 +1,3 @@
-/*
-export default [
-  `Paris`,
-  `Cologne`,
-  `Brussels`,
-  `Amsterdam`,
-  `Hamburg`,
-  `Dusseldorf`
-];
-*/
-
 export default [
   {'Paris': [null, null]},
   {'Cologne': [null, null]},
