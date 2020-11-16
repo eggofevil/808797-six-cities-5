@@ -11,7 +11,7 @@ import {changeCity} from '../../store/actions';
 
 import offerPropTypes from '../../mocks/offer-prop-types';
 
-const mapStateToProps = (state) => ({city: state.city, cityOffers: state.cityOffers, cityCoords: state.cityCoords});
+const mapStateToProps = (state) => ({cities: state.cities, city: state.city, cityOffers: state.cityOffers, cityCoords: state.cityCoords});
 const mapDispatchToProps = (dispatch) => ({
   handleChange(city) {
     dispatch(changeCity(city));
@@ -103,7 +103,7 @@ Main.propTypes = {
   city: PropTypes.string.isRequired,
   cityCoords: PropTypes.arrayOf(PropTypes.number).isRequired,
   cities: PropTypes.arrayOf(PropTypes.object).isRequired,
-  cityOffers: PropTypes.arrayOf(offerPropTypes).isRequired,
+  cityOffers: PropTypes.arrayOf(offerPropTypes.isRequired).isRequired,
   handleChange: PropTypes.func.isRequired,
 };
 

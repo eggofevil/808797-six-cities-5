@@ -32,6 +32,7 @@ OffersList.propTypes = {
   thisOfferId: PropTypes.number,
   parent: PropTypes.string.isRequired,
   reviews: PropTypes.arrayOf(reviewPropTypes).isRequired,
+  offer: offerPropTypes,
   cityOffers: PropTypes.arrayOf(offerPropTypes).isRequired
 };
 

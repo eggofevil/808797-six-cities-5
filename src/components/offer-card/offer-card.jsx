@@ -62,9 +62,10 @@ const OfferCard = ({offer, offerReviews, parent, handleClick}) => {
 };
 
 OfferCard.propTypes = {
-  offer: offerPropTypes,
+  offer: offerPropTypes.isRequired,
   parent: PropTypes.string.isRequired,
   offerReviews: PropTypes.arrayOf(reviewPropTypes).isRequired,
+  handleClick: PropTypes.func.isRequired
 };
 
 export {OfferCard};

@@ -3,6 +3,8 @@ import PropTypes from 'prop-types';
 import '../../../node_modules/leaflet/dist/leaflet.css';
 import leaflet from 'leaflet';
 
+import offerPropTypes from '../../mocks/offer-prop-types';
+
 class CityMap extends React.PureComponent {
   constructor(props) {
     super(props);
@@ -39,7 +41,6 @@ class CityMap extends React.PureComponent {
   }
 
   render() {
-    console.log(this.props);
     return (
       <section id="map" className={`${this.props.parent}__map map`} />
     );
@@ -47,6 +48,7 @@ class CityMap extends React.PureComponent {
 }
 
 CityMap.propTypes = {
+  cityOffers: PropTypes.arrayOf(offerPropTypes.isRequired).isRequired,
   cityCoords: PropTypes.arrayOf(PropTypes.number).isRequired,
   parent: PropTypes.string.isRequired
 };

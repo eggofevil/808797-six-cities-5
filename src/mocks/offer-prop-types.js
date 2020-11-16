@@ -24,4 +24,4 @@ export default PropTypes.shape({
     }).isRequired,
     amentities: PropTypes.arrayOf(PropTypes.string).isRequired
   }).isRequired,
-}).isRequired;
+});
