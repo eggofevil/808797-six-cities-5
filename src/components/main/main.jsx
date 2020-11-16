@@ -7,7 +7,7 @@ import OffersList from '../offers-list/offers-list';
 import UserInfo from '../user-info/user-info';
 import CityMap from '../city-map/city-map';
 
-import * as actions from '../../store/actions';
+import {changeCity} from '../../store/actions';
 
 import offerPropTypes from '../../mocks/offer-prop-types';
 import reviewPropTypes from '../../mocks/review-prop-types';
@@ -15,7 +15,7 @@ import reviewPropTypes from '../../mocks/review-prop-types';
 const mapStateToProps = (state) => ({city: state.city, offers: state.cityOffers, cityCoords: state.cityCoords});
 const mapDispatchToProps = (dispatch) => ({
   handleChange(city) {
-    dispatch(actions.changeCity(city));
+    dispatch(changeCity(city));
   }
 });
 

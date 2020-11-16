@@ -10,10 +10,10 @@ export default [
 */
 
 export default [
-  {'Paris': null},
-  {'Cologne': null},
+  {'Paris': [null, null]},
+  {'Cologne': [null, null]},
   {'Brussels': [50.8505, 4.3488]},
   {'Amsterdam': [52.38333, 4.9]},
-  {'Hamburg': null},
-  {'Dusseldorf': null}
+  {'Hamburg': [null, null]},
+  {'Dusseldorf': [null, null]}
 ];
