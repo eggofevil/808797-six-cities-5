@@ -3,47 +3,52 @@ import PropTypes from 'prop-types';
 import '../../../node_modules/leaflet/dist/leaflet.css';
 import leaflet from 'leaflet';
 
-import {AMSTERDAM_INITIAL_COORDS} from '../../const';
-
-class Map extends React.PureComponent {
+class CityMap extends React.PureComponent {
   constructor(props) {
     super(props);
+    this.zoom = 12;
+  }
+
+  _changeMapView() {
+    const {offers, cityCoords} = this.props;
+    this.map.setView(cityCoords, this.zoom);
+    offers.map((offer) => {
+      leaflet.marker(offer.main.coords, {icon: this.icon}).addTo(this.map);
+    });
   }
 
   componentDidMount() {
-    const city = AMSTERDAM_INITIAL_COORDS;
-    const icon = leaflet.icon({
+    this.icon = leaflet.icon({
       iconUrl: `img/pin.svg`,
       iconSize: [30, 30]
     });
-    const zoom = 12;
-    const map = leaflet.map(`map`, {
-      center: city,
-      zoom,
+    this.map = leaflet.map(`map`, {
       zoomControl: false,
       marker: true
     });
-    map.setView(city, zoom);
     leaflet
       .tileLayer(`https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png`, {
         attribution: `&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>`
       })
-      .addTo(map);
-    this.props.offers.map((offer) => {
-      leaflet.marker(offer.main.coords, {icon}).addTo(map);
-    });
+      .addTo(this.map);
+    this._changeMapView();
+  }
+
+  componentDidUpdate() {
+    this._changeMapView();
   }
 
   render() {
     return (
-      <section id="map" className={`${this.props.location}__map map`} />
+      <section id="map" className={`${this.props.parent}__map map`} />
     );
   }
 }
 
-Map.propTypes = {
+CityMap.propTypes = {
+  cityCoords: PropTypes.arrayOf(PropTypes.number).isRequired,
   offers: PropTypes.array.isRequired,
-  location: PropTypes.string.isRequired
+  parent: PropTypes.string.isRequired
 };
 
-export default Map;
+export default CityMap;

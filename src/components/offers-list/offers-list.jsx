@@ -32,8 +32,9 @@ class OffersList extends React.Component {
         {offers.map((offer, i) => (
           <OfferCard
             key={`offer-${i}`}
-            location={this.props.location}
+            parent={this.props.parent}
             offer={offer}
+            cityCoords={this.props.cityCoords}
             onMouseEnter={this._handleMouseEnter}
             onMouseLeave={this._handleMouseLeave}
             offerReviews={this._getOfferReviews(offer.propertyId)}
@@ -42,32 +43,14 @@ class OffersList extends React.Component {
       </React.Fragment>
     );
   }
-
-  /*
-  render() {
-    return (
-      <React.Fragment>
-        {this.props.offers.map((offer, i) => (
-          <OfferCard
-            key={`offer-${i}`}
-            location={this.props.location}
-            offer={offer}
-            onMouseEnter={this._handleMouseEnter}
-            onMouseLeave={this._handleMouseLeave}
-            offerReviews={this._getOfferReviews(offer.propertyId)}
-          />
-        ))}
-      </React.Fragment>
-    );
-  }
-  */
 }
 
 OffersList.propTypes = {
   thisOfferId: PropTypes.number,
-  location: PropTypes.string.isRequired,
+  parent: PropTypes.string.isRequired,
   reviews: PropTypes.arrayOf(reviewPropTypes).isRequired,
-  offers: PropTypes.arrayOf(offerPropTypes).isRequired
+  offers: PropTypes.arrayOf(offerPropTypes).isRequired,
+  cityCoords: PropTypes.arrayOf(PropTypes.number).isRequired
 };
 
 export default OffersList;
