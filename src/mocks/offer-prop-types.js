@@ -2,6 +2,7 @@ import PropTypes from 'prop-types';
 
 export default PropTypes.shape({
   propertyId: PropTypes.number.isRequired,
+  rating: PropTypes.number.isRequired,
   city: PropTypes.string.isRequired,
   property: PropTypes.string.isRequired,
   host: PropTypes.string.isRequired,

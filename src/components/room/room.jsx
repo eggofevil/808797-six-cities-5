@@ -31,7 +31,7 @@ const Room = ({offers, state: {offer, offerRating, offerReviews}}) => {
 
 const mapStateToProps = (state) => ({offers: state.cityOffers, reviews: state.reviews});
 
-const Room = ({offers, reviews, state: {offer, offerRating, offerReviews, cityCoords}}) => {
+const Room = ({offers, reviews, state: {offer, offerReviews, cityCoords}}) => {
   return (
     <div className="page">
       <header className="header">
@@ -81,10 +81,10 @@ const Room = ({offers, reviews, state: {offer, offerRating, offerReviews, cityCo
               </div>
               <div className="property__rating rating">
                 <div className="property__stars rating__stars">
-                  <span style={{width: `${offerRating * RATING_BAR_DIVISION}%`}} />
+                  <span style={{width: `${offer.rating * RATING_BAR_DIVISION}%`}} />
                   <span className="visually-hidden">Rating</span>
                 </div>
-                <span className="property__rating-value rating__value">{offerRating}</span>
+                <span className="property__rating-value rating__value">{offer.rating}</span>
               </div>
               <ul className="property__features">
                 <li className="property__feature property__feature--entire">
@@ -168,7 +168,6 @@ Room.propTypes = {
   reviews: PropTypes.arrayOf(reviewPropTypes).isRequired,
   state: PropTypes.shape({
     offer: offerPropTypes,
-    offerRating: PropTypes.string.isRequired,
     offerReviews: PropTypes.arrayOf(reviewPropTypes).isRequired,
     cityCoords: PropTypes.arrayOf(PropTypes.number).isRequired
   }).isRequired

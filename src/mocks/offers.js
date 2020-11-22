@@ -3,6 +3,7 @@
 export default [
   {
     propertyId: 1,
+    rating: 4.1,
     city: `Amsterdam`,
     property: `Teremok`,
     host: `Fly`,
@@ -30,6 +31,7 @@ export default [
   },
   {
     propertyId: 2,
+    rating: 4.4,
     city: `Amsterdam`,
     property: `Cell in Darkest Dungeon`,
     host: `Some evil force`,
@@ -57,6 +59,7 @@ export default [
   },
   {
     propertyId: 3,
+    rating: 4.8,
     city: `Amsterdam`,
     property: `Hut on chicken legs`,
     host: `Bаba Yaga`,
@@ -84,6 +87,7 @@ export default [
   },
   {
     propertyId: 4,
+    rating: 4.2,
     city: `Amsterdam`,
     property: `Gingerbread house`,
     host: `Evil Witch`,
@@ -111,6 +115,7 @@ export default [
   },
   {
     propertyId: 5,
+    rating: 3.9,
     city: `Brussels`,
     property: `Teremok`,
     host: `Fly`,
@@ -138,6 +143,7 @@ export default [
   },
   {
     propertyId: 6,
+    rating: 4.9,
     city: `Brussels`,
     property: `Cell in Darkest Dungeon`,
     host: `Some evil force`,

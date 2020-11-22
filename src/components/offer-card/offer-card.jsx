@@ -7,12 +7,11 @@ import offerPropTypes from '../../mocks/offer-prop-types';
 import reviewPropTypes from '../../mocks/review-prop-types';
 
 const OfferCard = ({offer, onMouseEnter, onMouseLeave, offerReviews, cityCoords, parent}) => {
-  let offerRating = (offerReviews.reduce((acc, review) => acc + review.value, 0) / offerReviews.length).toFixed(1);
+  // let offerRating = (offerReviews.reduce((acc, review) => acc + review.value, 0) / offerReviews.length).toFixed(1);
   let offerLinkProps = {
     pathname: `/offer${offer.propertyId}`,
     state: {
       offer,
-      offerRating,
       offerReviews,
       cityCoords
     }
@@ -46,7 +45,7 @@ const OfferCard = ({offer, onMouseEnter, onMouseLeave, offerReviews, cityCoords,
         </div>
         <div className="place-card__rating rating">
           <div className="place-card__stars rating__stars">
-            <span style={{width: `${offerRating * RATING_BAR_DIVISION}%`}} />
+            <span style={{width: `${offer.rating * RATING_BAR_DIVISION}%`}} />
             <span className="visually-hidden">Rating</span>
           </div>
         </div>
