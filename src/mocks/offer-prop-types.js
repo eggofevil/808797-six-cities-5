@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types';
 
 export default PropTypes.shape({
+  bedrooms: PropTypes.number.isRequired,
   propertyId: PropTypes.number.isRequired,
   rating: PropTypes.number.isRequired,
   city: PropTypes.string.isRequired,
@@ -18,7 +19,6 @@ export default PropTypes.shape({
   }).isRequired,
   facilities: PropTypes.shape({
     premium: PropTypes.bool.isRequired,
-    bedrooms: PropTypes.number.isRequired,
     capacity: PropTypes.shape({
       adults: PropTypes.number.isRequired,
       children: PropTypes.number.isRequired

@@ -2,6 +2,7 @@
 
 export default [
   {
+    bedrooms: 1,
     propertyId: 1,
     rating: 4.1,
     city: `Amsterdam`,
@@ -20,7 +21,6 @@ export default [
     },
     facilities: {
       premium: false,
-      bedrooms: 1,
       capacity: {
         adults: 2,
         children: 2
@@ -31,6 +31,7 @@ export default [
     }
   },
   {
+    bedrooms: 1,
     propertyId: 2,
     rating: 4.4,
     city: `Amsterdam`,
@@ -48,7 +49,6 @@ export default [
     },
     facilities: {
       premium: false,
-      bedrooms: 1,
       capacity: {
         adults: 1,
         children: 0
@@ -59,6 +59,7 @@ export default [
     }
   },
   {
+    bedrooms: 2,
     propertyId: 3,
     rating: 4.8,
     city: `Amsterdam`,
@@ -76,7 +77,6 @@ export default [
     },
     facilities: {
       premium: true,
-      bedrooms: 2,
       capacity: {
         adults: 4,
         children: 4
@@ -87,6 +87,7 @@ export default [
     }
   },
   {
+    bedrooms: 2,
     propertyId: 4,
     rating: 4.2,
     city: `Amsterdam`,
@@ -104,7 +105,6 @@ export default [
     },
     facilities: {
       premium: true,
-      bedrooms: 2,
       capacity: {
         adults: 0,
         children: 4
@@ -115,6 +115,7 @@ export default [
     }
   },
   {
+    bedrooms: 1,
     propertyId: 5,
     rating: 3.9,
     city: `Brussels`,
@@ -132,7 +133,6 @@ export default [
     },
     facilities: {
       premium: false,
-      bedrooms: 1,
       capacity: {
         adults: 2,
         children: 2
@@ -143,6 +143,7 @@ export default [
     }
   },
   {
+    bedrooms: 1,
     propertyId: 6,
     rating: 4.9,
     city: `Brussels`,
@@ -160,7 +161,6 @@ export default [
     },
     facilities: {
       premium: false,
-      bedrooms: 1,
       capacity: {
         adults: 1,
         children: 0

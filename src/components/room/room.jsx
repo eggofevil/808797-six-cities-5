@@ -91,7 +91,7 @@ const Room = ({offers, reviews, state: {offer, offerReviews, cityCoords}}) => {
                   {offer.main.type}
                 </li>
                 <li className="property__feature property__feature--bedrooms">
-                  {offer.facilities.bedrooms} Bedrooms
+                  {offer.bedrooms} Bedrooms
                 </li>
                 <li className="property__feature property__feature--adults">
                   {offer.facilities.capacity.adults ? `Max ${offer.facilities.capacity.adults} adults` : null}
