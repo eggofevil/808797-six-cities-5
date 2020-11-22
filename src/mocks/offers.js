@@ -11,10 +11,11 @@ export default [
     slogan: `Nice apartment among various friendly neighbors!`,
     description: [`Comfortable and modern multi-apartment house, situated in nice natural area.`, `Good transport acceciblity, many places to spend a time: tennis court, workout grounds, etc`],
     photo: [`https://via.placeholder.com/260x200`],
+    price: 100,
     main: {
       address: `some meadow in the forest`,
       coords: [52.3909553943508, 4.85309666406198],
-      price: 100,
+
       type: `apartment`
     },
     facilities: {
@@ -39,10 +40,10 @@ export default [
     slogan: `You will be frequently provided with very interesting visiters!`,
     description: [`Historical underground bulding, was founded in dark ages and has a dark story.`, `Many unusual entertainments for the most demanding taste.`],
     photo: [`https://via.placeholder.com/260x200`],
+    price: 50,
     main: {
       address: `castle in some forgotten land`,
       coords: [52.369553943508, 4.85309666406198],
-      price: 50,
       type: `room`
     },
     facilities: {
@@ -67,11 +68,11 @@ export default [
     slogan: `Many interesting sights in stone's throw, you don't need to rent a car`,
     description: [`Nice and fast wooden building without a fixed abode.`, `It was built in ancient times and still preserves historical shape.`],
     photo: [`https://via.placeholder.com/260x200`],
+    price: 200,
     main: {
       address: `Who knows were is it in this moment?`,
       coords: [52.3909553943508, 4.929309666406198],
       type: `Entire house`,
-      price: 200
     },
     facilities: {
       premium: true,
@@ -95,10 +96,10 @@ export default [
     slogan: `Many sweets for nice children! Only for children`,
     description: [`Old historical building with unusual architecture.`, `It's situated in wonderful natural area.`, `Very nice children's restoraunt inside.`],
     photo: [`https://via.placeholder.com/260x200`],
+    price: 150,
     main: {
       address: `Dark thicket deep in forest`,
       coords: [52.3809553943508, 4.939309666406198],
-      price: 150,
       type: `Entire house`
     },
     facilities: {
@@ -123,10 +124,10 @@ export default [
     slogan: `Nice apartment among various friendly neighbors!`,
     description: [`Comfortable and modern multi-apartment house, situated in nice natural area.`, `Good transport acceciblity, many places to spend a time: tennis court, workout grounds, etc`],
     photo: [`https://via.placeholder.com/260x200`],
+    price: 100,
     main: {
       address: `some meadow in the forest`,
       coords: [50.850122, 4.342151],
-      price: 100,
       type: `apartment`
     },
     facilities: {
@@ -151,10 +152,10 @@ export default [
     slogan: `You will be frequently provided with very interesting visiters!`,
     description: [`Historical underground bulding, was founded in dark ages and has a dark story.`, `Many unusual entertainments for the most demanding taste.`],
     photo: [`https://via.placeholder.com/260x200`],
+    price: 50,
     main: {
       address: `castle in some forgotten land`,
       coords: [50.848833, 4.351776],
-      price: 50,
       type: `room`
     },
     facilities: {

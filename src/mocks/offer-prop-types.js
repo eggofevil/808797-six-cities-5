@@ -10,11 +10,11 @@ export default PropTypes.shape({
   slogan: PropTypes.string.isRequired,
   description: PropTypes.arrayOf(PropTypes.string).isRequired,
   photo: PropTypes.arrayOf(PropTypes.string).isRequired,
+  price: PropTypes.number.isRequired,
   main: PropTypes.shape({
     address: PropTypes.string.isRequired,
     coords: PropTypes.arrayOf(PropTypes.number).isRequired,
-    type: PropTypes.string.isRequired,
-    price: PropTypes.number.isRequired
+    type: PropTypes.string.isRequired
   }).isRequired,
   facilities: PropTypes.shape({
     premium: PropTypes.bool.isRequired,
