@@ -4,10 +4,11 @@ import reviews from '../mocks/reviews';
 import {SortingTypes} from '../const';
 import {getCityOffers, getCityCoords} from './data-operations';
 
-let city = offers[0].city;
-let cityCoords = getCityCoords(city);
-let cityOffers = getCityOffers(city);
-let sortingType = SortingTypes.POPULARITY;
+const city = offers[0].city.name;
+// const cityCoords = [offers[0].city.location.latitude, offers[0].city.location.longitude];
+const cityCoords = getCityCoords(city);
+const cityOffers = getCityOffers(city);
+const sortingType = SortingTypes.POPULARITY;
 
 const initialState = {
   cities,

@@ -1,4 +1,4 @@
-import cities from '../mocks/cities';
+// import cities from '../mocks/cities';
 import offers from '../mocks/offers';
 import {SortingTypes} from '../const';
 
@@ -80,10 +80,11 @@ const getCityCoords = (city) => {
 };
 */
 const getCityCoords = (city) => {
-  const cityData = cities.find((element) => Object.keys(element)[0] === city);
-  return cityData[city];
+  const cityLocation = offers.find((offer) => offer.city.name === city).city.location;
+  // const cityData = cities.find((element) => Object.keys(element)[0] === city);
+  return [cityLocation.latitude, cityLocation.longitude];
 };
-const getCityOffers = (city) => offers.filter((offer) => offer.city === city);
+const getCityOffers = (city) => offers.filter((offer) => offer.city.name === city);
 
 export {
   getCityOffers,

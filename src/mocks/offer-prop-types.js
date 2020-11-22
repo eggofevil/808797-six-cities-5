@@ -2,9 +2,16 @@ import PropTypes from 'prop-types';
 
 export default PropTypes.shape({
   bedrooms: PropTypes.number.isRequired,
+  city: PropTypes.shape({
+    location: PropTypes.shape({
+      latitude: PropTypes.number.isRequired,
+      longitude: PropTypes.number.isRequired,
+      zoom: PropTypes.number.isRequired
+    }).isRequired,
+    name: PropTypes.string.isRequired
+  }).isRequired,
   propertyId: PropTypes.number.isRequired,
   rating: PropTypes.number.isRequired,
-  city: PropTypes.string.isRequired,
   property: PropTypes.string.isRequired,
   host: PropTypes.string.isRequired,
   hostAvatar: PropTypes.string.isRequired,

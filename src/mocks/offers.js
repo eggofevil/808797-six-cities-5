@@ -3,9 +3,16 @@
 export default [
   {
     bedrooms: 1,
+    city: {
+      location: {
+        latitude: 52.370216,
+        longitude: 4.895168,
+        zoom: 10
+      },
+      name: `Amsterdam`
+    },
     propertyId: 1,
     rating: 4.1,
-    city: `Amsterdam`,
     property: `Teremok`,
     host: `Fly`,
     hostAvatar: `https://via.placeholder.com/74x74`,
@@ -32,9 +39,16 @@ export default [
   },
   {
     bedrooms: 1,
+    city: {
+      location: {
+        latitude: 52.370216,
+        longitude: 4.895168,
+        zoom: 10
+      },
+      name: `Amsterdam`
+    },
     propertyId: 2,
     rating: 4.4,
-    city: `Amsterdam`,
     property: `Cell in Darkest Dungeon`,
     host: `Some evil force`,
     hostAvatar: `https://via.placeholder.com/74x74`,
@@ -60,9 +74,16 @@ export default [
   },
   {
     bedrooms: 2,
+    city: {
+      location: {
+        latitude: 52.370216,
+        longitude: 4.895168,
+        zoom: 10
+      },
+      name: `Amsterdam`
+    },
     propertyId: 3,
     rating: 4.8,
-    city: `Amsterdam`,
     property: `Hut on chicken legs`,
     host: `Bаba Yaga`,
     hostAvatar: `https://via.placeholder.com/74x74`,
@@ -88,9 +109,16 @@ export default [
   },
   {
     bedrooms: 2,
+    city: {
+      location: {
+        latitude: 52.370216,
+        longitude: 4.895168,
+        zoom: 10
+      },
+      name: `Amsterdam`
+    },
     propertyId: 4,
     rating: 4.2,
-    city: `Amsterdam`,
     property: `Gingerbread house`,
     host: `Evil Witch`,
     hostAvatar: `https://via.placeholder.com/74x74`,
@@ -116,9 +144,16 @@ export default [
   },
   {
     bedrooms: 1,
+    city: {
+      location: {
+        latitude: 50.8505,
+        longitude: 4.3488,
+        zoom: 10
+      },
+      name: `Brussels`
+    },
     propertyId: 5,
     rating: 3.9,
-    city: `Brussels`,
     property: `Teremok`,
     host: `Fly`,
     hostAvatar: `https://via.placeholder.com/74x74`,
@@ -144,9 +179,16 @@ export default [
   },
   {
     bedrooms: 1,
+    city: {
+      location: {
+        latitude: 50.8505,
+        longitude: 4.3488,
+        zoom: 10
+      },
+      name: `Brussels`
+    },
     propertyId: 6,
     rating: 4.9,
-    city: `Brussels`,
     property: `Cell in Darkest Dungeon`,
     host: `Some evil force`,
     hostAvatar: `https://via.placeholder.com/74x74`,
