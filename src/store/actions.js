@@ -1,10 +1,9 @@
-import {getCityOffers, getCityCoords, sortCityOffers} from './data-operations';
+import {getCityOffers, getCityData, sortCityOffers} from './data-operations';
 
 const changeCity = (city) => {
   return {
     type: `CHANGE_CITY`,
-    city,
-    getCityCoords: getCityCoords(city),
+    city: getCityData(city),
     getCityOffers: getCityOffers(city)
   };
 };

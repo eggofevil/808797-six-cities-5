@@ -7,7 +7,6 @@ const reducer = (state = initialState, action) => {
     // return extend(state, {city: action.act});
     return extend(state, {
       city: action.city,
-      cityCoords: action.getCityCoords,
       cityOffers: action.getCityOffers
     });
   case `CHANGE_SORTING_TYPE`:

@@ -9,21 +9,14 @@ import OffersList from '../offers-list/offers-list';
 import UserInfo from '../user-info/user-info';
 import CityMap from '../city-map/city-map';
 
-import {changeCity} from '../../store/actions';
-
 import offerPropTypes from '../../mocks/offer-prop-types';
 import reviewPropTypes from '../../mocks/review-prop-types';
 
 const ExtendedSortingType = withSortingType(SortingType);
 
-const mapStateToProps = (state) => ({cities: state.cities, city: state.city, offers: state.cityOffers, cityCoords: state.cityCoords, reviews: state.reviews});
-const mapDispatchToProps = (dispatch) => ({
-  handleChange(city) {
-    dispatch(changeCity(city));
-  }
-});
+const mapStateToProps = (state) => ({city: state.city.name, offers: state.cityOffers, reviews: state.reviews});
 
-const Main = ({city, cityCoords, offers, cities, reviews, handleChange}) => {
+const Main = ({cities, city, offers, reviews}) => {
   return (
     <div className="page page--gray page--main">
       <header className="header">
@@ -46,7 +39,7 @@ const Main = ({city, cityCoords, offers, cities, reviews, handleChange}) => {
       </header>
       <main className={offers.length > 0 ? `page__main page__main--index` : `page__main page__main--index page__main--index-empty`}>
         <h1 className="visually-hidden">Cities</h1>
-        <CitiesList cities={cities} currentCity={city} handleChange={handleChange}/>
+        <CitiesList cities={cities} currentCity={city} />
         <div className="cities">
           {offers.length > 0 ?
             <div className="cities__places-container container">
@@ -57,14 +50,13 @@ const Main = ({city, cityCoords, offers, cities, reviews, handleChange}) => {
                 <div className="cities__places-list places__list tabs__content">
                   <OffersList
                     offers={offers}
-                    cityCoords={cityCoords}
                     reviews={reviews}
                     parent="main"
                   />
                 </div>
               </section>
               <div className="cities__right-section">
-                <CityMap parent="cities" offers={offers} cityCoords={cityCoords} />
+                <CityMap parent="cities" offers={offers} />
               </div>
             </div>
             :
@@ -86,12 +78,10 @@ const Main = ({city, cityCoords, offers, cities, reviews, handleChange}) => {
 
 Main.propTypes = {
   city: PropTypes.string.isRequired,
-  cityCoords: PropTypes.arrayOf(PropTypes.number).isRequired,
-  cities: PropTypes.arrayOf(PropTypes.object).isRequired,
+  cities: PropTypes.arrayOf(PropTypes.string).isRequired,
   offers: PropTypes.arrayOf(offerPropTypes).isRequired,
-  handleChange: PropTypes.func.isRequired,
   reviews: PropTypes.arrayOf(reviewPropTypes).isRequired
 };
 
 export {Main};
-export default connect(mapStateToProps, mapDispatchToProps)(Main);
+export default connect(mapStateToProps)(Main);

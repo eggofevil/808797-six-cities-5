@@ -2,6 +2,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import '../../../node_modules/leaflet/dist/leaflet.css';
 import leaflet from 'leaflet';
+import {connect} from 'react-redux';
+
+const mapStateToProps = (state) => ({cityCoords: [state.city.location.latitude, state.city.location.longitude]});
 
 class CityMap extends React.PureComponent {
   constructor(props) {
@@ -46,9 +49,10 @@ class CityMap extends React.PureComponent {
 }
 
 CityMap.propTypes = {
-  cityCoords: PropTypes.arrayOf(PropTypes.number).isRequired,
+  cityCoords: PropTypes.arrayOf(PropTypes.number.isRequired).isRequired,
   offers: PropTypes.array.isRequired,
   parent: PropTypes.string.isRequired
 };
 
-export default CityMap;
+export {CityMap};
+export default connect(mapStateToProps)(CityMap);

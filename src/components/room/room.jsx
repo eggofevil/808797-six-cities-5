@@ -15,23 +15,9 @@ import reviewPropTypes from '../../mocks/review-prop-types';
 
 // TODO: При переходе по карточке предложения положение страницы не изменяется, нужно попровить так что бы был возврат к началу
 
-// Test component
-/*
-const Room = ({offers, state: {offer, offerRating, offerReviews}}) => {
-  console.log(offer);
-  console.log(offers);
-  console.log(offerRating);
-  return (
-    <div className="page">
-      Hello world!!!
-    </div>
-  );
-};
-*/
-
 const mapStateToProps = (state) => ({offers: state.cityOffers, reviews: state.reviews});
 
-const Room = ({offers, reviews, state: {offer, offerReviews, cityCoords}}) => {
+const Room = ({offers, reviews, state: {offer, offerReviews}}) => {
   return (
     <div className="page">
       <header className="header">
@@ -142,7 +128,7 @@ const Room = ({offers, reviews, state: {offer, offerReviews, cityCoords}}) => {
               </section>
             </div>
           </div>
-          <CityMap parent="property" offers={offers} cityCoords={cityCoords} />
+          <CityMap parent="property" offers={offers} />
         </section>
         <div className="container">
           <section className="near-places places">
@@ -151,7 +137,6 @@ const Room = ({offers, reviews, state: {offer, offerReviews, cityCoords}}) => {
               <OffersList
                 offers={offers}
                 reviews={reviews}
-                cityCoords={cityCoords}
                 parent="room"
                 thisOfferId={offer.propertyId}
               />
@@ -169,7 +154,6 @@ Room.propTypes = {
   state: PropTypes.shape({
     offer: offerPropTypes,
     offerReviews: PropTypes.arrayOf(reviewPropTypes).isRequired,
-    cityCoords: PropTypes.arrayOf(PropTypes.number).isRequired
   }).isRequired
 };
 

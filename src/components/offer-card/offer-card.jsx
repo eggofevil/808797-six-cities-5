@@ -6,14 +6,12 @@ import {RATING_BAR_DIVISION} from '../../const';
 import offerPropTypes from '../../mocks/offer-prop-types';
 import reviewPropTypes from '../../mocks/review-prop-types';
 
-const OfferCard = ({offer, onMouseEnter, onMouseLeave, offerReviews, cityCoords, parent}) => {
-  // let offerRating = (offerReviews.reduce((acc, review) => acc + review.value, 0) / offerReviews.length).toFixed(1);
+const OfferCard = ({offer, onMouseEnter, onMouseLeave, offerReviews, parent}) => {
   let offerLinkProps = {
     pathname: `/offer${offer.propertyId}`,
     state: {
       offer,
       offerReviews,
-      cityCoords
     }
   };
   let offerCardArticleClassName = parent === `main` ? `cities__place-card place-card` : `near-places__card place-card`;
@@ -62,7 +60,6 @@ OfferCard.propTypes = {
   offer: offerPropTypes,
   parent: PropTypes.string.isRequired,
   offerReviews: PropTypes.arrayOf(reviewPropTypes).isRequired,
-  cityCoords: PropTypes.arrayOf(PropTypes.number).isRequired,
   onMouseEnter: PropTypes.func.isRequired,
   onMouseLeave: PropTypes.func.isRequired,
 };
