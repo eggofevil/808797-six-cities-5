@@ -6,9 +6,14 @@ const reducer = (state = initialState, action) => {
   case `CHANGE_CITY`:
     // return extend(state, {city: action.act});
     return extend(state, {
-      city: action.changeCity,
+      city: action.city,
       cityCoords: action.getCityCoords,
       cityOffers: action.getCityOffers
+    });
+  case `CHANGE_SORTING_TYPE`:
+    return extend(state, {
+      sortingType: action.sortingType,
+      cityOffers: action.sortCityOffers
     });
   default:
     return state;
