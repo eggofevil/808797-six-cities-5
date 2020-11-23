@@ -1,21 +1,26 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import {Link} from 'react-router-dom';
+import {connect} from 'react-redux';
+
+import {changeActiveOffer} from '../../store/actions';
 import {RATING_BAR_DIVISION} from '../../const';
 
 import offerPropTypes from '../../mocks/offer-prop-types';
 import reviewPropTypes from '../../mocks/review-prop-types';
 
-const OfferCard = ({offer, onMouseEnter, onMouseLeave, offerReviews, parent}) => {
-  let offerLinkProps = {
+const OfferCard = ({offer, offerReviews, parent, setActiveOffer}) => {
+  const offerLinkProps = {
     pathname: `/offer${offer.id}`,
     state: {
       offer,
       offerReviews,
     }
   };
-  let offerCardArticleClassName = parent === `main` ? `cities__place-card place-card` : `near-places__card place-card`;
-  let offerCardDivClassName = parent === `main` ? `cities__image-wrapper place-card__image-wrapper` : `near-places__image-wrapper place-card__image-wrapper`;
+  const offerCardArticleClassName = parent === `main` ? `cities__place-card place-card` : `near-places__card place-card`;
+  const offerCardDivClassName = parent === `main` ? `cities__image-wrapper place-card__image-wrapper` : `near-places__image-wrapper place-card__image-wrapper`;
+  const onMouseEnter = () => setActiveOffer(offer.id);
+  const onMouseLeave = () => setActiveOffer(null);
   return (
     <article className={offerCardArticleClassName} onMouseEnter={() => (onMouseEnter(offer.property))} onMouseLeave={onMouseLeave}>
       {offer[`is_premium`] ? (
@@ -60,8 +65,14 @@ OfferCard.propTypes = {
   offer: offerPropTypes,
   parent: PropTypes.string.isRequired,
   offerReviews: PropTypes.arrayOf(reviewPropTypes).isRequired,
-  onMouseEnter: PropTypes.func.isRequired,
-  onMouseLeave: PropTypes.func.isRequired,
+  setActiveOffer: PropTypes.func.isRequired
 };
 
-export default OfferCard;
+const mapDispatchToProps = (dispatch) => ({
+  setActiveOffer(offerId) {
+    dispatch(changeActiveOffer(offerId));
+  }
+});
+
+export {OfferCard};
+export default connect(null, mapDispatchToProps)(OfferCard);

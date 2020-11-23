@@ -16,7 +16,15 @@ const changeSortingType = (sortingType, currentOffers) => {
   };
 };
 
+const changeActiveOffer = (offerId) => {
+  return {
+    type: `CHANGE_ACTIVE_OFFER`,
+    activeOffer: offerId
+  };
+};
+
 export {
   changeCity,
-  changeSortingType
+  changeSortingType,
+  changeActiveOffer
 };

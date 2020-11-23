@@ -4,15 +4,24 @@ import '../../../node_modules/leaflet/dist/leaflet.css';
 import leaflet from 'leaflet';
 import {connect} from 'react-redux';
 
-const mapStateToProps = (state) => ({cityCoords: [state.city.location.latitude, state.city.location.longitude], zoom: state.city.location.zoom});
+const mapStateToProps = (state) => ({
+  activeOffer: state.activeOffer,
+  cityCoords: [state.city.location.latitude, state.city.location.longitude],
+  zoom: state.city.location.zoom
+});
 
 class CityMap extends React.PureComponent {
   constructor(props) {
     super(props);
   }
 
-  _changeMapView() {
-    const {offers, cityCoords, zoom} = this.props;
+  _setMapView() {
+    const {cityCoords, zoom} = this.props;
+    this.map.setView(cityCoords, zoom);
+  }
+
+  _setMapIcons() {
+    const {offers, activeOffer} = this.props;
     this.icon = leaflet.icon({
       iconUrl: `img/pin.svg`,
       iconSize: [30, 30]
@@ -21,9 +30,9 @@ class CityMap extends React.PureComponent {
       iconUrl: `img/pin-active.svg`,
       iconSize: [30, 30]
     });
-    this.map.setView(cityCoords, zoom);
     offers.map((offer) => {
-      leaflet.marker([offer.location.latitude, offer.location.longitude], {icon: this.icon}).addTo(this.map);
+      const icon = offer.id === activeOffer ? this.activeIcon : this.icon;
+      leaflet.marker([offer.location.latitude, offer.location.longitude], {icon}).addTo(this.map);
     });
   }
 
@@ -37,11 +46,13 @@ class CityMap extends React.PureComponent {
         attribution: `&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>`
       })
       .addTo(this.map);
-    this._changeMapView();
+    this._setMapView();
+    this._setMapIcons();
   }
 
   componentDidUpdate() {
-    this._changeMapView();
+    this._setMapView();
+    this._setMapIcons();
   }
 
   render() {
@@ -52,6 +63,7 @@ class CityMap extends React.PureComponent {
 }
 
 CityMap.propTypes = {
+  activeOffer: PropTypes.number,
   cityCoords: PropTypes.arrayOf(PropTypes.number.isRequired).isRequired,
   offers: PropTypes.array.isRequired,
   parent: PropTypes.string.isRequired,
