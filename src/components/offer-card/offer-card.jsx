@@ -8,7 +8,7 @@ import reviewPropTypes from '../../mocks/review-prop-types';
 
 const OfferCard = ({offer, onMouseEnter, onMouseLeave, offerReviews, parent}) => {
   let offerLinkProps = {
-    pathname: `/offer${offer.propertyId}`,
+    pathname: `/offer${offer.id}`,
     state: {
       offer,
       offerReviews,

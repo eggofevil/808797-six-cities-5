@@ -8,7 +8,7 @@ Gingerbread house: 4
 
 export default [
   {
-    propertyId: 1,
+    id: 1,
     author: {
       name: `Vosh popolsuha`,
       avatar: `https://via.placeholder.com/54x54`
@@ -18,7 +18,7 @@ export default [
     date: `2019-04-24`
   },
   {
-    propertyId: 2,
+    id: 2,
     author: {
       name: `Brave Knight`,
       avatar: `https://via.placeholder.com/54x54`
@@ -28,7 +28,7 @@ export default [
     date: `2017-05-14`
   },
   {
-    propertyId: 2,
+    id: 2,
     author: {
       name: `Old Sceleton`,
       avatar: `https://via.placeholder.com/54x54`
@@ -38,7 +38,7 @@ export default [
     date: `2020-01-01`
   },
   {
-    propertyId: 3,
+    id: 3,
     author: {
       name: `Brave Knight`,
       avatar: `https://via.placeholder.com/54x54`
@@ -48,7 +48,7 @@ export default [
     date: `1654-06-21`
   },
   {
-    propertyId: 3,
+    id: 3,
     author: {
       name: `Koschei the Immortal`,
       avatar: `https://via.placeholder.com/54x54`
@@ -58,7 +58,7 @@ export default [
     date: `2001-08-11`
   },
   {
-    propertyId: 4,
+    id: 4,
     author: {
       name: `Hansel`,
       avatar: `https://via.placeholder.com/54x54`
@@ -68,7 +68,7 @@ export default [
     date: `1768-12-12`
   },
   {
-    propertyId: 4,
+    id: 4,
     author: {
       name: `Gretel`,
       avatar: `https://via.placeholder.com/54x54`

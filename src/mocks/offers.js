@@ -19,7 +19,7 @@ export default [
       'is_pro': true,
       'name': `Fly`
     },
-    propertyId: 1,
+    id: 1,
     rating: 4.1,
     property: `Teremok`,
     slogan: `Nice apartment among various friendly neighbors!`,
@@ -57,7 +57,7 @@ export default [
       'is_pro': true,
       'name': `Some evil force`
     },
-    propertyId: 2,
+    id: 2,
     rating: 4.4,
     property: `Cell in Darkest Dungeon`,
     slogan: `You will be frequently provided with very interesting visiters!`,
@@ -94,7 +94,7 @@ export default [
       'is_pro': true,
       'name': `Bаba Yaga`
     },
-    propertyId: 3,
+    id: 3,
     rating: 4.8,
     property: `Hut on chicken legs`,
     slogan: `Many interesting sights in stone's throw, you don't need to rent a car`,
@@ -131,7 +131,7 @@ export default [
       'is_pro': false,
       'name': `Evil Witch`
     },
-    propertyId: 4,
+    id: 4,
     rating: 4.2,
     property: `Gingerbread house`,
     slogan: `Many sweets for nice children! Only for children`,
@@ -168,7 +168,7 @@ export default [
       'is_pro': false,
       'name': `Bloha poprjaduha`
     },
-    propertyId: 5,
+    id: 5,
     rating: 3.9,
     property: `Teremok Plaza`,
     slogan: `Nice apartment among various friendly neighbors!`,
@@ -205,7 +205,7 @@ export default [
       'is_pro': false,
       'name': `Dark Soul`
     },
-    propertyId: 6,
+    id: 6,
     rating: 4.9,
     property: `Cell in Darkest Dungeon`,
     slogan: `You will be frequently provided with very interesting visiters!`,

@@ -22,11 +22,11 @@ class OffersList extends React.Component {
     this.setState({activeCard: null});
   }
   _getOfferReviews(offerId) {
-    return (this.props.reviews.filter((review) => review.propertyId === offerId));
+    return (this.props.reviews.filter((review) => review.id === offerId));
   }
 
   render() {
-    let offers = this.props.thisOfferId ? this.props.offers.filter((offer) => (offer.propertyId !== this.props.thisOfferId)) : this.props.offers;
+    let offers = this.props.thisOfferId ? this.props.offers.filter((offer) => (offer.id !== this.props.thisOfferId)) : this.props.offers;
     return (
       <React.Fragment>
         {offers.map((offer, i) => (
@@ -36,7 +36,7 @@ class OffersList extends React.Component {
             offer={offer}
             onMouseEnter={this._handleMouseEnter}
             onMouseLeave={this._handleMouseLeave}
-            offerReviews={this._getOfferReviews(offer.propertyId)}
+            offerReviews={this._getOfferReviews(offer.id)}
           />
         ))}
       </React.Fragment>

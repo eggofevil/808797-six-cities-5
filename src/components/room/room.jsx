@@ -123,7 +123,7 @@ const Room = ({offers, reviews, state: {offer, offerReviews}}) => {
                     <Review key={`review-${i}`} review={review} />
                   ))}
                 </ul>
-                <ReviewForm propertyId={offer.propertyId}/>
+                <ReviewForm propertyId={offer.id}/>
               </section>
             </div>
           </div>
@@ -137,7 +137,7 @@ const Room = ({offers, reviews, state: {offer, offerReviews}}) => {
                 offers={offers}
                 reviews={reviews}
                 parent="room"
-                thisOfferId={offer.propertyId}
+                thisOfferId={offer.id}
               />
             </div>
           </section>

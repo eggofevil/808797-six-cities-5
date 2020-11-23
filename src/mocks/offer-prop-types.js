@@ -18,7 +18,7 @@ export default PropTypes.shape({
     'is_pro': PropTypes.bool.isRequired,
     'name': PropTypes.string.isRequired
   }).isRequired,
-  propertyId: PropTypes.number.isRequired,
+  id: PropTypes.number.isRequired,
   rating: PropTypes.number.isRequired,
   property: PropTypes.string.isRequired,
   slogan: PropTypes.string.isRequired,
