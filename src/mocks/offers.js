@@ -28,6 +28,8 @@ export default [
       'longitude': 4.85309666406198,
       'zoom': 8
     },
+    'max_adults': 2,
+    'max_children': 2,
     'rating': 4.1,
     'property': `Teremok`,
     'slogan': `Nice apartment among various friendly neighbors!`,
@@ -35,12 +37,6 @@ export default [
     'main': {
       'address': `some meadow in the forest`,
       'type': `apartment`
-    },
-    'facilities': {
-      'capacity': {
-        'adults': 2,
-        'children': 2
-      }
     }
   },
   {
@@ -70,6 +66,7 @@ export default [
       'longitude': 4.85309666406198,
       'zoom': 8
     },
+    'max_adults': 1,
     'rating': 4.4,
     'property': `Cell in Darkest Dungeon`,
     'slogan': `You will be frequently provided with very interesting visiters!`,
@@ -77,12 +74,6 @@ export default [
     'main': {
       'address': `castle in some forgotten land`,
       'type': `room`
-    },
-    'facilities': {
-      'capacity': {
-        'adults': 1,
-        'children': 0
-      }
     }
   },
   {
@@ -112,6 +103,8 @@ export default [
       'longitude': 4.929309666406198,
       'zoom': 8
     },
+    'max_adults': 4,
+    'max_children': 4,
     'rating': 4.8,
     'property': `Hut on chicken legs`,
     'slogan': `Many interesting sights in stone's throw, you don't need to rent a car`,
@@ -119,12 +112,6 @@ export default [
     'main': {
       'address': `Who knows were is it in this moment?`,
       'type': `Entire house`,
-    },
-    'facilities': {
-      'capacity': {
-        'adults': 4,
-        'children': 4
-      }
     }
   },
   {
@@ -154,6 +141,8 @@ export default [
       'longitude': 4.939309666406198,
       'zoom': 8
     },
+    'max_adults': 0,
+    'max_children': 4,
     'rating': 4.2,
     'property': `Gingerbread house`,
     'slogan': `Many sweets for nice children! Only for children`,
@@ -161,12 +150,6 @@ export default [
     'main': {
       'address': `Dark thicket deep in forest`,
       'type': `Entire house`
-    },
-    'facilities': {
-      'capacity': {
-        'adults': 0,
-        'children': 4
-      }
     }
   },
   {
@@ -196,6 +179,8 @@ export default [
       'longitude': 4.342151,
       'zoom': 8
     },
+    'max_adults': 2,
+    'max_children': 2,
     'rating': 3.9,
     'property': `Teremok Plaza`,
     'slogan': `Nice apartment among various friendly neighbors!`,
@@ -203,12 +188,6 @@ export default [
     'main': {
       'address': `some meadow in the forest`,
       'type': `apartment`
-    },
-    'facilities': {
-      'capacity': {
-        'adults': 2,
-        'children': 2
-      }
     }
   },
   {
@@ -238,6 +217,7 @@ export default [
       'longitude': 4.351776,
       'zoom': 8
     },
+    'max_adults': 2,
     'rating': 4.9,
     'property': `Cell in Darkest Dungeon`,
     'slogan': `You will be frequently provided with very interesting visiters!`,
@@ -245,12 +225,6 @@ export default [
     'main': {
       'address': `castle in some forgotten land`,
       'type': `room`
-    },
-    'facilities': {
-      'capacity': {
-        'adults': 1,
-        'children': 0
-      }
     }
   }
 ];

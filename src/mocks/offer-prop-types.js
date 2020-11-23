@@ -27,6 +27,8 @@ export default PropTypes.shape({
     'longitude': PropTypes.number.isRequired,
     'zoom': PropTypes.number.isRequired
   }).isRequired,
+  'max_adults': PropTypes.number.isRequired,
+  'max_children': PropTypes.number,
   'rating': PropTypes.number.isRequired,
   'property': PropTypes.string.isRequired,
   'slogan': PropTypes.string.isRequired,
@@ -34,11 +36,5 @@ export default PropTypes.shape({
   'main': PropTypes.shape({
     'address': PropTypes.string.isRequired,
     'type': PropTypes.string.isRequired
-  }).isRequired,
-  'facilities': PropTypes.shape({
-    'capacity': PropTypes.shape({
-      'adults': PropTypes.number.isRequired,
-      'children': PropTypes.number.isRequired
-    }).isRequired
   }).isRequired,
 }).isRequired;

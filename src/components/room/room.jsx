@@ -52,7 +52,7 @@ const Room = ({offers, reviews, state: {offer, offerReviews}}) => {
           </div>
           <div className="property__container container">
             <div className="property__wrapper">
-              {offer.facilities.premium ? (
+              {offer[`is_premium`] ? (
                 <div className="property__mark">
                   <span>Premium</span>
                 </div>
@@ -83,9 +83,9 @@ const Room = ({offers, reviews, state: {offer, offerReviews}}) => {
                   {offer.bedrooms} Bedrooms
                 </li>
                 <li className="property__feature property__feature--adults">
-                  {offer.facilities.capacity.adults ? `Max ${offer.facilities.capacity.adults} adults` : null}
-                  {offer.facilities.capacity.adults && offer.facilities.capacity.children ? <br></br> : null}
-                  {offer.facilities.capacity.children ? `Max ${offer.facilities.capacity.children} children` : null}
+                  {offer[`max_adults`] ? `Max ${offer[`max_adults`]} adults` : null}
+                  {offer[`max_adults`] && offer[`max_children`] ? <br></br> : null}
+                  {offer[`max_children`] ? `Max ${offer[`max_children`]} children` : null}
                 </li>
               </ul>
               <div className="property__price">
