@@ -19,10 +19,10 @@ export default PropTypes.shape({
     'name': PropTypes.string.isRequired
   }).isRequired,
   id: PropTypes.number.isRequired,
+  images: PropTypes.arrayOf(PropTypes.string).isRequired,
   rating: PropTypes.number.isRequired,
   property: PropTypes.string.isRequired,
   slogan: PropTypes.string.isRequired,
-  photo: PropTypes.arrayOf(PropTypes.string).isRequired,
   price: PropTypes.number.isRequired,
   main: PropTypes.shape({
     address: PropTypes.string.isRequired,

@@ -20,10 +20,10 @@ export default [
       'name': `Fly`
     },
     id: 1,
+    images: [`https://via.placeholder.com/260x200`, `https://via.placeholder.com/260x200`, `https://via.placeholder.com/260x200`],
     rating: 4.1,
     property: `Teremok`,
     slogan: `Nice apartment among various friendly neighbors!`,
-    photo: [`https://via.placeholder.com/260x200`],
     price: 100,
     main: {
       address: `some meadow in the forest`,
@@ -58,10 +58,10 @@ export default [
       'name': `Some evil force`
     },
     id: 2,
+    images: [`https://via.placeholder.com/260x200`],
     rating: 4.4,
     property: `Cell in Darkest Dungeon`,
     slogan: `You will be frequently provided with very interesting visiters!`,
-    photo: [`https://via.placeholder.com/260x200`],
     price: 50,
     main: {
       address: `castle in some forgotten land`,
@@ -95,10 +95,10 @@ export default [
       'name': `Bаba Yaga`
     },
     id: 3,
+    images: [`https://via.placeholder.com/260x200`, `https://via.placeholder.com/260x200`],
     rating: 4.8,
     property: `Hut on chicken legs`,
     slogan: `Many interesting sights in stone's throw, you don't need to rent a car`,
-    photo: [`https://via.placeholder.com/260x200`],
     price: 200,
     main: {
       address: `Who knows were is it in this moment?`,
@@ -132,10 +132,10 @@ export default [
       'name': `Evil Witch`
     },
     id: 4,
+    images: [`https://via.placeholder.com/260x200`],
     rating: 4.2,
     property: `Gingerbread house`,
     slogan: `Many sweets for nice children! Only for children`,
-    photo: [`https://via.placeholder.com/260x200`],
     price: 150,
     main: {
       address: `Dark thicket deep in forest`,
@@ -169,10 +169,10 @@ export default [
       'name': `Bloha poprjaduha`
     },
     id: 5,
+    images: [`https://via.placeholder.com/260x200`],
     rating: 3.9,
     property: `Teremok Plaza`,
     slogan: `Nice apartment among various friendly neighbors!`,
-    photo: [`https://via.placeholder.com/260x200`],
     price: 100,
     main: {
       address: `some meadow in the forest`,
@@ -206,10 +206,10 @@ export default [
       'name': `Dark Soul`
     },
     id: 6,
+    images: [`https://via.placeholder.com/260x200`],
     rating: 4.9,
     property: `Cell in Darkest Dungeon`,
     slogan: `You will be frequently provided with very interesting visiters!`,
-    photo: [`https://via.placeholder.com/260x200`],
     price: 50,
     main: {
       address: `castle in some forgotten land`,

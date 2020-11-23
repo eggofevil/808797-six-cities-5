@@ -43,9 +43,9 @@ const Room = ({offers, reviews, state: {offer, offerReviews}}) => {
         <section className="property">
           <div className="property__gallery-container container">
             <div className="property__gallery">
-              {offer.photo.map((photo, i) => (
+              {offer.images.map((img, i) => (
                 <div key={`photo-${i}`} className="property__image-wrapper">
-                  <img className="property__image" src={photo} alt="photo of property" />
+                  <img className="property__image" src={img} alt="photo of property" />
                 </div>
               ))}
             </div>
