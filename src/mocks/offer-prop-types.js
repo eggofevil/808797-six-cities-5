@@ -12,11 +12,15 @@ export default PropTypes.shape({
   }).isRequired,
   description: PropTypes.string.isRequired,
   goods: PropTypes.arrayOf(PropTypes.string).isRequired,
+  host: PropTypes.shape({
+    'avatar_url': PropTypes.string.isRequired,
+    'id': PropTypes.number.isRequired,
+    'is_pro': PropTypes.bool.isRequired,
+    'name': PropTypes.string.isRequired
+  }).isRequired,
   propertyId: PropTypes.number.isRequired,
   rating: PropTypes.number.isRequired,
   property: PropTypes.string.isRequired,
-  host: PropTypes.string.isRequired,
-  hostAvatar: PropTypes.string.isRequired,
   slogan: PropTypes.string.isRequired,
   photo: PropTypes.arrayOf(PropTypes.string).isRequired,
   price: PropTypes.number.isRequired,

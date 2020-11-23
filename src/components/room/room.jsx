@@ -18,6 +18,9 @@ import reviewPropTypes from '../../mocks/review-prop-types';
 const mapStateToProps = (state) => ({offers: state.cityOffers, reviews: state.reviews});
 
 const Room = ({offers, reviews, state: {offer, offerReviews}}) => {
+  const hostAvatarClassName = offer.host[`is_pro`] ?
+    `property__avatar-wrapper property__avatar-wrapper--pro user__avatar-wrapper` :
+    `property__avatar-wrapper user__avatar-wrapper`;
   return (
     <div className="page">
       <header className="header">
@@ -102,11 +105,11 @@ const Room = ({offers, reviews, state: {offer, offerReviews}}) => {
               <div className="property__host">
                 <h2 className="property__host-title">Meet the host</h2>
                 <div className="property__host-user user">
-                  <div className="property__avatar-wrapper property__avatar-wrapper--pro user__avatar-wrapper">
-                    <img className="property__avatar user__avatar" src={offer.hostAvatar} width={74} height={74} alt="Host avatar" />
+                  <div className={hostAvatarClassName}>
+                    <img className="property__avatar user__avatar" src={offer.host[`avatar_url`]} width={74} height={74} alt="Host avatar" />
                   </div>
                   <span className="property__user-name">
-                    {offer.host}
+                    {offer.host[`name`]}
                   </span>
                 </div>
                 <div className="property__description">
