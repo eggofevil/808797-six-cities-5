@@ -22,6 +22,7 @@ export default [
     'id': 1,
     'images': [`https://via.placeholder.com/260x200`, `https://via.placeholder.com/260x200`, `https://via.placeholder.com/260x200`],
     'is_favorite': false,
+    'is_premium': false,
     'rating': 4.1,
     'property': `Teremok`,
     'slogan': `Nice apartment among various friendly neighbors!`,
@@ -33,7 +34,6 @@ export default [
       'type': `apartment`
     },
     'facilities': {
-      'premium': false,
       'capacity': {
         'adults': 2,
         'children': 2
@@ -61,6 +61,7 @@ export default [
     'id': 2,
     'images': [`https://via.placeholder.com/260x200`],
     'is_favorite': false,
+    'is_premium': false,
     'rating': 4.4,
     'property': `Cell in Darkest Dungeon`,
     'slogan': `You will be frequently provided with very interesting visiters!`,
@@ -71,7 +72,6 @@ export default [
       'type': `room`
     },
     'facilities': {
-      'premium': false,
       'capacity': {
         'adults': 1,
         'children': 0
@@ -99,6 +99,7 @@ export default [
     'id': 3,
     'images': [`https://via.placeholder.com/260x200`, `https://via.placeholder.com/260x200`],
     'is_favorite': false,
+    'is_premium': true,
     'rating': 4.8,
     'property': `Hut on chicken legs`,
     'slogan': `Many interesting sights in stone's throw, you don't need to rent a car`,
@@ -109,7 +110,6 @@ export default [
       'type': `Entire house`,
     },
     'facilities': {
-      'premium': true,
       'capacity': {
         'adults': 4,
         'children': 4
@@ -137,6 +137,7 @@ export default [
     'id': 4,
     'images': [`https://via.placeholder.com/260x200`],
     'is_favorite': false,
+    'is_premium': true,
     'rating': 4.2,
     'property': `Gingerbread house`,
     'slogan': `Many sweets for nice children! Only for children`,
@@ -147,7 +148,6 @@ export default [
       'type': `Entire house`
     },
     'facilities': {
-      'premium': true,
       'capacity': {
         'adults': 0,
         'children': 4
@@ -175,6 +175,7 @@ export default [
     'id': 5,
     'images': [`https://via.placeholder.com/260x200`],
     'is_favorite': false,
+    'is_premium': false,
     'rating': 3.9,
     'property': `Teremok Plaza`,
     'slogan': `Nice apartment among various friendly neighbors!`,
@@ -185,7 +186,6 @@ export default [
       'type': `apartment`
     },
     'facilities': {
-      'premium': false,
       'capacity': {
         'adults': 2,
         'children': 2
@@ -213,6 +213,7 @@ export default [
     'id': 6,
     'images': [`https://via.placeholder.com/260x200`],
     'is_favorite': false,
+    'is_premium': false,
     'rating': 4.9,
     'property': `Cell in Darkest Dungeon`,
     'slogan': `You will be frequently provided with very interesting visiters!`,
@@ -223,7 +224,6 @@ export default [
       'type': `room`
     },
     'facilities': {
-      'premium': false,
       'capacity': {
         'adults': 1,
         'children': 0

@@ -18,7 +18,7 @@ const OfferCard = ({offer, onMouseEnter, onMouseLeave, offerReviews, parent}) =>
   let offerCardDivClassName = parent === `main` ? `cities__image-wrapper place-card__image-wrapper` : `near-places__image-wrapper place-card__image-wrapper`;
   return (
     <article className={offerCardArticleClassName} onMouseEnter={() => (onMouseEnter(offer.property))} onMouseLeave={onMouseLeave}>
-      {offer.facilities.premium ? (
+      {offer[`is_premium`] ? (
         <div className="place-card__mark">
           <span>Premium</span>
         </div>
