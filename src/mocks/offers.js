@@ -23,14 +23,17 @@ export default [
     'images': [`https://via.placeholder.com/260x200`, `https://via.placeholder.com/260x200`, `https://via.placeholder.com/260x200`],
     'is_favorite': false,
     'is_premium': false,
+    'location': {
+      'latitude': 52.3909553943508,
+      'longitude': 4.85309666406198,
+      'zoom': 8
+    },
     'rating': 4.1,
     'property': `Teremok`,
     'slogan': `Nice apartment among various friendly neighbors!`,
     'price': 100,
     'main': {
       'address': `some meadow in the forest`,
-      'coords': [52.3909553943508, 4.85309666406198],
-
       'type': `apartment`
     },
     'facilities': {
@@ -62,13 +65,17 @@ export default [
     'images': [`https://via.placeholder.com/260x200`],
     'is_favorite': false,
     'is_premium': false,
+    'location': {
+      'latitude': 52.369553943508,
+      'longitude': 4.85309666406198,
+      'zoom': 8
+    },
     'rating': 4.4,
     'property': `Cell in Darkest Dungeon`,
     'slogan': `You will be frequently provided with very interesting visiters!`,
     'price': 50,
     'main': {
       'address': `castle in some forgotten land`,
-      'coords': [52.369553943508, 4.85309666406198],
       'type': `room`
     },
     'facilities': {
@@ -100,13 +107,17 @@ export default [
     'images': [`https://via.placeholder.com/260x200`, `https://via.placeholder.com/260x200`],
     'is_favorite': false,
     'is_premium': true,
+    'location': {
+      'latitude': 52.3909553943508,
+      'longitude': 4.929309666406198,
+      'zoom': 8
+    },
     'rating': 4.8,
     'property': `Hut on chicken legs`,
     'slogan': `Many interesting sights in stone's throw, you don't need to rent a car`,
     'price': 200,
     'main': {
       'address': `Who knows were is it in this moment?`,
-      'coords': [52.3909553943508, 4.929309666406198],
       'type': `Entire house`,
     },
     'facilities': {
@@ -138,13 +149,17 @@ export default [
     'images': [`https://via.placeholder.com/260x200`],
     'is_favorite': false,
     'is_premium': true,
+    'location': {
+      'latitude': 52.3809553943508,
+      'longitude': 4.939309666406198,
+      'zoom': 8
+    },
     'rating': 4.2,
     'property': `Gingerbread house`,
     'slogan': `Many sweets for nice children! Only for children`,
     'price': 150,
     'main': {
       'address': `Dark thicket deep in forest`,
-      'coords': [52.3809553943508, 4.939309666406198],
       'type': `Entire house`
     },
     'facilities': {
@@ -176,13 +191,17 @@ export default [
     'images': [`https://via.placeholder.com/260x200`],
     'is_favorite': false,
     'is_premium': false,
+    'location': {
+      'latitude': 50.850122,
+      'longitude': 4.342151,
+      'zoom': 8
+    },
     'rating': 3.9,
     'property': `Teremok Plaza`,
     'slogan': `Nice apartment among various friendly neighbors!`,
     'price': 100,
     'main': {
       'address': `some meadow in the forest`,
-      'coords': [50.850122, 4.342151],
       'type': `apartment`
     },
     'facilities': {
@@ -214,13 +233,17 @@ export default [
     'images': [`https://via.placeholder.com/260x200`],
     'is_favorite': false,
     'is_premium': false,
+    'location': {
+      'latitude': 50.848833,
+      'longitude': 4.351776,
+      'zoom': 8
+    },
     'rating': 4.9,
     'property': `Cell in Darkest Dungeon`,
     'slogan': `You will be frequently provided with very interesting visiters!`,
     'price': 50,
     'main': {
       'address': `castle in some forgotten land`,
-      'coords': [50.848833, 4.351776],
       'type': `room`
     },
     'facilities': {

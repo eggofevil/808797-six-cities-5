@@ -22,13 +22,17 @@ export default PropTypes.shape({
   'images': PropTypes.arrayOf(PropTypes.string).isRequired,
   'is_favorite': PropTypes.bool.isRequired,
   'is_premium': PropTypes.bool.isRequired,
+  'location': PropTypes.shape({
+    'latitude': PropTypes.number.isRequired,
+    'longitude': PropTypes.number.isRequired,
+    'zoom': PropTypes.number.isRequired
+  }).isRequired,
   'rating': PropTypes.number.isRequired,
   'property': PropTypes.string.isRequired,
   'slogan': PropTypes.string.isRequired,
   'price': PropTypes.number.isRequired,
   'main': PropTypes.shape({
     'address': PropTypes.string.isRequired,
-    'coords': PropTypes.arrayOf(PropTypes.number).isRequired,
     'type': PropTypes.string.isRequired
   }).isRequired,
   'facilities': PropTypes.shape({

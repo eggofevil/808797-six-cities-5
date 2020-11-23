@@ -23,7 +23,7 @@ class CityMap extends React.PureComponent {
     });
     this.map.setView(cityCoords, zoom);
     offers.map((offer) => {
-      leaflet.marker(offer.main.coords, {icon: this.icon}).addTo(this.map);
+      leaflet.marker([offer.location.latitude, offer.location.longitude], {icon: this.icon}).addTo(this.map);
     });
   }
 
