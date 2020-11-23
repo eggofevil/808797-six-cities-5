@@ -29,6 +29,7 @@ export default PropTypes.shape({
   }).isRequired,
   'max_adults': PropTypes.number.isRequired,
   'max_children': PropTypes.number,
+  'preview_image': PropTypes.string.isRequired,
   'rating': PropTypes.number.isRequired,
   'property': PropTypes.string.isRequired,
   'slogan': PropTypes.string.isRequired,

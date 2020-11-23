@@ -25,7 +25,7 @@ const OfferCard = ({offer, onMouseEnter, onMouseLeave, offerReviews, parent}) =>
       ) : null}
       <div className={offerCardDivClassName}>
         <Link to={offerLinkProps}>
-          <img className="place-card__image" src={offer.images[0]} width={260} height={200} alt="Place image" />
+          <img className="place-card__image" src={offer[`preview_image`]} width={260} height={200} alt="Place image" />
         </Link>
       </div>
       <div className="place-card__info">
