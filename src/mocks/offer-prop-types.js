@@ -30,12 +30,9 @@ export default PropTypes.shape({
   'max_adults': PropTypes.number.isRequired,
   'max_children': PropTypes.number,
   'preview_image': PropTypes.string.isRequired,
-  'rating': PropTypes.number.isRequired,
-  'property': PropTypes.string.isRequired,
-  'slogan': PropTypes.string.isRequired,
   'price': PropTypes.number.isRequired,
-  'main': PropTypes.shape({
-    'address': PropTypes.string.isRequired,
-    'type': PropTypes.string.isRequired
-  }).isRequired,
+  'rating': PropTypes.number.isRequired,
+  'title': PropTypes.string.isRequired,
+  'type': PropTypes.string.isRequired,
+  'property': PropTypes.string.isRequired
 }).isRequired;

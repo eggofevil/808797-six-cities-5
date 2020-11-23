@@ -48,9 +48,9 @@ const OfferCard = ({offer, onMouseEnter, onMouseLeave, offerReviews, parent}) =>
           </div>
         </div>
         <h2 className="place-card__name">
-          <Link to={offerLinkProps}>{offer.slogan}</Link>
+          <Link to={offerLinkProps}>{offer.title}</Link>
         </h2>
-        <p className="place-card__type">{offer.main.type}</p>
+        <p className="place-card__type">{offer.type}</p>
       </div>
     </article>
   );

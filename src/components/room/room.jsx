@@ -59,7 +59,7 @@ const Room = ({offers, reviews, state: {offer, offerReviews}}) => {
               ) : null}
               <div className="property__name-wrapper">
                 <h1 className="property__name">
-                  {offer.slogan}
+                  {offer.title}
                 </h1>
                 <button className="property__bookmark-button button" type="button">
                   <svg className="property__bookmark-icon" width={31} height={33}>
@@ -77,7 +77,7 @@ const Room = ({offers, reviews, state: {offer, offerReviews}}) => {
               </div>
               <ul className="property__features">
                 <li className="property__feature property__feature--entire">
-                  {offer.main.type}
+                  {offer.type}
                 </li>
                 <li className="property__feature property__feature--bedrooms">
                   {offer.bedrooms} Bedrooms

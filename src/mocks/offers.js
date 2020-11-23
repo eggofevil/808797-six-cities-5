@@ -31,14 +31,11 @@ export default [
     'max_adults': 2,
     'max_children': 2,
     'preview_image': `https://via.placeholder.com/260x200`,
-    'rating': 4.1,
-    'property': `Teremok`,
-    'slogan': `Nice apartment among various friendly neighbors!`,
     'price': 100,
-    'main': {
-      'address': `some meadow in the forest`,
-      'type': `apartment`
-    }
+    'rating': 4.1,
+    'title': `Nice apartment among various friendly neighbors!`,
+    'type': `apartment`,
+    'property': `Teremok`
   },
   {
     'bedrooms': 1,
@@ -69,14 +66,11 @@ export default [
     },
     'max_adults': 1,
     'preview_image': `https://via.placeholder.com/260x200`,
-    'rating': 4.4,
-    'property': `Cell in Darkest Dungeon`,
-    'slogan': `You will be frequently provided with very interesting visiters!`,
     'price': 50,
-    'main': {
-      'address': `castle in some forgotten land`,
-      'type': `room`
-    }
+    'rating': 4.4,
+    'title': `You will be frequently provided with very interesting visiters!`,
+    'type': `room`,
+    'property': `Cell in Darkest Dungeon`
   },
   {
     'bedrooms': 2,
@@ -108,14 +102,11 @@ export default [
     'max_adults': 4,
     'max_children': 4,
     'preview_image': `https://via.placeholder.com/260x200`,
-    'rating': 4.8,
-    'property': `Hut on chicken legs`,
-    'slogan': `Many interesting sights in stone's throw, you don't need to rent a car`,
     'price': 200,
-    'main': {
-      'address': `Who knows were is it in this moment?`,
-      'type': `Entire house`,
-    }
+    'rating': 4.8,
+    'title': `Many interesting sights in stone's throw, you don't need to rent a car`,
+    'type': `Entire house`,
+    'property': `Hut on chicken legs`
   },
   {
     'bedrooms': 2,
@@ -147,14 +138,11 @@ export default [
     'max_adults': 0,
     'max_children': 4,
     'preview_image': `https://via.placeholder.com/260x200`,
-    'rating': 4.2,
-    'property': `Gingerbread house`,
-    'slogan': `Many sweets for nice children! Only for children`,
     'price': 150,
-    'main': {
-      'address': `Dark thicket deep in forest`,
-      'type': `Entire house`
-    }
+    'rating': 4.2,
+    'title': `Many sweets for nice children! Only for children`,
+    'type': `Entire house`,
+    'property': `Gingerbread house`
   },
   {
     'bedrooms': 1,
@@ -186,14 +174,11 @@ export default [
     'max_adults': 2,
     'max_children': 2,
     'preview_image': `https://via.placeholder.com/260x200`,
-    'rating': 3.9,
-    'property': `Teremok Plaza`,
-    'slogan': `Nice apartment among various friendly neighbors!`,
     'price': 100,
-    'main': {
-      'address': `some meadow in the forest`,
-      'type': `apartment`
-    }
+    'rating': 3.9,
+    'title': `Nice apartment among various friendly neighbors!`,
+    'type': `apartment`,
+    'property': `Teremok Plaza`
   },
   {
     'bedrooms': 1,
@@ -224,13 +209,10 @@ export default [
     },
     'max_adults': 2,
     'preview_image': `https://via.placeholder.com/260x200`,
-    'rating': 4.9,
-    'property': `Cell in Darkest Dungeon`,
-    'slogan': `You will be frequently provided with very interesting visiters!`,
     'price': 50,
-    'main': {
-      'address': `castle in some forgotten land`,
-      'type': `room`
-    }
+    'rating': 4.9,
+    'title': `You will be frequently provided with very interesting visiters!`,
+    'type': `room`,
+    'property': `Cell in Darkest Dungeon in Brussels`
   }
 ];
