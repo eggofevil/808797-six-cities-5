@@ -10,13 +10,13 @@ export default PropTypes.shape({
     }).isRequired,
     name: PropTypes.string.isRequired
   }).isRequired,
+  description: PropTypes.string.isRequired,
   propertyId: PropTypes.number.isRequired,
   rating: PropTypes.number.isRequired,
   property: PropTypes.string.isRequired,
   host: PropTypes.string.isRequired,
   hostAvatar: PropTypes.string.isRequired,
   slogan: PropTypes.string.isRequired,
-  description: PropTypes.arrayOf(PropTypes.string).isRequired,
   photo: PropTypes.arrayOf(PropTypes.string).isRequired,
   price: PropTypes.number.isRequired,
   main: PropTypes.shape({

@@ -11,13 +11,13 @@ export default [
       },
       name: `Amsterdam`
     },
+    description: `Comfortable and modern multi-apartment house, situated in nice natural area. Good transport acceciblity, many places to spend a time: tennis court, workout grounds, etc`,
     propertyId: 1,
     rating: 4.1,
     property: `Teremok`,
     host: `Fly`,
     hostAvatar: `https://via.placeholder.com/74x74`,
     slogan: `Nice apartment among various friendly neighbors!`,
-    description: [`Comfortable and modern multi-apartment house, situated in nice natural area.`, `Good transport acceciblity, many places to spend a time: tennis court, workout grounds, etc`],
     photo: [`https://via.placeholder.com/260x200`],
     price: 100,
     main: {
@@ -47,13 +47,13 @@ export default [
       },
       name: `Amsterdam`
     },
+    description: `Historical underground bulding, was founded in dark ages and has a dark story. Many unusual entertainments for the most demanding taste.`,
     propertyId: 2,
     rating: 4.4,
     property: `Cell in Darkest Dungeon`,
     host: `Some evil force`,
     hostAvatar: `https://via.placeholder.com/74x74`,
     slogan: `You will be frequently provided with very interesting visiters!`,
-    description: [`Historical underground bulding, was founded in dark ages and has a dark story.`, `Many unusual entertainments for the most demanding taste.`],
     photo: [`https://via.placeholder.com/260x200`],
     price: 50,
     main: {
@@ -82,13 +82,13 @@ export default [
       },
       name: `Amsterdam`
     },
+    description: `Nice and fast wooden building without a fixed abode. It was built in ancient times and still preserves historical shape.`,
     propertyId: 3,
     rating: 4.8,
     property: `Hut on chicken legs`,
     host: `Bаba Yaga`,
     hostAvatar: `https://via.placeholder.com/74x74`,
     slogan: `Many interesting sights in stone's throw, you don't need to rent a car`,
-    description: [`Nice and fast wooden building without a fixed abode.`, `It was built in ancient times and still preserves historical shape.`],
     photo: [`https://via.placeholder.com/260x200`],
     price: 200,
     main: {
@@ -117,13 +117,13 @@ export default [
       },
       name: `Amsterdam`
     },
+    description: `Old historical building with unusual architecture. It's situated in wonderful natural area. Very nice children's restoraunt inside.`,
     propertyId: 4,
     rating: 4.2,
     property: `Gingerbread house`,
     host: `Evil Witch`,
     hostAvatar: `https://via.placeholder.com/74x74`,
     slogan: `Many sweets for nice children! Only for children`,
-    description: [`Old historical building with unusual architecture.`, `It's situated in wonderful natural area.`, `Very nice children's restoraunt inside.`],
     photo: [`https://via.placeholder.com/260x200`],
     price: 150,
     main: {
@@ -152,13 +152,13 @@ export default [
       },
       name: `Brussels`
     },
+    description: `Comfortable and modern multi-apartment house, situated in nice natural area. Good transport acceciblity, many places to spend a time: tennis court, workout grounds, etc`,
     propertyId: 5,
     rating: 3.9,
     property: `Teremok`,
     host: `Fly`,
     hostAvatar: `https://via.placeholder.com/74x74`,
     slogan: `Nice apartment among various friendly neighbors!`,
-    description: [`Comfortable and modern multi-apartment house, situated in nice natural area.`, `Good transport acceciblity, many places to spend a time: tennis court, workout grounds, etc`],
     photo: [`https://via.placeholder.com/260x200`],
     price: 100,
     main: {
@@ -187,13 +187,13 @@ export default [
       },
       name: `Brussels`
     },
+    description: `Historical underground bulding, was founded in dark ages and has a dark story. Many unusual entertainments for the most demanding taste.`,
     propertyId: 6,
     rating: 4.9,
     property: `Cell in Darkest Dungeon`,
     host: `Some evil force`,
     hostAvatar: `https://via.placeholder.com/74x74`,
     slogan: `You will be frequently provided with very interesting visiters!`,
-    description: [`Historical underground bulding, was founded in dark ages and has a dark story.`, `Many unusual entertainments for the most demanding taste.`],
     photo: [`https://via.placeholder.com/260x200`],
     price: 50,
     main: {

@@ -110,11 +110,7 @@ const Room = ({offers, reviews, state: {offer, offerReviews}}) => {
                   </span>
                 </div>
                 <div className="property__description">
-                  {offer.description.map((string, i) =>
-                    <p key={`description-string-${i}`} className="property__text">
-                      {string}
-                    </p>
-                  )}
+                  <p className="property__text">{offer.description}</p>
                 </div>
               </div>
               <section className="property__reviews reviews">
