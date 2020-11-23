@@ -12,6 +12,7 @@ export default [
       name: `Amsterdam`
     },
     description: `Comfortable and modern multi-apartment house, situated in nice natural area. Good transport acceciblity, many places to spend a time: tennis court, workout grounds, etc`,
+    goods: [`WiFi`, `Heating`, `kitchen`, `fridge`, `washing machine`, `towels`, `TV`],
     propertyId: 1,
     rating: 4.1,
     property: `Teremok`,
@@ -31,10 +32,7 @@ export default [
       capacity: {
         adults: 2,
         children: 2
-      },
-      amentities: [
-        `WiFi`, `Heating`, `kitchen`, `fridge`, `washing machine`, `towels`, `TV`
-      ]
+      }
     }
   },
   {
@@ -48,6 +46,7 @@ export default [
       name: `Amsterdam`
     },
     description: `Historical underground bulding, was founded in dark ages and has a dark story. Many unusual entertainments for the most demanding taste.`,
+    goods: [`WiFi`, `TV`, `big club`],
     propertyId: 2,
     rating: 4.4,
     property: `Cell in Darkest Dungeon`,
@@ -66,10 +65,7 @@ export default [
       capacity: {
         adults: 1,
         children: 0
-      },
-      amentities: [
-        `WiFi`, `TV`, `big club`
-      ]
+      }
     }
   },
   {
@@ -83,6 +79,7 @@ export default [
       name: `Amsterdam`
     },
     description: `Nice and fast wooden building without a fixed abode. It was built in ancient times and still preserves historical shape.`,
+    goods: [`WiFi`, `stove`, `kitchen`, `fridge`, `washing machine`, `towels`, `TV`, `navigation system`, `private flyibg transport`],
     propertyId: 3,
     rating: 4.8,
     property: `Hut on chicken legs`,
@@ -101,10 +98,7 @@ export default [
       capacity: {
         adults: 4,
         children: 4
-      },
-      amentities: [
-        `WiFi`, `stove`, `kitchen`, `fridge`, `washing machine`, `towels`, `TV`, `navigation system`, `private flyibg transport`
-      ]
+      }
     }
   },
   {
@@ -118,6 +112,7 @@ export default [
       name: `Amsterdam`
     },
     description: `Old historical building with unusual architecture. It's situated in wonderful natural area. Very nice children's restoraunt inside.`,
+    goods: [`WiFi`, `stove`, `kitchen`, `fridge`, `washing machine`, `towels`, `TV`],
     propertyId: 4,
     rating: 4.2,
     property: `Gingerbread house`,
@@ -136,10 +131,7 @@ export default [
       capacity: {
         adults: 0,
         children: 4
-      },
-      amentities: [
-        `WiFi`, `stove`, `kitchen`, `fridge`, `washing machine`, `towels`, `TV`
-      ]
+      }
     }
   },
   {
@@ -153,6 +145,7 @@ export default [
       name: `Brussels`
     },
     description: `Comfortable and modern multi-apartment house, situated in nice natural area. Good transport acceciblity, many places to spend a time: tennis court, workout grounds, etc`,
+    goods: [`WiFi`, `Heating`, `kitchen`, `fridge`, `washing machine`, `towels`, `TV`],
     propertyId: 5,
     rating: 3.9,
     property: `Teremok`,
@@ -171,10 +164,7 @@ export default [
       capacity: {
         adults: 2,
         children: 2
-      },
-      amentities: [
-        `WiFi`, `Heating`, `kitchen`, `fridge`, `washing machine`, `towels`, `TV`
-      ]
+      }
     }
   },
   {
@@ -188,6 +178,7 @@ export default [
       name: `Brussels`
     },
     description: `Historical underground bulding, was founded in dark ages and has a dark story. Many unusual entertainments for the most demanding taste.`,
+    goods: [`WiFi`, `TV`, `big club`],
     propertyId: 6,
     rating: 4.9,
     property: `Cell in Darkest Dungeon`,
@@ -206,10 +197,7 @@ export default [
       capacity: {
         adults: 1,
         children: 0
-      },
-      amentities: [
-        `WiFi`, `TV`, `big club`
-      ]
+      }
     }
   }
 ];

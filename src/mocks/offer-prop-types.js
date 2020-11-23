@@ -11,6 +11,7 @@ export default PropTypes.shape({
     name: PropTypes.string.isRequired
   }).isRequired,
   description: PropTypes.string.isRequired,
+  goods: PropTypes.arrayOf(PropTypes.string).isRequired,
   propertyId: PropTypes.number.isRequired,
   rating: PropTypes.number.isRequired,
   property: PropTypes.string.isRequired,
@@ -29,7 +30,6 @@ export default PropTypes.shape({
     capacity: PropTypes.shape({
       adults: PropTypes.number.isRequired,
       children: PropTypes.number.isRequired
-    }).isRequired,
-    amentities: PropTypes.arrayOf(PropTypes.string).isRequired
+    }).isRequired
   }).isRequired,
 }).isRequired;

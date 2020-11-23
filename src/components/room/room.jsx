@@ -92,7 +92,7 @@ const Room = ({offers, reviews, state: {offer, offerReviews}}) => {
               <div className="property__inside">
                 <h2 className="property__inside-title">What&apos;s inside</h2>
                 <ul className="property__inside-list">
-                  {offer.facilities.amentities.map((amentity, i) =>
+                  {offer.goods.map((amentity, i) =>
                     <li key={`amentity-${i}`} className="property__inside-item">
                       {amentity}
                     </li>
