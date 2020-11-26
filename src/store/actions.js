@@ -1,15 +1,30 @@
-import offers from '../mocks/offers';
-import cities from '../mocks/cities';
+import {getCityOffers, getCityData, sortCityOffers} from './data-operations';
 
 const changeCity = (city) => {
   return {
     type: `CHANGE_CITY`,
-    changeCity: city,
-    getCityCoords: cities.filter((entry) => entry[city])[0][city],
-    getCityOffers: offers.filter((offer) => offer.city === city)
+    city: getCityData(city),
+    getCityOffers: getCityOffers(city)
+  };
+};
+
+const changeSortingType = (sortingType, currentOffers) => {
+  return {
+    type: `CHANGE_SORTING_TYPE`,
+    sortingType,
+    sortCityOffers: sortCityOffers(sortingType, currentOffers)
+  };
+};
+
+const changeActiveOffer = (offerId) => {
+  return {
+    type: `CHANGE_ACTIVE_OFFER`,
+    activeOffer: offerId
   };
 };
 
 export {
-  changeCity
+  changeCity,
+  changeSortingType,
+  changeActiveOffer
 };
