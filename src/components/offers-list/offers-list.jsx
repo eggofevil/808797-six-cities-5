@@ -1,32 +1,32 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+
 import OfferCard from '../offer-card/offer-card';
 
 import offerPropTypes from '../../mocks/offer-prop-types';
-import reviewPropTypes from '../../mocks/review-prop-types';
 
-const OffersList = ({offers, reviews, parent, thisOfferId}) => {
-  offers = thisOfferId ? offers.filter((offer) => (offer.id !== thisOfferId)) : offers;
-  const getOfferReviews = (offerId) => reviews.filter((review) => review.id === offerId);
+const OffersList = ({offersListClassName, offerCardArticleClassName, offerCardDivClassName, cityOffers, selectedOfferId}) => {
+  cityOffers = selectedOfferId ? cityOffers.filter((offer) => (offer.id !== selectedOfferId)) : cityOffers;
   return (
-    <React.Fragment>
-      {offers.map((offer, i) => (
+    <div className={`places__list ` + offersListClassName}>
+      {cityOffers.map((offer, i) => (
         <OfferCard
+          offerCardArticleClassName={offerCardArticleClassName}
+          offerCardDivClassName={offerCardDivClassName}
           key={`offer-${i}`}
-          parent={parent}
           offer={offer}
-          offerReviews={getOfferReviews(offer.id)}
         />
       ))}
-    </React.Fragment>
+    </div>
   );
 };
 
 OffersList.propTypes = {
-  thisOfferId: PropTypes.number,
-  parent: PropTypes.string.isRequired,
-  reviews: PropTypes.arrayOf(reviewPropTypes).isRequired,
-  offers: PropTypes.arrayOf(offerPropTypes).isRequired,
+  offersListClassName: PropTypes.string.isRequired,
+  offerCardArticleClassName: PropTypes.string.isRequired,
+  offerCardDivClassName: PropTypes.string.isRequired,
+  cityOffers: PropTypes.arrayOf(offerPropTypes.isRequired).isRequired,
+  selectedOfferId: PropTypes.number
 };
 
 export default OffersList;

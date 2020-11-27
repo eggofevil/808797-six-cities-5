@@ -9,26 +9,25 @@ import {RATING_BAR_DIVISION} from '../../const';
 import offerPropTypes from '../../mocks/offer-prop-types';
 import reviewPropTypes from '../../mocks/review-prop-types';
 
-const OfferCard = ({offer, offerReviews, parent, setActiveOffer}) => {
+const OfferCard = ({offerCardArticleClassName, offerCardDivClassName, offer, cityOffers, reviews, setActiveOffer}) => {
   const offerLinkProps = {
     pathname: `/offer${offer.id}`,
     state: {
       offer,
-      offerReviews,
+      cityOffers,
+      reviews
     }
   };
-  const offerCardArticleClassName = parent === `main` ? `cities__place-card place-card` : `near-places__card place-card`;
-  const offerCardDivClassName = parent === `main` ? `cities__image-wrapper place-card__image-wrapper` : `near-places__image-wrapper place-card__image-wrapper`;
   const onMouseEnter = () => setActiveOffer(offer.id);
   const onMouseLeave = () => setActiveOffer(null);
   return (
-    <article className={offerCardArticleClassName} onMouseEnter={() => (onMouseEnter(offer.property))} onMouseLeave={onMouseLeave}>
+    <article className={`place-card ` + offerCardArticleClassName} onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave}>
       {offer[`is_premium`] ? (
         <div className="place-card__mark">
           <span>Premium</span>
         </div>
       ) : null}
-      <div className={offerCardDivClassName}>
+      <div className={`place-card__image-wrapper ` + offerCardDivClassName}>
         <Link to={offerLinkProps}>
           <img className="place-card__image" src={offer[`preview_image`]} width={260} height={200} alt="Place image" />
         </Link>
@@ -48,7 +47,7 @@ const OfferCard = ({offer, offerReviews, parent, setActiveOffer}) => {
         </div>
         <div className="place-card__rating rating">
           <div className="place-card__stars rating__stars">
-            <span style={{width: `${offer.rating * RATING_BAR_DIVISION}%`}} />
+            <span style={{width: `${Math.round(offer.rating) * RATING_BAR_DIVISION}%`}} />
             <span className="visually-hidden">Rating</span>
           </div>
         </div>
@@ -62,11 +61,15 @@ const OfferCard = ({offer, offerReviews, parent, setActiveOffer}) => {
 };
 
 OfferCard.propTypes = {
-  offer: offerPropTypes,
-  parent: PropTypes.string.isRequired,
-  offerReviews: PropTypes.arrayOf(reviewPropTypes).isRequired,
-  setActiveOffer: PropTypes.func.isRequired
+  offerCardArticleClassName: PropTypes.string.isRequired,
+  offerCardDivClassName: PropTypes.string.isRequired,
+  offer: offerPropTypes.isRequired,
+  cityOffers: PropTypes.arrayOf(offerPropTypes.isRequired).isRequired,
+  reviews: PropTypes.arrayOf(reviewPropTypes).isRequired,
+  setActiveOffer: PropTypes.func.isRequired,
 };
+
+const mapStateToProps = (state) => ({cityOffers: state.cityOffers, reviews: state.reviews});
 
 const mapDispatchToProps = (dispatch) => ({
   setActiveOffer(offerId) {
@@ -75,4 +78,4 @@ const mapDispatchToProps = (dispatch) => ({
 });
 
 export {OfferCard};
-export default connect(null, mapDispatchToProps)(OfferCard);
+export default connect(mapStateToProps, mapDispatchToProps)(OfferCard);

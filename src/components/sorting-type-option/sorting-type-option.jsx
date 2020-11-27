@@ -22,7 +22,7 @@ SortingTypeOption.propTypes = {
   active: PropTypes.bool.isRequired,
   handleClick: PropTypes.func.isRequired,
   setSortingType: PropTypes.func.isRequired,
-  offers: PropTypes.arrayOf(offerPropTypes).isRequired
+  offers: PropTypes.arrayOf(offerPropTypes.isRequired).isRequired
 };
 
 const mapStateToProps = (state) => ({offers: state.cityOffers});

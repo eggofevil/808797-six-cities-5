@@ -26,7 +26,7 @@ export default [
     'location': {
       'latitude': 52.3909553943508,
       'longitude': 4.85309666406198,
-      'zoom': 8
+      'zoom': 12
     },
     'max_adults': 2,
     'max_children': 2,

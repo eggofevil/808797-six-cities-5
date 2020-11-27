@@ -4,34 +4,33 @@ import '../../../node_modules/leaflet/dist/leaflet.css';
 import leaflet from 'leaflet';
 import {connect} from 'react-redux';
 
-const mapStateToProps = (state) => ({
-  activeOffer: state.activeOffer,
-  cityCoords: [state.city.location.latitude, state.city.location.longitude],
-  zoom: state.city.location.zoom
-});
+import offerPropTypes from '../../mocks/offer-prop-types';
 
 class CityMap extends React.PureComponent {
   constructor(props) {
     super(props);
-  }
-
-  _setMapView() {
-    const {cityCoords, zoom} = this.props;
-    this.map.setView(cityCoords, zoom);
-  }
-
-  _setMapIcons() {
-    const {offers, activeOffer} = this.props;
-    this.icon = leaflet.icon({
+    this.inactivePin = leaflet.icon({
       iconUrl: `img/pin.svg`,
       iconSize: [30, 30]
     });
-    this.activeIcon = leaflet.icon({
+    this.activePin = leaflet.icon({
       iconUrl: `img/pin-active.svg`,
       iconSize: [30, 30]
     });
-    offers.map((offer) => {
-      const icon = offer.id === activeOffer ? this.activeIcon : this.icon;
+  }
+
+  _setMapView() {
+    const {cityCoords, cityZoom, selectedOffer} = this.props;
+    const coords = selectedOffer ? [selectedOffer.location.latitude, selectedOffer.location.longitude] : cityCoords;
+    const zoom = selectedOffer ? [selectedOffer.location.zoom] : cityZoom;
+    this.map.setView(coords, zoom);
+  }
+
+  _setMapIcons() {
+    const {cityOffers, activeOfferId, selectedOffer} = this.props;
+    const selectedOfferId = selectedOffer ? selectedOffer.id : null;
+    cityOffers.map((offer) => {
+      const icon = (offer.id === activeOfferId || offer.id === selectedOfferId) ? this.activePin : this.inactivePin;
       leaflet.marker([offer.location.latitude, offer.location.longitude], {icon}).addTo(this.map);
     });
   }
@@ -57,18 +56,26 @@ class CityMap extends React.PureComponent {
 
   render() {
     return (
-      <section id="map" className={`${this.props.parent}__map map`} />
+      <section id="map" className={`${this.props.mapClassName}__map map`} />
     );
   }
 }
 
 CityMap.propTypes = {
-  activeOffer: PropTypes.number,
+  selectedOffer: offerPropTypes,
+  activeOfferId: PropTypes.number,
   cityCoords: PropTypes.arrayOf(PropTypes.number.isRequired).isRequired,
-  offers: PropTypes.array.isRequired,
-  parent: PropTypes.string.isRequired,
-  zoom: PropTypes.number.isRequired
+  cityOffers: PropTypes.arrayOf(offerPropTypes.isRequired).isRequired,
+  mapClassName: PropTypes.string.isRequired,
+  cityZoom: PropTypes.number.isRequired
 };
+
+const mapStateToProps = (state) => ({
+  activeOfferId: state.activeOffer,
+  cityOffers: state.cityOffers,
+  cityCoords: [state.city.location.latitude, state.city.location.longitude],
+  cityZoom: state.city.location.zoom
+});
 
 export {CityMap};
 export default connect(mapStateToProps)(CityMap);
