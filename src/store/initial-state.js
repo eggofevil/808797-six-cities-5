@@ -11,7 +11,7 @@ const initialState = {
   city,
   sortingType,
   cityOffers,
-  selectedOffer: null,
+  // selectedOffer: null,
   activeOffer: null,
   reviews
 };

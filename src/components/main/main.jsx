@@ -13,8 +13,6 @@ import offerPropTypes from '../../mocks/offer-prop-types';
 
 const ExtendedSortingType = withSortingType(SortingType);
 
-const mapStateToProps = (state) => ({city: state.city.name, cityOffers: state.cityOffers});
-
 const Main = ({cities, city, cityOffers}) => {
   return (
     <div className="page page--gray page--main">
@@ -82,6 +80,8 @@ Main.propTypes = {
   cities: PropTypes.arrayOf(PropTypes.string).isRequired,
   cityOffers: PropTypes.arrayOf(offerPropTypes.isRequired).isRequired,
 };
+
+const mapStateToProps = (state) => ({city: state.city.name, cityOffers: state.cityOffers});
 
 export {Main};
 export default connect(mapStateToProps)(Main);
