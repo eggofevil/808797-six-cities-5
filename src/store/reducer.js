@@ -4,7 +4,6 @@ import {extend} from '../utils';
 const reducer = (state = initialState, action) => {
   switch (action.type) {
   case `CHANGE_CITY`:
-    // return extend(state, {city: action.act});
     return extend(state, {
       city: action.city,
       cityOffers: action.getCityOffers
@@ -12,15 +11,7 @@ const reducer = (state = initialState, action) => {
   case `CHANGE_SORTING_TYPE`:
     return extend(state, {
       sortingType: action.sortingType,
-      // cityOffers: action.sortCityOffers
-      cityOffers: action.sortCityOffers(initialState.cityOffers)
     });
-  /*
-  case `CHANGE_SELECTED_OFFER`:
-    return extend(state, {
-      selectedOffer: action.selectedOffer
-    });
-  */
   case `CHANGE_ACTIVE_OFFER`:
     return extend(state, {
       activeOffer: action.activeOffer
