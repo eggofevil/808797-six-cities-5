@@ -11,11 +11,11 @@ class CityMap extends React.PureComponent {
     super(props);
     this.inactivePin = leaflet.icon({
       iconUrl: `img/pin.svg`,
-      iconSize: [30, 30]
+      iconSize: [30, 40]
     });
     this.activePin = leaflet.icon({
       iconUrl: `img/pin-active.svg`,
-      iconSize: [30, 30]
+      iconSize: [30, 40]
     });
   }
 
@@ -72,7 +72,6 @@ CityMap.propTypes = {
 
 const mapStateToProps = (state) => ({
   activeOfferId: state.activeOffer,
-  cityOffers: state.cityOffers,
   cityCoords: [state.city.location.latitude, state.city.location.longitude],
   cityZoom: state.city.location.zoom
 });

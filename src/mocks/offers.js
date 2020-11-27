@@ -26,7 +26,7 @@ export default [
     'location': {
       'latitude': 52.3909553943508,
       'longitude': 4.85309666406198,
-      'zoom': 12
+      'zoom': 11
     },
     'max_adults': 2,
     'max_children': 2,
@@ -62,7 +62,7 @@ export default [
     'location': {
       'latitude': 52.369553943508,
       'longitude': 4.85309666406198,
-      'zoom': 8
+      'zoom': 11
     },
     'max_adults': 1,
     'preview_image': `https://via.placeholder.com/260x200`,
@@ -97,7 +97,7 @@ export default [
     'location': {
       'latitude': 52.3909553943508,
       'longitude': 4.929309666406198,
-      'zoom': 8
+      'zoom': 11
     },
     'max_adults': 4,
     'max_children': 4,
@@ -133,7 +133,7 @@ export default [
     'location': {
       'latitude': 52.3809553943508,
       'longitude': 4.939309666406198,
-      'zoom': 8
+      'zoom': 11
     },
     'max_adults': 0,
     'max_children': 4,
@@ -169,7 +169,7 @@ export default [
     'location': {
       'latitude': 50.850122,
       'longitude': 4.342151,
-      'zoom': 8
+      'zoom': 11
     },
     'max_adults': 2,
     'max_children': 2,
@@ -205,7 +205,7 @@ export default [
     'location': {
       'latitude': 50.848833,
       'longitude': 4.351776,
-      'zoom': 8
+      'zoom': 11
     },
     'max_adults': 2,
     'preview_image': `https://via.placeholder.com/260x200`,

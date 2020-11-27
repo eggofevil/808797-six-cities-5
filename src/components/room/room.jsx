@@ -131,7 +131,11 @@ const Room = ({state: {cityOffers, offer, reviews}}) => {
               </section>
             </div>
           </div>
-          <CityMap mapClassName="property" selectedOffer={offer} />
+          <CityMap
+            mapClassName="property"
+            cityOffers={cityOffers}
+            selectedOffer={offer}
+          />
         </section>
         <div className="container">
           <section className="near-places places">

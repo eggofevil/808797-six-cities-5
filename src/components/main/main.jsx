@@ -54,7 +54,10 @@ const Main = ({cities, city, cityOffers}) => {
                 />
               </section>
               <div className="cities__right-section">
-                <CityMap mapClassName="cities" />
+                <CityMap
+                  mapClassName="cities"
+                  cityOffers={cityOffers}
+                />
               </div>
             </div>
             :
