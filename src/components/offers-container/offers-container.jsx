@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
 
 import withSortingType from '../../hocs/with-sorting-type';
-import withOffersList from '../../hocs/with-offers-list';
+import {sortCityOffers} from '../../store/data-operations';
 
 import SortingType from '../sorting-type/sorting-type';
 import OffersList from '../offers-list/offers-list';
@@ -12,9 +12,9 @@ import CityMap from '../city-map/city-map';
 import offerPropTypes from '../../mocks/offer-prop-types';
 
 const ExtendedSortingType = withSortingType(SortingType);
-const ExtendedOffersList = withOffersList(OffersList);
 
 const OffersContainer = ({cityOffers, city, sortingType}) => {
+  cityOffers = sortCityOffers(sortingType, cityOffers);
   return (
     <div className="cities">
       {cityOffers.length > 0 ?
@@ -23,7 +23,12 @@ const OffersContainer = ({cityOffers, city, sortingType}) => {
             <h2 className="visually-hidden">Places</h2>
             <b className="places__found">{cityOffers.length} places to stay in {city}</b>
             <ExtendedSortingType />
-            <ExtendedOffersList cityOffers={cityOffers} sortingType={sortingType} />
+            <OffersList
+              offersListClassName="cities__places-list tabs__content"
+              offerCardArticleClassName="cities__place-card"
+              offerCardDivClassName="cities__image-wrapper"
+              cityOffers={cityOffers}
+            />
           </section>
           <div className="cities__right-section">
             <CityMap
