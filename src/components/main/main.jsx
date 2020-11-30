@@ -29,7 +29,7 @@ const Main = ({cities, city}) => {
       </header>
       <main className="page__main page__main--index page__main--index-empty">
         <h1 className="visually-hidden">Cities</h1>
-        <CitiesList cities={cities} currentCity={city} />
+        <CitiesList cities={cities} currentCity={city.name} />
         <OffersContainer city={city} />
       </main>
     </div>
@@ -37,11 +37,18 @@ const Main = ({cities, city}) => {
 };
 
 Main.propTypes = {
-  city: PropTypes.string.isRequired,
+  city: PropTypes.shape({
+    location: PropTypes.shape({
+      latitude: PropTypes.number.isRequired,
+      longitude: PropTypes.number.isRequired,
+      zoom: PropTypes.number.isRequired
+    }).isRequired,
+    name: PropTypes.string.isRequired
+  }).isRequired,
   cities: PropTypes.arrayOf(PropTypes.string).isRequired,
 };
 
-const mapStateToProps = (state) => ({city: state.city.name});
+const mapStateToProps = (state) => ({city: state.city});
 
 export {Main};
 export default connect(mapStateToProps)(Main);

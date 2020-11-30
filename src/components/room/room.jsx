@@ -2,6 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
 
+import withCityMap from '../../hocs/with-city-map';
+
 import Review from '../review/review';
 import ReviewForm from '../review-form/review-form';
 import OffersList from '../offers-list/offers-list';
@@ -12,6 +14,8 @@ import {RATING_BAR_DIVISION} from '../../const';
 
 import offerPropTypes from '../../mocks/offer-prop-types';
 import reviewPropTypes from '../../mocks/review-prop-types';
+
+const ExtendedCityMap = withCityMap(CityMap);
 
 // TODO: При переходе по карточке предложения положение страницы не изменяется, нужно попровить так что бы был возврат к началу
 /* test component
@@ -131,10 +135,11 @@ const Room = ({state: {cityOffers, offer, reviews}}) => {
               </section>
             </div>
           </div>
-          <CityMap
+          <ExtendedCityMap
             mapClassName="property"
+            location={offer.location}
             cityOffers={cityOffers}
-            selectedOffer={offer}
+            selectedOfferId={offer.id}
           />
         </section>
         <div className="container">

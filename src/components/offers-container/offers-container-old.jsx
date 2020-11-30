@@ -2,22 +2,18 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
 
-import withCityMap from '../../hocs/with-city-map';
 import withSortingType from '../../hocs/with-sorting-type';
+import {sortCityOffers} from '../../store/data-operations';
 
 import SortingType from '../sorting-type/sorting-type';
 import OffersList from '../offers-list/offers-list';
 import CityMap from '../city-map/city-map';
 
-import {sortCityOffers} from '../../store/data-operations';
-
 import offerPropTypes from '../../mocks/offer-prop-types';
 
 const ExtendedSortingType = withSortingType(SortingType);
-const ExtendedCityMap = withCityMap(CityMap);
 
-const OffersContainer = ({cityOffers, sortingType}) => {
-  const city = cityOffers[0].city;
+const OffersContainer = ({cityOffers, city, sortingType}) => {
   cityOffers = sortCityOffers(sortingType, cityOffers);
   return (
     <div className="cities">
@@ -25,7 +21,7 @@ const OffersContainer = ({cityOffers, sortingType}) => {
         <div className="cities__places-container container">
           <section className="cities__places places">
             <h2 className="visually-hidden">Places</h2>
-            <b className="places__found">{cityOffers.length} places to stay in {city.name}</b>
+            <b className="places__found">{cityOffers.length} places to stay in {city}</b>
             <ExtendedSortingType />
             <OffersList
               offersListClassName="cities__places-list tabs__content"
@@ -35,9 +31,8 @@ const OffersContainer = ({cityOffers, sortingType}) => {
             />
           </section>
           <div className="cities__right-section">
-            <ExtendedCityMap
+            <CityMap
               mapClassName="cities"
-              location={city.location}
               cityOffers={cityOffers}
             />
           </div>
@@ -58,6 +53,7 @@ const OffersContainer = ({cityOffers, sortingType}) => {
 };
 
 OffersContainer.propTypes = {
+  city: PropTypes.string.isRequired,
   cityOffers: PropTypes.arrayOf(offerPropTypes.isRequired).isRequired,
   sortingType: PropTypes.string.isRequired
 };
