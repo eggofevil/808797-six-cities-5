@@ -3,13 +3,13 @@ import PropTypes from 'prop-types';
 import {Link} from 'react-router-dom';
 import {connect} from 'react-redux';
 
-import {changeActiveOffer} from '../../store/actions';
+import {changeActiveCard} from '../../store/actions';
 import {RATING_BAR_DIVISION} from '../../const';
 
 import offerPropTypes from '../../mocks/offer-prop-types';
 import reviewPropTypes from '../../mocks/review-prop-types';
 
-const OfferCard = ({offerCardArticleClassName, offerCardDivClassName, offer, cityOffers, reviews, setActiveOffer}) => {
+const OfferCard = ({offerCardArticleClassName, offerCardDivClassName, offer, cityOffers, reviews, setActiveCard}) => {
   const offerLinkProps = {
     pathname: `/offer${offer.id}`,
     state: {
@@ -18,10 +18,17 @@ const OfferCard = ({offerCardArticleClassName, offerCardDivClassName, offer, cit
       reviews
     }
   };
-  const onMouseEnter = () => setActiveOffer(offer.id);
-  const onMouseLeave = () => setActiveOffer(null);
+
+  const handleMouseEnter = () => {
+    setActiveCard(offer.id);
+  };
+
+  const handleMouseLeave = () => {
+    setActiveCard();
+  };
+
   return (
-    <article className={`place-card ` + offerCardArticleClassName} onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave}>
+    <article className={`place-card ` + offerCardArticleClassName} onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
       {offer[`is_premium`] ? (
         <div className="place-card__mark">
           <span>Premium</span>
@@ -66,14 +73,14 @@ OfferCard.propTypes = {
   offer: offerPropTypes.isRequired,
   cityOffers: PropTypes.arrayOf(offerPropTypes.isRequired).isRequired,
   reviews: PropTypes.arrayOf(reviewPropTypes).isRequired,
-  setActiveOffer: PropTypes.func.isRequired,
+  setActiveCard: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = (state) => ({cityOffers: state.cityOffers, reviews: state.reviews});
 
 const mapDispatchToProps = (dispatch) => ({
-  setActiveOffer(offerId) {
-    dispatch(changeActiveOffer(offerId));
+  setActiveCard(offerId) {
+    dispatch(changeActiveCard(offerId));
   }
 });
 

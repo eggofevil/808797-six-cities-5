@@ -12,9 +12,9 @@ const reducer = (state = initialState, action) => {
     return extend(state, {
       sortingType: action.sortingType,
     });
-  case `CHANGE_ACTIVE_OFFER`:
+  case `CHANGE_ACTIVE_CARD`:
     return extend(state, {
-      activeOffer: action.activeOffer
+      activeCard: action.activeCard
     });
   default:
     return state;

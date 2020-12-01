@@ -14,15 +14,15 @@ const changeSortingType = (sortingType) => {
   };
 };
 
-const changeActiveOffer = (offerId = null) => {
+const changeActiveCard = (offerId = null) => {
   return {
-    type: `CHANGE_ACTIVE_OFFER`,
-    activeOffer: offerId
+    type: `CHANGE_ACTIVE_CARD`,
+    activeCard: offerId
   };
 };
 
 export {
   changeCity,
   changeSortingType,
-  changeActiveOffer
+  changeActiveCard
 };

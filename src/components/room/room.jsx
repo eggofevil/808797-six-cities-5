@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
 
-import withCityMap from '../../hocs/with-city-map';
+import withReviewForm from '../../hocs/with-review-form';
 
 import Review from '../review/review';
 import ReviewForm from '../review-form/review-form';
@@ -15,8 +15,6 @@ import {RATING_BAR_DIVISION} from '../../const';
 import offerPropTypes from '../../mocks/offer-prop-types';
 import reviewPropTypes from '../../mocks/review-prop-types';
 
-const ExtendedCityMap = withCityMap(CityMap);
-
 // TODO: При переходе по карточке предложения положение страницы не изменяется, нужно попровить так что бы был возврат к началу
 /* test component
 const Room = ({state: {cityOffers, offer}}) => {
@@ -24,6 +22,9 @@ const Room = ({state: {cityOffers, offer}}) => {
   return <div>Hello world</div>;
 };
 */
+
+const ExtendedReviewForm = withReviewForm(ReviewForm);
+
 const Room = ({state: {cityOffers, offer, reviews}}) => {
   reviews = reviews.filter((review) => review.id === offer.id);
   const hostAvatarClassName = offer.host[`is_pro`] ?
@@ -131,11 +132,11 @@ const Room = ({state: {cityOffers, offer, reviews}}) => {
                     <Review key={`review-${i}`} review={review} />
                   ))}
                 </ul>
-                <ReviewForm propertyId={offer.id}/>
+                <ExtendedReviewForm offerId={offer.id}/>
               </section>
             </div>
           </div>
-          <ExtendedCityMap
+          <CityMap
             mapClassName="property"
             location={offer.location}
             cityOffers={cityOffers}
