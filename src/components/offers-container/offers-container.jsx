@@ -14,12 +14,11 @@ import offerPropTypes from '../../mocks/offer-prop-types';
 
 const ExtendedSortingType = withSortingType(SortingType);
 
-const OffersContainer = ({cityOffers, sortingType}) => {
-  const city = cityOffers[0].city;
-  cityOffers = sortCityOffers(sortingType, cityOffers);
+const OffersContainer = ({cityOffers, sortingType, city}) => {
+  cityOffers = city.location ? sortCityOffers(sortingType, cityOffers) : null;
   return (
     <div className="cities">
-      {cityOffers.length > 0 ?
+      {city.location ?
         <div className="cities__places-container container">
           <section className="cities__places places">
             <h2 className="visually-hidden">Places</h2>
@@ -45,7 +44,7 @@ const OffersContainer = ({cityOffers, sortingType}) => {
           <section className="cities__no-places">
             <div className="cities__status-wrapper tabs__content">
               <b className="cities__status">No places to stay available</b>
-              <p className="cities__status-description">We could not find any property available at the moment in Dusseldorf</p>
+              <p className="cities__status-description">We could not find any property available at the moment in {city.name}</p>
             </div>
           </section>
           <div className="cities__right-section" />
@@ -56,6 +55,14 @@ const OffersContainer = ({cityOffers, sortingType}) => {
 };
 
 OffersContainer.propTypes = {
+  city: PropTypes.shape({
+    location: PropTypes.shape({
+      latitude: PropTypes.number.isRequired,
+      longitude: PropTypes.number.isRequired,
+      zoom: PropTypes.number.isRequired
+    }),
+    name: PropTypes.string.isRequired
+  }).isRequired,
   cityOffers: PropTypes.arrayOf(offerPropTypes.isRequired).isRequired,
   sortingType: PropTypes.string.isRequired
 };

@@ -7,6 +7,8 @@ import OffersContainer from '../offers-container/offers-container';
 import UserInfo from '../user-info/user-info';
 
 const Main = ({cities, city}) => {
+  let mainClassName = `page__main page__main--index`;
+  mainClassName = city.location ? mainClassName : mainClassName + ` page__main--index-empty`;
   return (
     <div className="page page--gray page--main">
       <header className="header">
@@ -27,7 +29,7 @@ const Main = ({cities, city}) => {
           </div>
         </div>
       </header>
-      <main className="page__main page__main--index page__main--index-empty">
+      <main className={mainClassName}>
         <h1 className="visually-hidden">Cities</h1>
         <CitiesList cities={cities} currentCity={city.name} />
         <OffersContainer city={city} />
@@ -42,7 +44,7 @@ Main.propTypes = {
       latitude: PropTypes.number.isRequired,
       longitude: PropTypes.number.isRequired,
       zoom: PropTypes.number.isRequired
-    }).isRequired,
+    }),
     name: PropTypes.string.isRequired
   }).isRequired,
   cities: PropTypes.arrayOf(PropTypes.string).isRequired,

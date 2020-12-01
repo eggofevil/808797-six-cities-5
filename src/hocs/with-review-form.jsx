@@ -9,7 +9,8 @@ function withReviewForm(Component) {
         review: ``
       };
       this._handleSubmit = this._handleSubmit.bind(this);
-      this._handleFieldChange = this._handleFieldChange.bind(this);
+      this._handleChange = this._handleChange.bind(this);
+      this._evaluateForm = this._evaluateForm.bind(this);
     }
 
     _evaluateForm() {
