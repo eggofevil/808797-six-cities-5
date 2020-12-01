@@ -25,7 +25,7 @@ const SortingType = ({handleClick, ulClassName, sortingType}) => {
   );
 };
 
-const mapStateToProps = (state) => ({sortingType: state.sortingType});
+const mapStateToProps = ({LOGIC}) => ({sortingType: LOGIC.sortingType});
 
 SortingType.propTypes = {
   handleClick: PropTypes.func.isRequired,

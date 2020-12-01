@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import {Link} from 'react-router-dom';
 import {connect} from 'react-redux';
 
-import {changeActiveCard} from '../../store/actions';
+import {changeActiveCard} from '../../store/reducers/app-logic/app-logic-actions';
 import {RATING_BAR_DIVISION} from '../../const';
 
 import offerPropTypes from '../../mocks/offer-prop-types';
@@ -76,7 +76,7 @@ OfferCard.propTypes = {
   setActiveCard: PropTypes.func.isRequired,
 };
 
-const mapStateToProps = (state) => ({cityOffers: state.cityOffers, reviews: state.reviews});
+const mapStateToProps = ({DATA}) => ({cityOffers: DATA.cityOffers, reviews: DATA.reviews});
 
 const mapDispatchToProps = (dispatch) => ({
   setActiveCard(offerId) {

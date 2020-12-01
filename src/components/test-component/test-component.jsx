@@ -1,7 +1,7 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import PropTypes from 'prop-types';
-import {changeCity} from '../../store/actions';
+import {changeCity} from '../../store/reducers/app-data/app-data-actions';
 import NewTestComponent from './new-test-component';
 
 const mapStateToProps = (state) => ({city: state.city.name});

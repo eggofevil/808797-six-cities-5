@@ -168,7 +168,7 @@ Room.propTypes = {
   }),
 };
 
-const mapStateToProps = (state) => ({reviews: state.reviews});
+const mapStateToProps = ({DATA}) => ({reviews: DATA.reviews});
 
 export {Room};
 export default connect(mapStateToProps)(Room);

@@ -50,7 +50,7 @@ Main.propTypes = {
   cities: PropTypes.arrayOf(PropTypes.string).isRequired,
 };
 
-const mapStateToProps = (state) => ({city: state.city});
+const mapStateToProps = ({DATA}) => ({city: DATA.city});
 
 export {Main};
 export default connect(mapStateToProps)(Main);

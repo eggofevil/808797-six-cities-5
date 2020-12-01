@@ -75,7 +75,7 @@ CityMap.propTypes = {
   mapClassName: PropTypes.string.isRequired
 };
 
-const mapStateToProps = (state) => ({activeCard: state.activeCard});
+const mapStateToProps = ({LOGIC}) => ({activeCard: LOGIC.activeCard});
 
 export {CityMap};
 export default connect(mapStateToProps)(CityMap);

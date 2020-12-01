@@ -8,7 +8,7 @@ import SortingType from '../sorting-type/sorting-type';
 import OffersList from '../offers-list/offers-list';
 import CityMap from '../city-map/city-map';
 
-import {sortCityOffers} from '../../store/data-operations';
+import {sortCityOffers} from '../../store/reducers/app-logic/app-logic-actions';
 
 import offerPropTypes from '../../mocks/offer-prop-types';
 
@@ -67,7 +67,7 @@ OffersContainer.propTypes = {
   sortingType: PropTypes.string.isRequired
 };
 
-const mapStateToProps = (state) => ({cityOffers: state.cityOffers, sortingType: state.sortingType});
+const mapStateToProps = ({DATA, LOGIC}) => ({cityOffers: DATA.cityOffers, sortingType: LOGIC.sortingType});
 
 export {OffersContainer};
 export default connect(mapStateToProps)(OffersContainer);

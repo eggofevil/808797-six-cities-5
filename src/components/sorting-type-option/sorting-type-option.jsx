@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
 
-import {changeSortingType} from '../../store/actions';
+import {changeSortingType} from '../../store/reducers/app-logic/app-logic-actions';
 
 const SortingTypeOption = ({value, active, handleClick, setSortingType}) => {
   const liClassName = active ? `places__option places__option--active` : `places__option`;
