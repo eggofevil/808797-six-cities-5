@@ -1,4 +1,4 @@
-import {getCityOffers, getCityData, sortCityOffers} from './data-operations';
+import {getCityOffers, getCityData} from './data-operations';
 
 const changeCity = (city) => {
   return {
@@ -7,24 +7,22 @@ const changeCity = (city) => {
     getCityOffers: getCityOffers(city)
   };
 };
-
-const changeSortingType = (sortingType, currentOffers) => {
+const changeSortingType = (sortingType) => {
   return {
     type: `CHANGE_SORTING_TYPE`,
     sortingType,
-    sortCityOffers: sortCityOffers(sortingType, currentOffers)
   };
 };
 
-const changeActiveOffer = (offerId) => {
+const changeActiveCard = (offerId = null) => {
   return {
-    type: `CHANGE_ACTIVE_OFFER`,
-    activeOffer: offerId
+    type: `CHANGE_ACTIVE_CARD`,
+    activeCard: offerId
   };
 };
 
 export {
   changeCity,
   changeSortingType,
-  changeActiveOffer
+  changeActiveCard
 };

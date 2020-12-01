@@ -2,6 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
 
+import withReviewForm from '../../hocs/with-review-form';
+
 import Review from '../review/review';
 import ReviewForm from '../review-form/review-form';
 import OffersList from '../offers-list/offers-list';
@@ -14,10 +16,17 @@ import offerPropTypes from '../../mocks/offer-prop-types';
 import reviewPropTypes from '../../mocks/review-prop-types';
 
 // TODO: При переходе по карточке предложения положение страницы не изменяется, нужно попровить так что бы был возврат к началу
+/* test component
+const Room = ({state: {cityOffers, offer}}) => {
+  console.log(cityOffers);
+  return <div>Hello world</div>;
+};
+*/
 
-const mapStateToProps = (state) => ({offers: state.cityOffers, reviews: state.reviews});
+const ExtendedReviewForm = withReviewForm(ReviewForm);
 
-const Room = ({offers, reviews, state: {offer, offerReviews}}) => {
+const Room = ({state: {cityOffers, offer, reviews}}) => {
+  reviews = reviews.filter((review) => review.id === offer.id);
   const hostAvatarClassName = offer.host[`is_pro`] ?
     `property__avatar-wrapper property__avatar-wrapper--pro user__avatar-wrapper` :
     `property__avatar-wrapper user__avatar-wrapper`;
@@ -117,29 +126,33 @@ const Room = ({offers, reviews, state: {offer, offerReviews}}) => {
                 </div>
               </div>
               <section className="property__reviews reviews">
-                <h2 className="reviews__title">Reviews · <span className="reviews__amount">{offerReviews.length}</span></h2>
+                <h2 className="reviews__title">Reviews · <span className="reviews__amount">{reviews.length}</span></h2>
                 <ul className="reviews__list">
-                  {offerReviews.map((review, i) => (
+                  {reviews.map((review, i) => (
                     <Review key={`review-${i}`} review={review} />
                   ))}
                 </ul>
-                <ReviewForm propertyId={offer.id}/>
+                <ExtendedReviewForm offerId={offer.id}/>
               </section>
             </div>
           </div>
-          <CityMap parent="property" offers={offers} />
+          <CityMap
+            mapClassName="property"
+            location={offer.location}
+            cityOffers={cityOffers}
+            selectedOfferId={offer.id}
+          />
         </section>
         <div className="container">
           <section className="near-places places">
             <h2 className="near-places__title">Other places in the neighbourhood</h2>
-            <div className="near-places__list places__list">
-              <OffersList
-                offers={offers}
-                reviews={reviews}
-                parent="room"
-                thisOfferId={offer.id}
-              />
-            </div>
+            <OffersList
+              offersListClassName="near-places__list"
+              offerCardArticleClassName="near-places__card"
+              offerCardDivClassName="near-places__image-wrapper"
+              cityOffers={cityOffers}
+              selectedOfferId={offer.id}
+            />
           </section>
         </div>
       </main>
@@ -148,13 +161,14 @@ const Room = ({offers, reviews, state: {offer, offerReviews}}) => {
 };
 
 Room.propTypes = {
-  offers: PropTypes.arrayOf(offerPropTypes).isRequired,
-  reviews: PropTypes.arrayOf(reviewPropTypes).isRequired,
   state: PropTypes.shape({
-    offer: offerPropTypes,
-    offerReviews: PropTypes.arrayOf(reviewPropTypes).isRequired,
-  }).isRequired
+    offer: offerPropTypes.isRequired,
+    cityOffers: PropTypes.arrayOf(offerPropTypes.isRequired).isRequired,
+    reviews: PropTypes.arrayOf(reviewPropTypes).isRequired
+  }),
 };
+
+const mapStateToProps = (state) => ({reviews: state.reviews});
 
 export {Room};
 export default connect(mapStateToProps)(Room);

@@ -19,7 +19,7 @@ const sortCityOffers = (sortingType, currentOffers) => {
     return sortOffersBySomeValue(currentOffers, `rating`, `descending`);
   case SortingTypes.POPULARITY:
   default:
-    return getCityOffers(currentOffers[0].city);
+    return getCityOffers(currentOffers[0].city.name);
   }
 };
 

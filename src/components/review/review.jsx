@@ -1,4 +1,5 @@
 import React from 'react';
+
 import {RATING_BAR_DIVISION} from '../../const';
 import reviewPropTypes from '../../mocks/review-prop-types';
 
