@@ -6,10 +6,10 @@ import OfferCard from '../offer-card/offer-card';
 import offerPropTypes from '../../mocks/offer-prop-types';
 
 const OffersList = ({offersListClassName, offerCardArticleClassName, offerCardDivClassName, cityOffers, selectedOfferId}) => {
-  cityOffers = selectedOfferId ? cityOffers.filter((offer) => (offer.id !== selectedOfferId)) : cityOffers;
+  const sortedCityOffers = selectedOfferId ? cityOffers.filter((offer) => (offer.id !== selectedOfferId)) : cityOffers;
   return (
     <div className={`places__list ` + offersListClassName}>
-      {cityOffers.map((offer, i) => (
+      {sortedCityOffers.map((offer, i) => (
         <OfferCard
           offerCardArticleClassName={offerCardArticleClassName}
           offerCardDivClassName={offerCardDivClassName}
