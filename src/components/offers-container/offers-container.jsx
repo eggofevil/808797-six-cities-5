@@ -15,7 +15,7 @@ import offerPropTypes from '../../mocks/offer-prop-types';
 const ExtendedSortingType = withSortingType(SortingType);
 
 const OffersContainer = ({cityOffers, sortingType, city}) => {
-  cityOffers = city.location ? sortCityOffers(sortingType, cityOffers) : null;
+  const cityOffers;
   return (
     <div className="cities">
       {city.location ?

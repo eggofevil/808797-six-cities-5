@@ -1,22 +1,31 @@
 import {extend} from '../../../utils';
 
 import reviews from '../../../mocks/reviews';
-import {getCityData, getCityOffers} from './app-data-actions';
+// import {getCityData, getCityOffers} from './app-data-actions';
 
-const city = getCityData();
+// const city = getCityData();
+// const city = `Amsterdam`;
 
 const initialState = {
-  city,
-  cityOffers: getCityOffers(),
-  reviews
+  offers: [],
+  cityName: `Amsterdam`,
+  cityOffers: []
+  // reviews
 };
 
 const appData = (state = initialState, action) => {
   switch (action.type) {
-  case `CHANGE_CITY`:
+  case `SET_OFFERS`:
     return extend(state, {
-      city: action.city,
-      cityOffers: action.getCityOffers
+      offers: action.offers
+    });
+  case `SET_CITY`:
+    return extend(state, {
+      cityName: action.cityName
+    });
+  case `SET_CITY_OFFERS`:
+    return extend(state, {
+      cityOffers: action.cityOffers
     });
   default:
     return state;

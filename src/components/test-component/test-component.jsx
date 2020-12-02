@@ -1,32 +1,50 @@
 import React from 'react';
-import {connect} from 'react-redux';
 import PropTypes from 'prop-types';
-import {changeCity} from '../../store/reducers/app-data/app-data-actions';
-import NewTestComponent from './new-test-component';
+import {createAPI} from '../../services/api';
 
-const mapStateToProps = (state) => ({city: state.city.name});
-const mapDispatchToProps = (dispatch) => ({
-  someAction(city) {
-    dispatch(changeCity(city));
+class TestComponent extends React.PureComponent {
+  constructor(props) {
+    super(props);
+    this.state = {
+      offers: null
+    };
   }
-});
 
-const TestComponent = ({city, someAction}) => {
-  return (
-    <div>
-      <p>Hello world!!!</p>
-      <p>{city}</p>
-      <button onClick={() => someAction(`Brussels`)}>changeCity</button>
-      <p>Test component</p>
-      <NewTestComponent testdata="testdata"/>
-    </div>
-  );
-};
+  componentDidMount() {
+    const api = createAPI();
+    const getCityOffers = (data, city) => {
+      return data.filter((offer) => offer.city.name === city);
+    };
+    let cityOffers;
+    const getOffers = () => api.get(`/hotels`).then(({data}) => {
+      cityOffers = getCityOffers(data, `Amsterdam`);
+      console.log(cityOffers);
+    });
+    getOffers();
+    // const response = getCityOffers();
+    /*
+    const testApi = () => {
+      return api.get(`/hotels`).then(({data}) => {
+        console.log(data);
+      });
+    };
+    */
+    // console.log(testApi());
+    // console.log(getCityOffers(`Amsterdam`));
+    // console.log(Object.keys(response));
+  }
+
+  render() {
+    return (
+      <div>
+        <p>Hello world!!!</p>
+        <p>Test component</p>
+      </div>
+    );
+  }
+}
 
 TestComponent.propTypes = {
-  city: PropTypes.string.isRequired,
-  someAction: PropTypes.func.isRequired
 };
 
-export {TestComponent};
-export default connect(mapStateToProps, mapDispatchToProps)(TestComponent);
+export default TestComponent;

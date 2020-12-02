@@ -6,7 +6,7 @@ import CitiesList from '../cities-list/cities-list';
 import OffersContainer from '../offers-container/offers-container';
 import UserInfo from '../user-info/user-info';
 
-const Main = ({cities, city}) => {
+const Main = ({cityName}) => {
   let mainClassName = `page__main page__main--index`;
   mainClassName = city.location ? mainClassName : mainClassName + ` page__main--index-empty`;
   return (
@@ -31,7 +31,7 @@ const Main = ({cities, city}) => {
       </header>
       <main className={mainClassName}>
         <h1 className="visually-hidden">Cities</h1>
-        <CitiesList cities={cities} currentCity={city.name} />
+        <CitiesList currentCityName={city} />
         <OffersContainer city={city} />
       </main>
     </div>
@@ -39,6 +39,8 @@ const Main = ({cities, city}) => {
 };
 
 Main.propTypes = {
+  cityName: PropTypes.string.isRequired
+  /*
   city: PropTypes.shape({
     location: PropTypes.shape({
       latitude: PropTypes.number.isRequired,
@@ -47,10 +49,10 @@ Main.propTypes = {
     }),
     name: PropTypes.string.isRequired
   }).isRequired,
-  cities: PropTypes.arrayOf(PropTypes.string).isRequired,
+  */
 };
 
-const mapStateToProps = ({DATA}) => ({city: DATA.city});
+const mapStateToProps = ({DATA}) => ({city: DATA.cityName});
 
 export {Main};
 export default connect(mapStateToProps)(Main);

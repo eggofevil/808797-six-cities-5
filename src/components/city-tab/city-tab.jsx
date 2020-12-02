@@ -2,30 +2,30 @@ import React from 'react';
 import {connect} from 'react-redux';
 import PropTypes from 'prop-types';
 
-import {changeCity} from '../../store/reducers/app-data/app-data-actions';
+import {setCity} from '../../store/reducers/actions';
 
-const CityTab = ({name, tabClassName, setCity}) => {
+const CityTab = ({cityName, tabClassName, changeCity}) => {
   const handleClick = () => {
-    setCity(name);
+    changeCity(cityName);
   };
   return (
     <li className="locations__item">
       <a className={tabClassName} onClick={handleClick}>
-        <span>{name}</span>
+        <span>{cityName}</span>
       </a>
     </li>
   );
 };
 
 CityTab.propTypes = {
-  name: PropTypes.string.isRequired,
+  cityName: PropTypes.string.isRequired,
   tabClassName: PropTypes.string.isRequired,
-  setCity: PropTypes.func.isRequired
+  changeCity: PropTypes.func.isRequired
 };
 
 const mapDispatchToProps = (dispatch) => ({
-  setCity(city) {
-    dispatch(changeCity(city));
+  changeCity(cityName) {
+    dispatch(setCity(cityName));
   }
 });
 

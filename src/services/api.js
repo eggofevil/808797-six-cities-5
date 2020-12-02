@@ -10,13 +10,13 @@ const HttpCodes = {
   UNAUTHORIZED: 401
 };
 
-export const createAPI = (onUnauthorized) => {
+export const createAPI = () => {
   const api = axios.create(axiosConfig);
   const onSuccess = (response) => response;
   const onFail = (err) => {
     const {response} = err;
     if (response.status === HttpCodes.UNAUTHORIZED) {
-      onUnauthorized();
+      // onUnauthorized();
       throw err;
     }
     throw err;
