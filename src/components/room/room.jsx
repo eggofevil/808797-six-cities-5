@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 
 import withReviewForm from '../../hocs/with-review-form';
 import withCityMap from '../../hocs/with-city-map';
+import withReviewsList from '../../hocs/with-reviews-list';
 
 import ReviewsList from '../reviews-list/reviews-list';
 import ReviewForm from '../review-form/review-form';
@@ -10,6 +11,7 @@ import OffersList from '../offers-list/offers-list';
 import UserInfo from '../user-info/user-info';
 import MainPageLink from '../main-page-link/main-page-link';
 import CityMap from '../city-map/city-map';
+
 import {RATING_BAR_DIVISION} from '../../const';
 
 import offerPropTypes from '../prop-types/offer-prop-types';
@@ -21,12 +23,11 @@ const Room = ({state: {cityOffers, offer}}) => {
   return <div>Hello world</div>;
 };
 */
-
+const ExtendedReviewsList = withReviewsList(ReviewsList);
 const ExtendedReviewForm = withReviewForm(ReviewForm);
 const ExtendedCityMap = withCityMap(CityMap);
 
 const Room = ({state: {cityOffers, offer}}) => {
-  const reviews = [];
   const hostAvatarClassName = offer.host[`is_pro`] ?
     `property__avatar-wrapper property__avatar-wrapper--pro user__avatar-wrapper` :
     `property__avatar-wrapper user__avatar-wrapper`;
@@ -126,8 +127,7 @@ const Room = ({state: {cityOffers, offer}}) => {
                 </div>
               </div>
               <section className="property__reviews reviews">
-                <h2 className="reviews__title">Reviews · <span className="reviews__amount">{reviews.length}</span></h2>
-                <ReviewsList offerId={offer.id} />
+                <ExtendedReviewsList offerId={offer.id} />
                 <ExtendedReviewForm offerId={offer.id} />
               </section>
             </div>
