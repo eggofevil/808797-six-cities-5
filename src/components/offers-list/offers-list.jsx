@@ -6,7 +6,7 @@ import OfferCard from '../offer-card/offer-card';
 import offerPropTypes from '../prop-types/offer-prop-types';
 
 const OffersList = ({offersListClassName, offerCardArticleClassName, offerCardDivClassName, cityOffers, selectedOfferId}) => {
-  const sortedCityOffers = selectedOfferId ? cityOffers.filter((offer) => (offer.id !== selectedOfferId)) : cityOffers;
+  const sortedCityOffers = selectedOfferId ? cityOffers.filter((offer) => (offer.id !== selectedOfferId)).slice(0, 3) : cityOffers;
   return (
     <div className={`places__list ` + offersListClassName}>
       {sortedCityOffers.map((offer, i) => (

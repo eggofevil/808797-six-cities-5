@@ -12,10 +12,16 @@ class CityMap extends React.PureComponent {
   }
 
   _setMapView() {
-    const {map} = this.props;
-    const {location} = this.props;
-    const coords = [location.latitude, location.longitude];
-    const zoom = location.zoom;
+    const {map, location, mapClassName, activeCard} = this.props;
+    let coords;
+    let zoom;
+    if (mapClassName === `property` && activeCard) {
+      coords = [activeCard.location.latitude, activeCard.location.longitude];
+      zoom = activeCard.location.zoom;
+    } else {
+      coords = [location.latitude, location.longitude];
+      zoom = location.zoom;
+    }
     map.setView(coords, zoom);
   }
 
@@ -30,7 +36,12 @@ class CityMap extends React.PureComponent {
       iconSize: [30, 40]
     });
     cityOffers.map((offer) => {
-      const icon = (offer.id === activeCard || offer.id === selectedOfferId) ? activePin : inactivePin;
+      let icon;
+      if (activeCard) {
+        icon = (offer.id === activeCard.id || offer.id === selectedOfferId) ? activePin : inactivePin;
+      } else {
+        icon = offer.id === selectedOfferId ? activePin : inactivePin;
+      }
       leaflet.marker([offer.location.latitude, offer.location.longitude], {icon}).addTo(map);
     });
   }
@@ -67,7 +78,7 @@ CityMap.propTypes = {
   }).isRequired,
   cityOffers: PropTypes.arrayOf(offerPropTypes.isRequired).isRequired,
   selectedOfferId: PropTypes.number,
-  activeCard: PropTypes.number,
+  activeCard: offerPropTypes,
   mapClassName: PropTypes.string.isRequired,
   map: PropTypes.object,
   setMap: PropTypes.func.isRequired

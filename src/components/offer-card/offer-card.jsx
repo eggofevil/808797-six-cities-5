@@ -18,7 +18,7 @@ const OfferCard = ({offerCardArticleClassName, offerCardDivClassName, offer, cit
   };
 
   const handleMouseEnter = () => {
-    changeActiveCard(offer.id);
+    changeActiveCard(offer);
   };
 
   const handleMouseLeave = () => {
