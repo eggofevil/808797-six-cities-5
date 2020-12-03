@@ -2,13 +2,13 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
 
-import {changeSortingType} from '../../store/reducers/app-logic/app-logic-actions';
+import {setSortingType} from '../../store/reducers/actions';
 
-const SortingTypeOption = ({value, active, handleClick, setSortingType}) => {
+const SortingTypeOption = ({value, active, handleClick, changeSortingType}) => {
   const liClassName = active ? `places__option places__option--active` : `places__option`;
   const sortingTypeOptionHandleClick = (sortingType) => {
     handleClick();
-    setSortingType(sortingType);
+    changeSortingType(sortingType);
   };
   return (
     <li className={liClassName} tabIndex={0} onClick={() => sortingTypeOptionHandleClick(value)}>{value}</li>
@@ -19,12 +19,12 @@ SortingTypeOption.propTypes = {
   value: PropTypes.string.isRequired,
   active: PropTypes.bool.isRequired,
   handleClick: PropTypes.func.isRequired,
-  setSortingType: PropTypes.func.isRequired,
+  changeSortingType: PropTypes.func.isRequired,
 };
 
 const mapDispatchToProps = (dispatch) => ({
-  setSortingType(sortingType) {
-    dispatch(changeSortingType(sortingType));
+  changeSortingType(sortingType) {
+    dispatch(setSortingType(sortingType));
   }
 });
 

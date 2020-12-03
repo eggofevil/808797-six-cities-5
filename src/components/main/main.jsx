@@ -1,14 +1,10 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-import {connect} from 'react-redux';
 
 import CitiesList from '../cities-list/cities-list';
 import OffersContainer from '../offers-container/offers-container';
 import UserInfo from '../user-info/user-info';
 
-const Main = ({cityName}) => {
-  let mainClassName = `page__main page__main--index`;
-  mainClassName = city.location ? mainClassName : mainClassName + ` page__main--index-empty`;
+const Main = () => {
   return (
     <div className="page page--gray page--main">
       <header className="header">
@@ -29,30 +25,13 @@ const Main = ({cityName}) => {
           </div>
         </div>
       </header>
-      <main className={mainClassName}>
+      <main className="page__main page__main--index page__main--index-empty">
         <h1 className="visually-hidden">Cities</h1>
-        <CitiesList currentCityName={city} />
-        <OffersContainer city={city} />
+        <CitiesList />
+        <OffersContainer />
       </main>
     </div>
   );
 };
 
-Main.propTypes = {
-  cityName: PropTypes.string.isRequired
-  /*
-  city: PropTypes.shape({
-    location: PropTypes.shape({
-      latitude: PropTypes.number.isRequired,
-      longitude: PropTypes.number.isRequired,
-      zoom: PropTypes.number.isRequired
-    }),
-    name: PropTypes.string.isRequired
-  }).isRequired,
-  */
-};
-
-const mapStateToProps = ({DATA}) => ({city: DATA.cityName});
-
-export {Main};
-export default connect(mapStateToProps)(Main);
+export default Main;

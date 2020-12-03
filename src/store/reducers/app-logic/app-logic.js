@@ -4,12 +4,17 @@ import {SortingTypes} from '../../../const';
 const sortingType = SortingTypes.POPULARITY;
 
 const initialState = {
+  cityName: `Amsterdam`,
   sortingType,
-  activeCard: null,
+  activeCard: null
 };
 
 const appLogic = (state = initialState, action) => {
   switch (action.type) {
+  case `SET_CITY`:
+    return extend(state, {
+      cityName: action.cityName
+    });
   case `CHANGE_SORTING_TYPE`:
     return extend(state, {
       sortingType: action.sortingType,

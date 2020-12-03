@@ -3,10 +3,10 @@ import PropTypes from 'prop-types';
 import {Link} from 'react-router-dom';
 import {connect} from 'react-redux';
 
-import {changeActiveCard} from '../../store/reducers/app-logic/app-logic-actions';
+import {changeActiveCard} from '../../store/reducers/actions';
 import {RATING_BAR_DIVISION} from '../../const';
 
-import offerPropTypes from '../../mocks/offer-prop-types';
+import offerPropTypes from '../prop-types/offer-prop-types';
 import reviewPropTypes from '../../mocks/review-prop-types';
 
 const OfferCard = ({offerCardArticleClassName, offerCardDivClassName, offer, cityOffers, reviews, setActiveCard}) => {

@@ -1,5 +1,3 @@
-import {filterCityOffers} from './sub-actions';
-
 export const setOffers = (offers) => ({
   type: `SET_OFFERS`,
   offers
@@ -10,7 +8,12 @@ export const setCity = (cityName) => ({
   cityName
 });
 
-export const setCityOffers = (cityName, offers) => ({
-  type: `SET_CITY_OFFERS`,
-  cityOffers: filterCityOffers(cityName, offers)
+export const setSortingType = (sortingType) => ({
+  type: `CHANGE_SORTING_TYPE`,
+  sortingType
+});
+
+export const changeActiveCard = (offerId = null) => ({
+  type: `CHANGE_ACTIVE_CARD`,
+  activeCard: offerId
 });

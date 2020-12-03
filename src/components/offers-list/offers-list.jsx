@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 import OfferCard from '../offer-card/offer-card';
 
-import offerPropTypes from '../../mocks/offer-prop-types';
+import offerPropTypes from '../prop-types/offer-prop-types';
 
 const OffersList = ({offersListClassName, offerCardArticleClassName, offerCardDivClassName, cityOffers, selectedOfferId}) => {
   const sortedCityOffers = selectedOfferId ? cityOffers.filter((offer) => (offer.id !== selectedOfferId)) : cityOffers;

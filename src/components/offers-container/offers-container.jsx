@@ -5,36 +5,29 @@ import {connect} from 'react-redux';
 import withSortingType from '../../hocs/with-sorting-type';
 
 import SortingType from '../sorting-type/sorting-type';
-import OffersList from '../offers-list/offers-list';
+import SortedOffersList from '../sorted-offers-list/sorted-offers-list';
 import CityMap from '../city-map/city-map';
 
-import {sortCityOffers} from '../../store/reducers/app-logic/app-logic-actions';
-
-import offerPropTypes from '../../mocks/offer-prop-types';
+import offerPropTypes from '../prop-types/offer-prop-types';
 
 const ExtendedSortingType = withSortingType(SortingType);
 
-const OffersContainer = ({cityOffers, sortingType, city}) => {
-  const cityOffers;
+const OffersContainer = ({cityName, offers}) => {
+  const cityOffers = offers.filter((offer) => offer.city.name === cityName);
   return (
     <div className="cities">
-      {city.location ?
+      {cityOffers.length ?
         <div className="cities__places-container container">
           <section className="cities__places places">
             <h2 className="visually-hidden">Places</h2>
-            <b className="places__found">{cityOffers.length} places to stay in {city.name}</b>
+            <b className="places__found">{cityOffers.length} places to stay in {cityName}</b>
             <ExtendedSortingType />
-            <OffersList
-              offersListClassName="cities__places-list tabs__content"
-              offerCardArticleClassName="cities__place-card"
-              offerCardDivClassName="cities__image-wrapper"
-              cityOffers={cityOffers}
-            />
+            <SortedOffersList cityOffers={cityOffers} />
           </section>
           <div className="cities__right-section">
             <CityMap
               mapClassName="cities"
-              location={city.location}
+              location={cityOffers[0].city.location}
               cityOffers={cityOffers}
             />
           </div>
@@ -44,7 +37,7 @@ const OffersContainer = ({cityOffers, sortingType, city}) => {
           <section className="cities__no-places">
             <div className="cities__status-wrapper tabs__content">
               <b className="cities__status">No places to stay available</b>
-              <p className="cities__status-description">We could not find any property available at the moment in {city.name}</p>
+              <p className="cities__status-description">We could not find any property available at the moment in {cityName}</p>
             </div>
           </section>
           <div className="cities__right-section" />
@@ -55,19 +48,11 @@ const OffersContainer = ({cityOffers, sortingType, city}) => {
 };
 
 OffersContainer.propTypes = {
-  city: PropTypes.shape({
-    location: PropTypes.shape({
-      latitude: PropTypes.number.isRequired,
-      longitude: PropTypes.number.isRequired,
-      zoom: PropTypes.number.isRequired
-    }),
-    name: PropTypes.string.isRequired
-  }).isRequired,
-  cityOffers: PropTypes.arrayOf(offerPropTypes.isRequired).isRequired,
-  sortingType: PropTypes.string.isRequired
+  cityName: PropTypes.string.isRequired,
+  offers: PropTypes.arrayOf(offerPropTypes).isRequired
 };
 
-const mapStateToProps = ({DATA, LOGIC}) => ({cityOffers: DATA.cityOffers, sortingType: LOGIC.sortingType});
+const mapStateToProps = ({DATA, LOGIC}) => ({cityName: LOGIC.cityName, offers: DATA.offers});
 
 export {OffersContainer};
 export default connect(mapStateToProps)(OffersContainer);
