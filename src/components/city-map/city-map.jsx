@@ -4,40 +4,39 @@ import PropTypes from 'prop-types';
 import leaflet from 'leaflet';
 import '../../../node_modules/leaflet/dist/leaflet.css';
 
-import offerPropTypes from '../../mocks/offer-prop-types';
+import offerPropTypes from '../prop-types/offer-prop-types';
 
 class CityMap extends React.PureComponent {
   constructor(props) {
     super(props);
-    this.state = {
-      map: null,
-      inactivePin: leaflet.icon({
-        iconUrl: `img/pin.svg`,
-        iconSize: [30, 40]
-      }),
-      activePin: leaflet.icon({
-        iconUrl: `img/pin-active.svg`,
-        iconSize: [30, 40]
-      })
-    };
   }
 
   _setMapView() {
+    const {map} = this.props;
     const {location} = this.props;
     const coords = [location.latitude, location.longitude];
     const zoom = location.zoom;
-    this.state.map.setView(coords, zoom);
+    map.setView(coords, zoom);
   }
 
   _setMapIcons() {
-    const {cityOffers, selectedOfferId, activeCard} = this.props;
+    const {map, cityOffers, selectedOfferId, activeCard} = this.props;
+    const inactivePin = leaflet.icon({
+      iconUrl: `img/pin.svg`,
+      iconSize: [30, 40]
+    });
+    const activePin = leaflet.icon({
+      iconUrl: `img/pin-active.svg`,
+      iconSize: [30, 40]
+    });
     cityOffers.map((offer) => {
-      const icon = (offer.id === activeCard || offer.id === selectedOfferId) ? this.state.activePin : this.state.inactivePin;
-      leaflet.marker([offer.location.latitude, offer.location.longitude], {icon}).addTo(this.state.map);
+      const icon = (offer.id === activeCard || offer.id === selectedOfferId) ? activePin : inactivePin;
+      leaflet.marker([offer.location.latitude, offer.location.longitude], {icon}).addTo(map);
     });
   }
 
   componentDidMount() {
+    const {setMap} = this.props;
     const map = leaflet.map(`map`, {
       zoomControl: false,
       marker: true
@@ -47,10 +46,7 @@ class CityMap extends React.PureComponent {
         attribution: `&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>`
       })
       .addTo(map);
-    this.setState({map}, () => {
-      this._setMapView();
-      this._setMapIcons();
-    });
+    setMap(map);
   }
 
   componentDidUpdate() {
@@ -72,7 +68,9 @@ CityMap.propTypes = {
   cityOffers: PropTypes.arrayOf(offerPropTypes.isRequired).isRequired,
   selectedOfferId: PropTypes.number,
   activeCard: PropTypes.number,
-  mapClassName: PropTypes.string.isRequired
+  mapClassName: PropTypes.string.isRequired,
+  map: PropTypes.object,
+  setMap: PropTypes.func.isRequired
 };
 
 const mapStateToProps = ({LOGIC}) => ({activeCard: LOGIC.activeCard});

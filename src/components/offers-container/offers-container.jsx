@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
 
 import withSortingType from '../../hocs/with-sorting-type';
+import withCityMap from '../../hocs/with-city-map';
 
 import SortingType from '../sorting-type/sorting-type';
 import SortedOffersList from '../sorted-offers-list/sorted-offers-list';
@@ -11,6 +12,7 @@ import CityMap from '../city-map/city-map';
 import offerPropTypes from '../prop-types/offer-prop-types';
 
 const ExtendedSortingType = withSortingType(SortingType);
+const ExtendedCityMap = withCityMap(CityMap);
 
 const OffersContainer = ({cityName, offers}) => {
   const cityOffers = offers.filter((offer) => offer.city.name === cityName);
@@ -25,7 +27,7 @@ const OffersContainer = ({cityName, offers}) => {
             <SortedOffersList cityOffers={cityOffers} />
           </section>
           <div className="cities__right-section">
-            <CityMap
+            <ExtendedCityMap
               mapClassName="cities"
               location={cityOffers[0].city.location}
               cityOffers={cityOffers}
