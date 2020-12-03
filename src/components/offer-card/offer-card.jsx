@@ -3,28 +3,26 @@ import PropTypes from 'prop-types';
 import {Link} from 'react-router-dom';
 import {connect} from 'react-redux';
 
-import {changeActiveCard} from '../../store/reducers/actions';
+import {setActiveCard} from '../../store/reducers/actions';
 import {RATING_BAR_DIVISION} from '../../const';
 
 import offerPropTypes from '../prop-types/offer-prop-types';
-import reviewPropTypes from '../../mocks/review-prop-types';
 
-const OfferCard = ({offerCardArticleClassName, offerCardDivClassName, offer, cityOffers, reviews, setActiveCard}) => {
+const OfferCard = ({offerCardArticleClassName, offerCardDivClassName, offer, cityOffers, changeActiveCard}) => {
   const offerLinkProps = {
     pathname: `/offer${offer.id}`,
     state: {
       offer,
       cityOffers,
-      reviews
     }
   };
 
   const handleMouseEnter = () => {
-    setActiveCard(offer.id);
+    changeActiveCard(offer.id);
   };
 
   const handleMouseLeave = () => {
-    setActiveCard();
+    changeActiveCard();
   };
 
   return (
@@ -72,17 +70,14 @@ OfferCard.propTypes = {
   offerCardDivClassName: PropTypes.string.isRequired,
   offer: offerPropTypes.isRequired,
   cityOffers: PropTypes.arrayOf(offerPropTypes.isRequired).isRequired,
-  reviews: PropTypes.arrayOf(reviewPropTypes).isRequired,
-  setActiveCard: PropTypes.func.isRequired,
+  changeActiveCard: PropTypes.func.isRequired,
 };
 
-const mapStateToProps = ({DATA}) => ({cityOffers: DATA.cityOffers, reviews: DATA.reviews});
-
 const mapDispatchToProps = (dispatch) => ({
-  setActiveCard(offerId) {
-    dispatch(changeActiveCard(offerId));
+  changeActiveCard(offerId) {
+    dispatch(setActiveCard(offerId));
   }
 });
 
 export {OfferCard};
-export default connect(mapStateToProps, mapDispatchToProps)(OfferCard);
+export default connect(null, mapDispatchToProps)(OfferCard);

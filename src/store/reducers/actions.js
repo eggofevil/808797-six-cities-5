@@ -9,11 +9,11 @@ export const setCity = (cityName) => ({
 });
 
 export const setSortingType = (sortingType) => ({
-  type: `CHANGE_SORTING_TYPE`,
+  type: `SET_SORTING_TYPE`,
   sortingType
 });
 
-export const changeActiveCard = (offerId = null) => ({
-  type: `CHANGE_ACTIVE_CARD`,
+export const setActiveCard = (offerId = null) => ({
+  type: `SET_ACTIVE_CARD`,
   activeCard: offerId
 });

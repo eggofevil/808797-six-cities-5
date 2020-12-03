@@ -15,11 +15,11 @@ const appLogic = (state = initialState, action) => {
     return extend(state, {
       cityName: action.cityName
     });
-  case `CHANGE_SORTING_TYPE`:
+  case `SET_SORTING_TYPE`:
     return extend(state, {
       sortingType: action.sortingType,
     });
-  case `CHANGE_ACTIVE_CARD`:
+  case `SET_ACTIVE_CARD`:
     return extend(state, {
       activeCard: action.activeCard
     });

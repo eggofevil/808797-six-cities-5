@@ -15,6 +15,7 @@ const OffersList = ({offersListClassName, offerCardArticleClassName, offerCardDi
           offerCardDivClassName={offerCardDivClassName}
           key={`offer-${i}`}
           offer={offer}
+          cityOffers={cityOffers}
         />
       ))}
     </div>
