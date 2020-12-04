@@ -26,8 +26,8 @@ const Room = ({state: {cityOffers, offer}}) => {
 const ExtendedReviewsList = withReviewsList(ReviewsList);
 const ExtendedReviewForm = withReviewForm(ReviewForm);
 const ExtendedCityMap = withCityMap(CityMap);
-
 const Room = ({state: {cityOffers, offer}}) => {
+  window.scroll(0, 0);
   const hostAvatarClassName = offer.host[`is_pro`] ?
     `property__avatar-wrapper property__avatar-wrapper--pro user__avatar-wrapper` :
     `property__avatar-wrapper user__avatar-wrapper`;
