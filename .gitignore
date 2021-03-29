@@ -12,5 +12,3 @@ Thumbs.db
 node_modules/
 
 # Сборка
-public/bundle.js
-public/bundle.js.map
